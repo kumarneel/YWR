@@ -23,7 +23,7 @@ class OnboardingCoordinator {
 
     private func presentGetStarted() {
         let viewModel = GetStartedViewModel()
-        viewModel.eventTriggered = {event in
+        viewModel.eventTriggered = { event in
             switch event {
             case .didTapGetStarted:
                 self.presentEnterPhoneNumber()
@@ -34,7 +34,15 @@ class OnboardingCoordinator {
     }
 
     private func presentEnterPhoneNumber() {
-        print("enter phone num")
+        let viewModel = EnterPhoneNumberViewModel()
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapBackBtn:
+                self.navigationController.popViewController(animated: true)
+            }
+        }
+        let viewController = EnterPhoneNumberVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
 }

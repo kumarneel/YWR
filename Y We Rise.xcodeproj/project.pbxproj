@@ -15,6 +15,11 @@
 		9A413D3728ECA87A00D67D0C /* Net-Proxima-Nova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A413D3628ECA87A00D67D0C /* Net-Proxima-Nova-Bold.otf */; };
 		9A413D3A28ECACCA00D67D0C /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D3928ECACCA00D67D0C /* BaseView.swift */; };
 		9A413D3D28ECC1D600D67D0C /* extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D3C28ECC1D600D67D0C /* extension+UIViewController.swift */; };
+		9A413D3F28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D3E28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift */; };
+		9A413D4128ECCFA700D67D0C /* EnterPhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D4028ECCFA700D67D0C /* EnterPhoneNumberVC.swift */; };
+		9A413D4328ECD06F00D67D0C /* EnterPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D4228ECD06F00D67D0C /* EnterPhoneNumberView.swift */; };
+		9A413D4528ECD58E00D67D0C /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A413D4428ECD58E00D67D0C /* SF-Pro-Text-Regular.otf */; };
+		9A413D4728ECD5AF00D67D0C /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A413D4628ECD5AF00D67D0C /* SF-Pro-Text-Semibold.otf */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -34,6 +39,11 @@
 		9A413D3628ECA87A00D67D0C /* Net-Proxima-Nova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Net-Proxima-Nova-Bold.otf"; sourceTree = "<group>"; };
 		9A413D3928ECACCA00D67D0C /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		9A413D3C28ECC1D600D67D0C /* extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+UIViewController.swift"; sourceTree = "<group>"; };
+		9A413D3E28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberViewModel.swift; sourceTree = "<group>"; };
+		9A413D4028ECCFA700D67D0C /* EnterPhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberVC.swift; sourceTree = "<group>"; };
+		9A413D4228ECD06F00D67D0C /* EnterPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberView.swift; sourceTree = "<group>"; };
+		9A413D4428ECD58E00D67D0C /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		9A413D4628ECD5AF00D67D0C /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				9A413D3628ECA87A00D67D0C /* Net-Proxima-Nova-Bold.otf */,
+				9A413D4428ECD58E00D67D0C /* SF-Pro-Text-Regular.otf */,
+				9A413D4628ECD5AF00D67D0C /* SF-Pro-Text-Semibold.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -227,6 +239,9 @@
 		9AC9C51128EB9318003EEE6B /* EnterPhoneNumber */ = {
 			isa = PBXGroup;
 			children = (
+				9A413D3E28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift */,
+				9A413D4228ECD06F00D67D0C /* EnterPhoneNumberView.swift */,
+				9A413D4028ECCFA700D67D0C /* EnterPhoneNumberVC.swift */,
 			);
 			path = EnterPhoneNumber;
 			sourceTree = "<group>";
@@ -331,7 +346,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A413D4728ECD5AF00D67D0C /* SF-Pro-Text-Semibold.otf in Resources */,
 				9AC9C4FE28EB915A003EEE6B /* LaunchScreen.storyboard in Resources */,
+				9A413D4528ECD58E00D67D0C /* SF-Pro-Text-Regular.otf in Resources */,
 				9AC9C4FB28EB915A003EEE6B /* Assets.xcassets in Resources */,
 				9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */,
 				9A413D3728ECA87A00D67D0C /* Net-Proxima-Nova-Bold.otf in Resources */,
@@ -353,10 +370,13 @@
 				9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */,
 				9A413D3228EC9B2D00D67D0C /* BaseViewController.swift in Sources */,
 				9AC9C51B28EB9540003EEE6B /* TabCoordinator.swift in Sources */,
+				9A413D3F28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift in Sources */,
+				9A413D4128ECCFA700D67D0C /* EnterPhoneNumberVC.swift in Sources */,
 				9A413D3D28ECC1D600D67D0C /* extension+UIViewController.swift in Sources */,
 				9AC9C51928EB952D003EEE6B /* OnboardingCoordinator.swift in Sources */,
 				9A413D3A28ECACCA00D67D0C /* BaseView.swift in Sources */,
 				9A413D2E28EC9AF400D67D0C /* GetStartedViewModel.swift in Sources */,
+				9A413D4328ECD06F00D67D0C /* EnterPhoneNumberView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

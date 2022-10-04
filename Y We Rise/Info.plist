@@ -4,6 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SF-Pro-Text-Regular.otf</string>
+		<string>SF-Pro-Text-Semibold.otf</string>
 		<string>Net-Proxima-Nova-Bold.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
