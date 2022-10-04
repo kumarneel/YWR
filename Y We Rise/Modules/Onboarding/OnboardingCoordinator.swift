@@ -39,10 +39,30 @@ class OnboardingCoordinator {
             switch event {
             case .didTapBackBtn:
                 self.navigationController.popViewController(animated: true)
+            case .didTapSendCode:
+                self.presentVerifyPhoneNumber()
             }
         }
         let viewController = EnterPhoneNumberVC(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 
+    private func presentVerifyPhoneNumber() {
+        let viewModel = VerifyPhoneNumberViewModel()
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapBackBtn:
+                self.navigationController.popViewController(animated: true)
+            case .didTapVerifyCode:
+                self.presentEnterFirstName()
+            }
+
+        }
+        let viewController = VerifyPhoneNumberVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    private func presentEnterFirstName() {
+
+    }
 }

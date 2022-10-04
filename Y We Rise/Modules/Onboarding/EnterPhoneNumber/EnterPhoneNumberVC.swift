@@ -51,7 +51,8 @@ class EnterPhoneNumberVC: BaseViewController<EnterPhoneNumberViewModel> {
     }
 
     @objc func handleSendCodeBtnPressed() {
-
+        sendCodeBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
+        viewModel.didTapSendCode()
     }
 
     @objc func didTapBackBtn() {

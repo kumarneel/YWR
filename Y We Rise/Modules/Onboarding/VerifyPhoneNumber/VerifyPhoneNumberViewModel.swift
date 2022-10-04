@@ -1,5 +1,5 @@
 //
-//  EnterPhoneNumberViewModel.swift
+//  VerifyPhoneNumberViewModel.swift
 //  Y We Rise
 //
 //  Created by Neel Kumar on 10/4/22.
@@ -7,16 +7,16 @@
 
 import Foundation
 
-class EnterPhoneNumberViewModel {
+class VerifyPhoneNumberViewModel {
     enum Event {
         case didTapBackBtn
-        case didTapSendCode
+        case didTapVerifyCode
     }
 
     var eventTriggered: ((Event) -> Void)?
 
-    func didTapSendCode() {
-        eventTriggered?(.didTapSendCode)
+    func didTapVerifyCode() {
+        eventTriggered?(.didTapVerifyCode)
     }
 
     func didTapBackBtn() {
