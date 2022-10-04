@@ -33,13 +33,24 @@ class EnterPhoneNumberView: BaseView {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = UIColor(named: "YWRCreamDarkened")
+        textField.layer.cornerRadius = 15
         return textField
+    }()
+
+    let dataRatesLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "Standard message and data rates may apply."
+        lbl.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        lbl.textAlignment = .center
+        lbl.textColor = #colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)
+        return lbl
     }()
 
     override func setupView() {
         backgroundColor = UIColor(named: "YWRCream")!
         
-        [titleLbl, subtitleLbl].forEach({addSubview($0)})
+        [titleLbl, subtitleLbl, phoneNumberTextField, dataRatesLbl].forEach({addSubview($0)})
 
         NSLayoutConstraint.activate([
             titleLbl.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -48,7 +59,18 @@ class EnterPhoneNumberView: BaseView {
 
             subtitleLbl.topAnchor.constraint(equalTo: titleLbl.bottomAnchor),
             subtitleLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
-            subtitleLbl.rightAnchor.constraint(equalTo: rightAnchor, constant: -30)
+            subtitleLbl.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
+
+            phoneNumberTextField.topAnchor.constraint(equalTo: subtitleLbl.bottomAnchor, constant: 62),
+            phoneNumberTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
+            phoneNumberTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
+            phoneNumberTextField.heightAnchor.constraint(equalToConstant: 58),
+
+            dataRatesLbl.topAnchor.constraint(equalTo: phoneNumberTextField.bottomAnchor, constant: 7),
+            dataRatesLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
+            dataRatesLbl.rightAnchor.constraint(equalTo: rightAnchor, constant: -30)
         ])
+
+        phoneNumberTextField.becomeFirstResponder()
     }
 }
