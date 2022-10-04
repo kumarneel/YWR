@@ -7,18 +7,62 @@
 
 import UIKit
 
-class GetStartedView: UIView {
+protocol GetStartedViewDelegate: AnyObject {
+    func didTapGetStartedBtn()
+}
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
+class GetStartedView: BaseView {
+
+    weak var delegate: GetStartedViewDelegate?
+    
+    let backgroundImageView: UIImageView = {
+        let imv = UIImageView()
+        imv.translatesAutoresizingMaskIntoConstraints = false
+        imv.image = UIImage(named: "GetStartedBackgroundIcon")
+        return imv
+    }()
+
+    let YWRLogo: UIImageView = {
+        let imv = UIImageView()
+        imv.translatesAutoresizingMaskIntoConstraints = false
+        imv.image = UIImage(named: "YWRLogoIcon")
+        return imv
+    }()
+
+    lazy var getStartedBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.backgroundColor = UIColor(named: "YWROrange")!
+        btn.setTitle("Get Started", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
+        btn.layer.cornerRadius = 25
+        btn.addTarget(self, action: #selector(handleGetStartedBtnPressed), for: .touchUpInside)
+        return btn
+    }()
+
+    override func setupView() {
+        
+        [backgroundImageView, YWRLogo, getStartedBtn].forEach({addSubview($0)})
+
+        NSLayoutConstraint.activate([
+            backgroundImageView.leftAnchor.constraint(equalTo: leftAnchor),
+            backgroundImageView.rightAnchor.constraint(equalTo: rightAnchor),
+            backgroundImageView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            YWRLogo.topAnchor.constraint(equalTo: topAnchor, constant: 175),
+            YWRLogo.centerXAnchor.constraint(equalTo: centerXAnchor),
+
+            getStartedBtn.centerXAnchor.constraint(equalTo: centerXAnchor),
+            getStartedBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -94),
+            getStartedBtn.heightAnchor.constraint(equalToConstant: 75),
+            getStartedBtn.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
+            getStartedBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -40)
+        ])
     }
 
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    func setupView() {
-        backgroundColor = .red
+    @objc func handleGetStartedBtnPressed() {
+        delegate?.didTapGetStartedBtn()
     }
 }

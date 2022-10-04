@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseViewController<ViewModel, View>: UIViewController {
+class BaseViewController<ViewModel>: UIViewController {
 
     /// View model of view controller.
     let viewModel: ViewModel
@@ -20,10 +20,9 @@ class BaseViewController<ViewModel, View>: UIViewController {
     /// Initializes view controller with given View.
     ///
     /// - Parameter view: Maker for the UIView.
-    init(viewModel: ViewModel, view: UIView) {
+    init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.view = view
     }
 
     /// - SeeAlso: NSCoding.init?(coder:)
@@ -31,7 +30,6 @@ class BaseViewController<ViewModel, View>: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

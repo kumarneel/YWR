@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+extension GetStartedVC: GetStartedViewDelegate {
+    func didTapGetStartedBtn() {
+        viewModel.didTapGetStarted()
+    }
+}

@@ -8,6 +8,7 @@
 import UIKit
 
 class AppCoordinator {
+    
     let navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {

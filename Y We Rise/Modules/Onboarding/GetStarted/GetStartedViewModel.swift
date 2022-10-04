@@ -9,6 +9,12 @@ import Foundation
 
 class GetStartedViewModel {
     enum Event {
-        case didTap
+        case didTapGetStarted
+    }
+
+    var eventTriggered: ((Event) -> Void)?
+
+    func didTapGetStarted() {
+        eventTriggered?(.didTapGetStarted)
     }
 }
