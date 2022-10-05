@@ -27,6 +27,7 @@ class VerificationTextField: UITextField {
         backgroundColor = UIColor(named: "YWRCreamDarkened")
         font = UIFont.systemFont(ofSize: 30, weight: .semibold)
         placeholder = "0"
+        layer.borderWidth = 2
         keyboardType = .numberPad
         textColor = .black
         textAlignment = .center

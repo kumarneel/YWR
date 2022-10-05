@@ -89,10 +89,20 @@ class VerifyPhoneNumberView: BaseView {
         return sv
     }()
 
+    let incorrectCodeLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "Incorrect verification code"
+        lbl.textColor = UIColor(named: "YWRRed")
+        lbl.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        lbl.isHidden = true
+        return lbl
+    }()
+
     override func setupView() {
         backgroundColor = UIColor(named: "YWRCream")!
 
-        [titleLbl, subtitleLbl, stackView].forEach({addSubview($0)})
+        [titleLbl, subtitleLbl, stackView, incorrectCodeLbl].forEach({addSubview($0)})
 
         NSLayoutConstraint.activate([
             titleLbl.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -107,6 +117,9 @@ class VerifyPhoneNumberView: BaseView {
             stackView.heightAnchor.constraint(equalToConstant: 65),
             stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
             stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
+
+            incorrectCodeLbl.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 14),
+            incorrectCodeLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 30)
 
         ])
 
@@ -131,6 +144,9 @@ class VerifyPhoneNumberView: BaseView {
     }
 
     func updateStyleForTextFields(style: StyleType) {
+        
+        incorrectCodeLbl.isHidden = (style != .error)
+
         [codeTextField1, codeTextField2, codeTextField3, codeTextField4, codeTextField5, codeTextField6].forEach({$0.changeStyle(styleType: style)})
     }
 }
