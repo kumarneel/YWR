@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import PhoneNumberKit
 
 class EnterPhoneNumberVC: BaseViewController<EnterPhoneNumberViewModel> {
 
     lazy var controllerView: EnterPhoneNumberView = {
         let v = EnterPhoneNumberView()
         v.translatesAutoresizingMaskIntoConstraints = false
-//        v.delegate = self
+        v.delegate = self
         return v
     }()
 
@@ -21,13 +22,15 @@ class EnterPhoneNumberVC: BaseViewController<EnterPhoneNumberViewModel> {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
         btn.addTarget(self, action: #selector(handleSendCodeBtnPressed), for: .touchUpInside)
+        btn.isUserInteractionEnabled = true
         return btn
     }()
+
+    let phoneNumberKit = PhoneNumberKit()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,12 +54,31 @@ class EnterPhoneNumberVC: BaseViewController<EnterPhoneNumberViewModel> {
     }
 
     @objc func handleSendCodeBtnPressed() {
-        sendCodeBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
         viewModel.didTapSendCode()
     }
 
     @objc func didTapBackBtn() {
         viewModel.didTapBackBtn()
+    }
+
+    func isValidPhoneNumber(phoneNumber: String) -> Bool {
+        do {
+            _ = try phoneNumberKit.parse(getPhoneNumber(phoneNumber: phoneNumber))
+            return true
+        }
+        catch {
+            return false
+        }
+    }
+
+    func getPhoneNumber(phoneNumber: String) -> String {
+        do {
+            let phoneNumber = try phoneNumberKit.parse(phoneNumber)
+            return phoneNumberKit.format(phoneNumber, toType: .e164)
+        }
+        catch {
+            return ""
+        }
     }
 }
 
@@ -66,3 +88,4 @@ extension EnterPhoneNumberVC {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "YWRBackButtonIcon"), style: .plain, target: self, action: #selector(didTapBackBtn))
     }
 }
+

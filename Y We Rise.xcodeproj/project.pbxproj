@@ -24,6 +24,9 @@
 		9A413D4C28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D4B28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift */; };
 		9A413D4E28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D4D28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift */; };
 		9A413D5128ECE4CD00D67D0C /* VerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D5028ECE4CD00D67D0C /* VerificationTextField.swift */; };
+		9A413D5428ED2C5F00D67D0C /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9A413D5328ED2C5F00D67D0C /* PhoneNumberKit */; };
+		9A413D5728ED2CB400D67D0C /* USTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D5628ED2CB400D67D0C /* USTextField.swift */; };
+		9A413D5928ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D5828ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -52,6 +55,8 @@
 		9A413D4B28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberVC.swift; sourceTree = "<group>"; };
 		9A413D4D28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberViewModel.swift; sourceTree = "<group>"; };
 		9A413D5028ECE4CD00D67D0C /* VerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationTextField.swift; sourceTree = "<group>"; };
+		9A413D5628ED2CB400D67D0C /* USTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USTextField.swift; sourceTree = "<group>"; };
+		9A413D5828ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberVCDelegates.swift; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A413D5428ED2C5F00D67D0C /* PhoneNumberKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +92,7 @@
 		9A413D2F28EC9AFF00D67D0C /* Resuable */ = {
 			isa = PBXGroup;
 			children = (
+				9A413D5528ED2CA600D67D0C /* USTextField */,
 				9A413D3528ECA86500D67D0C /* Fonts */,
 				9A413D3028EC9B0D00D67D0C /* BaseViewController */,
 				9A413D3828ECACB600D67D0C /* BaseView */,
@@ -134,6 +141,14 @@
 				9A413D5028ECE4CD00D67D0C /* VerificationTextField.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9A413D5528ED2CA600D67D0C /* USTextField */ = {
+			isa = PBXGroup;
+			children = (
+				9A413D5628ED2CB400D67D0C /* USTextField.swift */,
+			);
+			path = USTextField;
 			sourceTree = "<group>";
 		};
 		9AC9C4E528EB9159003EEE6B = {
@@ -258,6 +273,7 @@
 			children = (
 				9A413D3E28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift */,
 				9A413D4228ECD06F00D67D0C /* EnterPhoneNumberView.swift */,
+				9A413D5828ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift */,
 				9A413D4028ECCFA700D67D0C /* EnterPhoneNumberVC.swift */,
 			);
 			path = EnterPhoneNumber;
@@ -324,6 +340,9 @@
 			dependencies = (
 			);
 			name = "Y We Rise";
+			packageProductDependencies = (
+				9A413D5328ED2C5F00D67D0C /* PhoneNumberKit */,
+			);
 			productName = "Y We Rise";
 			productReference = 9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */;
 			productType = "com.apple.product-type.application";
@@ -352,6 +371,9 @@
 				Base,
 			);
 			mainGroup = 9AC9C4E528EB9159003EEE6B;
+			packageReferences = (
+				9A413D5228ED2C5F00D67D0C /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+			);
 			productRefGroup = 9AC9C4EF28EB9159003EEE6B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -383,10 +405,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AC9C50F28EB922C003EEE6B /* AppCoordinator.swift in Sources */,
+				9A413D5728ED2CB400D67D0C /* USTextField.swift in Sources */,
 				9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */,
 				9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */,
 				9A413D4C28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift in Sources */,
 				9A413D2A28EC9ADC00D67D0C /* GetStartedVC.swift in Sources */,
+				9A413D5928ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift in Sources */,
 				9A413D3428EC9FE600D67D0C /* GetStartedVCDelegates.swift in Sources */,
 				9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */,
 				9A413D3228EC9B2D00D67D0C /* BaseViewController.swift in Sources */,
@@ -620,6 +644,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A413D5228ED2C5F00D67D0C /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A413D5328ED2C5F00D67D0C /* PhoneNumberKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A413D5228ED2C5F00D67D0C /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = PhoneNumberKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9AC9C4E628EB9159003EEE6B /* Project object */;
 }

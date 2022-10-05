@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import PhoneNumberKit
+
+protocol EnterPhoneNumberViewDelegate: AnyObject {
+    func didUpdateTextField(_ text: String)
+}
 
 class EnterPhoneNumberView: BaseView {
+
+    weak var delegate: EnterPhoneNumberViewDelegate?
 
     let titleLbl: UILabel = {
         let lbl = UILabel()
@@ -29,11 +36,19 @@ class EnterPhoneNumberView: BaseView {
         return lbl
     }()
 
-    let phoneNumberTextField: UITextField = {
-        let textField = UITextField()
+    lazy var phoneNumberTextField: MyUSTextField = {
+        let textField = MyUSTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = UIColor(named: "YWRCreamDarkened")
         textField.layer.cornerRadius = 15
+        textField.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        textField.delegate = self
+        textField.keyboardType = .numberPad
+        textField.textAlignment = .center
+        textField.withFlag = true
+        textField.withPrefix = true
+        textField.withExamplePlaceholder = true
+        textField.addTarget(self, action: #selector(handlePhoneTextChange), for: .editingChanged)
         return textField
     }()
 
@@ -46,6 +61,8 @@ class EnterPhoneNumberView: BaseView {
         lbl.textColor = #colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)
         return lbl
     }()
+
+    let phoneNumberKit = PhoneNumberKit()
 
     override func setupView() {
         backgroundColor = UIColor(named: "YWRCream")!
@@ -73,4 +90,12 @@ class EnterPhoneNumberView: BaseView {
 
         phoneNumberTextField.becomeFirstResponder()
     }
+
+    @objc func handlePhoneTextChange(textField: UITextField) {
+        delegate?.didUpdateTextField(textField.text!)
+    }
+}
+
+extension EnterPhoneNumberView: UITextFieldDelegate {
+
 }

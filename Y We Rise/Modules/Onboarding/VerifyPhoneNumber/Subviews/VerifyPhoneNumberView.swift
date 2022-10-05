@@ -126,6 +126,8 @@ class VerifyPhoneNumberView: BaseView {
         stackView.distribution = .fillEqually
         stackView.alignment = .center
         stackView.spacing = 7
+
+        codeTextField1.becomeFirstResponder()
     }
 
     func updateStyleForTextFields(style: StyleType) {
