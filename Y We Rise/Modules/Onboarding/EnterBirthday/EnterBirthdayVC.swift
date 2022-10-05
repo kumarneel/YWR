@@ -1,5 +1,5 @@
 //
-//  VerifyPhoneNumberVC.swift
+//  EnterBirthdayVC.swift
 //  Y We Rise
 //
 //  Created by Neel Kumar on 10/4/22.
@@ -7,61 +7,58 @@
 
 import UIKit
 
-class VerifyPhoneNumberVC: BaseViewController<VerifyPhoneNumberViewModel> {
+class EnterBirthdayVC: BaseViewController<EnterBirthdayViewModel> {
 
-    lazy var controllerView: VerifyPhoneNumberView = {
-        let v = VerifyPhoneNumberView()
+    lazy var controllerView: EnterBirthdayView = {
+        let v = EnterBirthdayView()
         v.translatesAutoresizingMaskIntoConstraints = false
+//        v.delegate = self
         return v
     }()
 
-    lazy var sendCodeBtn: UIButton = {
+    lazy var nextBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
-        btn.addTarget(self, action: #selector(handleSendCodeBtnPressed), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(handleNextBtnPressed), for: .touchUpInside)
         btn.isUserInteractionEnabled = true
         return btn
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
-        controllerView.updateStyleForTextFields(style: .verified)
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            view.addSubview(sendCodeBtn)
+            view.addSubview(nextBtn)
 
             NSLayoutConstraint.activate([
-                sendCodeBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
-                sendCodeBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: (-25 - keyboardHeight)),
-                sendCodeBtn.heightAnchor.constraint(equalToConstant: 42),
-                sendCodeBtn.widthAnchor.constraint(equalToConstant: 42)
+                nextBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32),
+                nextBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: (-25 - keyboardHeight)),
+                nextBtn.heightAnchor.constraint(equalToConstant: 42),
+                nextBtn.widthAnchor.constraint(equalToConstant: 42)
             ])
         }
     }
 
-    @objc func handleSendCodeBtnPressed() {
-        viewModel.didTapVerifyCode()
-    }
-
-    @objc func didTapBackBtn() {
-        viewModel.didTapBackBtn()
+    @objc func handleNextBtnPressed() {
+        viewModel.didTapSaveBirthday()
     }
 }
 
-extension VerifyPhoneNumberVC {
+extension EnterBirthdayVC {
     func setupViewController() {
+        navigationItem.setHidesBackButton(true, animated: true)
         addControllerView(controllerView)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "YWRBackButtonIcon"), style: .plain, target: self, action: #selector(didTapBackBtn))
     }
 }

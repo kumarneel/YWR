@@ -27,6 +27,13 @@
 		9A413D5428ED2C5F00D67D0C /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9A413D5328ED2C5F00D67D0C /* PhoneNumberKit */; };
 		9A413D5728ED2CB400D67D0C /* USTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D5628ED2CB400D67D0C /* USTextField.swift */; };
 		9A413D5928ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D5828ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift */; };
+		9A413D5B28ED3BF400D67D0C /* EnterBirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D5A28ED3BF400D67D0C /* EnterBirthdayViewModel.swift */; };
+		9A413D5D28ED3C0300D67D0C /* EnterBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D5C28ED3C0300D67D0C /* EnterBirthdayView.swift */; };
+		9A413D5F28ED3C4F00D67D0C /* EnterBirthdayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D5E28ED3C4F00D67D0C /* EnterBirthdayVC.swift */; };
+		9A413D6528ED3DCE00D67D0C /* OnboardingOrangeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6428ED3DCE00D67D0C /* OnboardingOrangeBar.swift */; };
+		9A413D6828ED483100D67D0C /* EnterNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6728ED483100D67D0C /* EnterNameVC.swift */; };
+		9A413D6A28ED485A00D67D0C /* EnterNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */; };
+		9A413D6D28ED488800D67D0C /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6C28ED488800D67D0C /* EnterNameView.swift */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -57,6 +64,13 @@
 		9A413D5028ECE4CD00D67D0C /* VerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationTextField.swift; sourceTree = "<group>"; };
 		9A413D5628ED2CB400D67D0C /* USTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USTextField.swift; sourceTree = "<group>"; };
 		9A413D5828ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberVCDelegates.swift; sourceTree = "<group>"; };
+		9A413D5A28ED3BF400D67D0C /* EnterBirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterBirthdayViewModel.swift; sourceTree = "<group>"; };
+		9A413D5C28ED3C0300D67D0C /* EnterBirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterBirthdayView.swift; sourceTree = "<group>"; };
+		9A413D5E28ED3C4F00D67D0C /* EnterBirthdayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterBirthdayVC.swift; sourceTree = "<group>"; };
+		9A413D6428ED3DCE00D67D0C /* OnboardingOrangeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOrangeBar.swift; sourceTree = "<group>"; };
+		9A413D6728ED483100D67D0C /* EnterNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameVC.swift; sourceTree = "<group>"; };
+		9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameViewModel.swift; sourceTree = "<group>"; };
+		9A413D6C28ED488800D67D0C /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +106,7 @@
 		9A413D2F28EC9AFF00D67D0C /* Resuable */ = {
 			isa = PBXGroup;
 			children = (
+				9A413D6328ED3DA900D67D0C /* OnboardingOrangeBar */,
 				9A413D5528ED2CA600D67D0C /* USTextField */,
 				9A413D3528ECA86500D67D0C /* Fonts */,
 				9A413D3028EC9B0D00D67D0C /* BaseViewController */,
@@ -149,6 +164,56 @@
 				9A413D5628ED2CB400D67D0C /* USTextField.swift */,
 			);
 			path = USTextField;
+			sourceTree = "<group>";
+		};
+		9A413D6028ED3C9B00D67D0C /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A413D4228ECD06F00D67D0C /* EnterPhoneNumberView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9A413D6128ED3CA200D67D0C /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A413D2B28EC9AEA00D67D0C /* GetStartedView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9A413D6228ED3CB800D67D0C /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A413D5C28ED3C0300D67D0C /* EnterBirthdayView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9A413D6328ED3DA900D67D0C /* OnboardingOrangeBar */ = {
+			isa = PBXGroup;
+			children = (
+				9A413D6428ED3DCE00D67D0C /* OnboardingOrangeBar.swift */,
+			);
+			path = OnboardingOrangeBar;
+			sourceTree = "<group>";
+		};
+		9A413D6628ED481E00D67D0C /* EnterName */ = {
+			isa = PBXGroup;
+			children = (
+				9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */,
+				9A413D6B28ED486B00D67D0C /* Subviews */,
+				9A413D6728ED483100D67D0C /* EnterNameVC.swift */,
+			);
+			path = EnterName;
+			sourceTree = "<group>";
+		};
+		9A413D6B28ED486B00D67D0C /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A413D6C28ED488800D67D0C /* EnterNameView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		9AC9C4E528EB9159003EEE6B = {
@@ -216,6 +281,7 @@
 				9AC9C51028EB9304003EEE6B /* GetStarted */,
 				9AC9C51128EB9318003EEE6B /* EnterPhoneNumber */,
 				9AC9C51228EB9348003EEE6B /* VerifyPhoneNumber */,
+				9A413D6628ED481E00D67D0C /* EnterName */,
 				9AC9C51328EB9379003EEE6B /* EnterBirthday */,
 				9AC9C51428EB93AE003EEE6B /* Permissions */,
 				9AC9C51528EB93C1003EEE6B /* SleepStyle */,
@@ -261,7 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				9A413D2D28EC9AF400D67D0C /* GetStartedViewModel.swift */,
-				9A413D2B28EC9AEA00D67D0C /* GetStartedView.swift */,
+				9A413D6128ED3CA200D67D0C /* Subviews */,
 				9A413D3328EC9FE600D67D0C /* GetStartedVCDelegates.swift */,
 				9A413D2928EC9ADC00D67D0C /* GetStartedVC.swift */,
 			);
@@ -272,7 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				9A413D3E28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift */,
-				9A413D4228ECD06F00D67D0C /* EnterPhoneNumberView.swift */,
+				9A413D6028ED3C9B00D67D0C /* Subviews */,
 				9A413D5828ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift */,
 				9A413D4028ECCFA700D67D0C /* EnterPhoneNumberVC.swift */,
 			);
@@ -282,8 +348,8 @@
 		9AC9C51228EB9348003EEE6B /* VerifyPhoneNumber */ = {
 			isa = PBXGroup;
 			children = (
-				9A413D4F28ECE4BE00D67D0C /* Subviews */,
 				9A413D4D28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift */,
+				9A413D4F28ECE4BE00D67D0C /* Subviews */,
 				9A413D4B28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift */,
 			);
 			path = VerifyPhoneNumber;
@@ -292,6 +358,9 @@
 		9AC9C51328EB9379003EEE6B /* EnterBirthday */ = {
 			isa = PBXGroup;
 			children = (
+				9A413D5A28ED3BF400D67D0C /* EnterBirthdayViewModel.swift */,
+				9A413D6228ED3CB800D67D0C /* Subviews */,
+				9A413D5E28ED3C4F00D67D0C /* EnterBirthdayVC.swift */,
 			);
 			path = EnterBirthday;
 			sourceTree = "<group>";
@@ -404,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A413D5D28ED3C0300D67D0C /* EnterBirthdayView.swift in Sources */,
 				9AC9C50F28EB922C003EEE6B /* AppCoordinator.swift in Sources */,
 				9A413D5728ED2CB400D67D0C /* USTextField.swift in Sources */,
 				9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */,
@@ -414,9 +484,12 @@
 				9A413D3428EC9FE600D67D0C /* GetStartedVCDelegates.swift in Sources */,
 				9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */,
 				9A413D3228EC9B2D00D67D0C /* BaseViewController.swift in Sources */,
+				9A413D5B28ED3BF400D67D0C /* EnterBirthdayViewModel.swift in Sources */,
+				9A413D6528ED3DCE00D67D0C /* OnboardingOrangeBar.swift in Sources */,
 				9A413D4E28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift in Sources */,
 				9AC9C51B28EB9540003EEE6B /* TabCoordinator.swift in Sources */,
 				9A413D3F28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift in Sources */,
+				9A413D6D28ED488800D67D0C /* EnterNameView.swift in Sources */,
 				9A413D4A28ECE17300D67D0C /* VerifyPhoneNumberView.swift in Sources */,
 				9A413D4128ECCFA700D67D0C /* EnterPhoneNumberVC.swift in Sources */,
 				9A413D3D28ECC1D600D67D0C /* extension+UIViewController.swift in Sources */,
@@ -424,7 +497,10 @@
 				9A413D3A28ECACCA00D67D0C /* BaseView.swift in Sources */,
 				9A413D5128ECE4CD00D67D0C /* VerificationTextField.swift in Sources */,
 				9A413D2E28EC9AF400D67D0C /* GetStartedViewModel.swift in Sources */,
+				9A413D5F28ED3C4F00D67D0C /* EnterBirthdayVC.swift in Sources */,
+				9A413D6828ED483100D67D0C /* EnterNameVC.swift in Sources */,
 				9A413D4328ECD06F00D67D0C /* EnterPhoneNumberView.swift in Sources */,
+				9A413D6A28ED485A00D67D0C /* EnterNameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
