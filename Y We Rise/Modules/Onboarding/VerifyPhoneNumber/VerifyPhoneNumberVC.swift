@@ -32,7 +32,6 @@ class VerifyPhoneNumberVC: BaseViewController<VerifyPhoneNumberViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
-        controllerView.updateStyleForTextFields(style: .verified)
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {

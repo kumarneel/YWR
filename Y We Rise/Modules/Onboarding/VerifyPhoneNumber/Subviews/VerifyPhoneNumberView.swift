@@ -141,12 +141,12 @@ class VerifyPhoneNumberView: BaseView {
         stackView.spacing = 7
 
         codeTextField1.becomeFirstResponder()
+
+        updateStyleForTextFields(style: .typing)
     }
 
     func updateStyleForTextFields(style: StyleType) {
-        
         incorrectCodeLbl.isHidden = (style != .error)
-
         [codeTextField1, codeTextField2, codeTextField3, codeTextField4, codeTextField5, codeTextField6].forEach({$0.changeStyle(styleType: style)})
     }
 }

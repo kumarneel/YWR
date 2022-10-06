@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol EnterNameViewDelegate: AnyObject {
+    func didChangeText(text: String, canProceed: Bool)
+}
+
 class EnterNameView: BaseView {
+
+    weak var delegate: EnterNameViewDelegate?
 
     let onboardingBar: OnboardingOrangeBar = {
         let v = OnboardingOrangeBar()
@@ -44,14 +50,33 @@ class EnterNameView: BaseView {
         tf.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         tf.placeholder = "Name"
         tf.textAlignment = .center
+        tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
+        tf.layer.borderWidth = 3
+        tf.layer.borderColor = UIColor.clear.cgColor
+        tf.clearButtonMode = .whileEditing
         return tf
+    }()
+
+    let textErrorLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.textColor = #colorLiteral(red: 0.9490196078, green: 0.5450980392, blue: 0, alpha: 0.5)
+        lbl.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        lbl.text = "No special characters or emojis!"
+        lbl.isHidden = true
+        lbl.numberOfLines = 2
+        return lbl
     }()
 
     override func setupView() {
 
         backgroundColor = UIColor(named: "YWRCream")!
 
-        [onboardingBar, titleLbl, subtitleLbl, nameTextField].forEach({addSubview($0)})
+        [onboardingBar,
+         titleLbl,
+         subtitleLbl,
+         nameTextField,
+         textErrorLbl].forEach({addSubview($0)})
 
         NSLayoutConstraint.activate([
             onboardingBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
@@ -70,9 +95,30 @@ class EnterNameView: BaseView {
             nameTextField.topAnchor.constraint(equalTo: subtitleLbl.bottomAnchor, constant: 65),
             nameTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
             nameTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
-            nameTextField.heightAnchor.constraint(equalToConstant: 65)
+            nameTextField.heightAnchor.constraint(equalToConstant: 65),
+
+            textErrorLbl.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 5),
+            textErrorLbl.leftAnchor.constraint(equalTo: nameTextField.leftAnchor)
         ])
 
         onboardingBar.setupBar(percentage: 0.1425)
+    }
+
+    @objc func handleTextChange(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        let characterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstvuwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        if text.rangeOfCharacter(from: characterSet.inverted) != nil {
+            textErrorLbl.text = "No numbers, special characters\nor emojis!"
+            textErrorLbl.isHidden = false
+            nameTextField.layer.borderColor = UIColor(named: "YWROrange")!.cgColor
+        }  else if text.count > 20 || text.count < 2 {
+            textErrorLbl.text = "Character limit but be between\n2 and 20 Characters"
+            textErrorLbl.isHidden = false
+            nameTextField.layer.borderColor = UIColor(named: "YWROrange")!.cgColor
+        } else {
+            textErrorLbl.isHidden = true
+            nameTextField.layer.borderColor = UIColor.clear.cgColor
+        }
+        delegate?.didChangeText(text: text, canProceed: textErrorLbl.isHidden)
     }
 }

@@ -18,7 +18,8 @@ class OnboardingCoordinator {
     }
 
     func start() {
-        presentGetStarted()
+//        presentGetStarted()
+        presentEnterName()
     }
 
     private func presentGetStarted() {

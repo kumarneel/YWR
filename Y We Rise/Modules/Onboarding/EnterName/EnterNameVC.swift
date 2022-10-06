@@ -12,7 +12,7 @@ class EnterNameVC: BaseViewController<EnterNameViewModel> {
     lazy var controllerView: EnterNameView = {
         let v = EnterNameView()
         v.translatesAutoresizingMaskIntoConstraints = false
-//        v.delegate = self
+        v.delegate = self
         return v
     }()
 

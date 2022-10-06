@@ -34,6 +34,7 @@
 		9A413D6828ED483100D67D0C /* EnterNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6728ED483100D67D0C /* EnterNameVC.swift */; };
 		9A413D6A28ED485A00D67D0C /* EnterNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */; };
 		9A413D6D28ED488800D67D0C /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6C28ED488800D67D0C /* EnterNameView.swift */; };
+		9A89EEFB28EF6A000087A73D /* EnterNameDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		9A413D6728ED483100D67D0C /* EnterNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameVC.swift; sourceTree = "<group>"; };
 		9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameViewModel.swift; sourceTree = "<group>"; };
 		9A413D6C28ED488800D67D0C /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
+		9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameDelegates.swift; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,8 +154,8 @@
 		9A413D4F28ECE4BE00D67D0C /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				9A413D4928ECE17300D67D0C /* VerifyPhoneNumberView.swift */,
 				9A413D5028ECE4CD00D67D0C /* VerificationTextField.swift */,
+				9A413D4928ECE17300D67D0C /* VerifyPhoneNumberView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -203,6 +205,7 @@
 			children = (
 				9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */,
 				9A413D6B28ED486B00D67D0C /* Subviews */,
+				9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */,
 				9A413D6728ED483100D67D0C /* EnterNameVC.swift */,
 			);
 			path = EnterName;
@@ -477,6 +480,7 @@
 				9AC9C50F28EB922C003EEE6B /* AppCoordinator.swift in Sources */,
 				9A413D5728ED2CB400D67D0C /* USTextField.swift in Sources */,
 				9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */,
+				9A89EEFB28EF6A000087A73D /* EnterNameDelegates.swift in Sources */,
 				9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */,
 				9A413D4C28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift in Sources */,
 				9A413D2A28EC9ADC00D67D0C /* GetStartedVC.swift in Sources */,
