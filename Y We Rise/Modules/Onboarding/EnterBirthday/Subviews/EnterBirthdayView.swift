@@ -48,7 +48,6 @@ class EnterBirthdayView: BaseView {
 
     var datePicker = UIDatePicker()
 
-
     override func setupView() {
 
         backgroundColor = UIColor(named: "YWRCream")!
@@ -77,7 +76,6 @@ class EnterBirthdayView: BaseView {
 
         setupDatePicker()
         onboardingBar.setupBar(percentage: 0.285)
-
     }
 
 

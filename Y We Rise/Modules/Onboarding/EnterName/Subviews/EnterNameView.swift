@@ -101,6 +101,7 @@ class EnterNameView: BaseView {
             textErrorLbl.leftAnchor.constraint(equalTo: nameTextField.leftAnchor)
         ])
 
+        nameTextField.becomeFirstResponder()
         onboardingBar.setupBar(percentage: 0.1425)
     }
 

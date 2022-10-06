@@ -35,6 +35,10 @@
 		9A413D6A28ED485A00D67D0C /* EnterNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */; };
 		9A413D6D28ED488800D67D0C /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6C28ED488800D67D0C /* EnterNameView.swift */; };
 		9A89EEFB28EF6A000087A73D /* EnterNameDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */; };
+		9A89EEFE28EF6EB90087A73D /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFD28EF6EB90087A73D /* PermissionsView.swift */; };
+		9A89EF0028EF6EC40087A73D /* PersmissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFF28EF6EC40087A73D /* PersmissionsVC.swift */; };
+		9A89EF0228EF6ED00087A73D /* PermissionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EF0128EF6ED00087A73D /* PermissionsViewModel.swift */; };
+		9A89EF0428EF72D50087A73D /* PermissionsVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EF0328EF72D50087A73D /* PermissionsVCDelegates.swift */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -73,6 +77,10 @@
 		9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameViewModel.swift; sourceTree = "<group>"; };
 		9A413D6C28ED488800D67D0C /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
 		9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameDelegates.swift; sourceTree = "<group>"; };
+		9A89EEFD28EF6EB90087A73D /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
+		9A89EEFF28EF6EC40087A73D /* PersmissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersmissionsVC.swift; sourceTree = "<group>"; };
+		9A89EF0128EF6ED00087A73D /* PermissionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewModel.swift; sourceTree = "<group>"; };
+		9A89EF0328EF72D50087A73D /* PermissionsVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsVCDelegates.swift; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +223,14 @@
 			isa = PBXGroup;
 			children = (
 				9A413D6C28ED488800D67D0C /* EnterNameView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9A89EEFC28EF6EAC0087A73D /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A89EEFD28EF6EB90087A73D /* PermissionsView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -371,6 +387,10 @@
 		9AC9C51428EB93AE003EEE6B /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
+				9A89EF0128EF6ED00087A73D /* PermissionsViewModel.swift */,
+				9A89EEFC28EF6EAC0087A73D /* Subviews */,
+				9A89EF0328EF72D50087A73D /* PermissionsVCDelegates.swift */,
+				9A89EEFF28EF6EC40087A73D /* PersmissionsVC.swift */,
 			);
 			path = Permissions;
 			sourceTree = "<group>";
@@ -488,7 +508,10 @@
 				9A413D3428EC9FE600D67D0C /* GetStartedVCDelegates.swift in Sources */,
 				9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */,
 				9A413D3228EC9B2D00D67D0C /* BaseViewController.swift in Sources */,
+				9A89EF0028EF6EC40087A73D /* PersmissionsVC.swift in Sources */,
 				9A413D5B28ED3BF400D67D0C /* EnterBirthdayViewModel.swift in Sources */,
+				9A89EF0428EF72D50087A73D /* PermissionsVCDelegates.swift in Sources */,
+				9A89EEFE28EF6EB90087A73D /* PermissionsView.swift in Sources */,
 				9A413D6528ED3DCE00D67D0C /* OnboardingOrangeBar.swift in Sources */,
 				9A413D4E28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift in Sources */,
 				9AC9C51B28EB9540003EEE6B /* TabCoordinator.swift in Sources */,
@@ -503,6 +526,7 @@
 				9A413D2E28EC9AF400D67D0C /* GetStartedViewModel.swift in Sources */,
 				9A413D5F28ED3C4F00D67D0C /* EnterBirthdayVC.swift in Sources */,
 				9A413D6828ED483100D67D0C /* EnterNameVC.swift in Sources */,
+				9A89EF0228EF6ED00087A73D /* PermissionsViewModel.swift in Sources */,
 				9A413D4328ECD06F00D67D0C /* EnterPhoneNumberView.swift in Sources */,
 				9A413D6A28ED485A00D67D0C /* EnterNameViewModel.swift in Sources */,
 			);
