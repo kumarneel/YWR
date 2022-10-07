@@ -19,7 +19,7 @@ class OnboardingCoordinator {
 
     func start() {
 //        presentGetStarted()
-        presentPermissions()
+        presentSleepStyle()
     }
 
     private func presentGetStarted() {
@@ -99,6 +99,18 @@ class OnboardingCoordinator {
     }
 
     private func presentSleepStyle() {
+        let viewModel = SleepStyleViewModel()
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapNext:
+                self.presentMotivationStyle()
+            }
+        }
+        let viewController = SleepStyleVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    private func presentMotivationStyle() {
 
     }
 }
