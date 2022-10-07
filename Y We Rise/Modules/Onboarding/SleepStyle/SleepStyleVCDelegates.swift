@@ -11,4 +11,7 @@ extension SleepStyleVC: SleepStyleViewDelegate {
     func didTapNext() {
         viewModel.didTapNext()
     }
+    func didTapStyle(sleepStyle: SleepStyle) {
+        // TODO: Upload style to firestore
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  SleepStyleVC.swift
+//  MotivationStyleVC.swift
 //  Y We Rise
 //
 //  Created by Neel Kumar on 10/6/22.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class SleepStyleVC: BaseViewController<SleepStyleViewModel> {
+class MotivationStyleVC: BaseViewController<MotivationStyleViewModel> {
 
-    lazy var controllerView: SleepStyleView = {
-        let v = SleepStyleView()
+    lazy var controllerView: MotivationStyleView = {
+        let v = MotivationStyleView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.delegate = self
+//        v.delegate = self
         return v
     }()
 
@@ -26,7 +26,7 @@ class SleepStyleVC: BaseViewController<SleepStyleViewModel> {
     }
 }
 
-extension SleepStyleVC {
+extension MotivationStyleVC {
     func setupViewController() {
         navigationItem.setHidesBackButton(true, animated: true)
         addControllerView(controllerView)

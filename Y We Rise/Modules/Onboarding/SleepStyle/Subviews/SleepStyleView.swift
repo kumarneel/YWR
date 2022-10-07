@@ -9,6 +9,7 @@ import UIKit
 
 protocol SleepStyleViewDelegate: AnyObject {
     func didTapNext()
+    func didTapStyle(sleepStyle: SleepStyle)
 }
 
 class SleepStyleView: BaseView {
@@ -120,6 +121,7 @@ extension SleepStyleView: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepStyleCell.ResuableIdentifier, for: indexPath) as? SleepStyleCell else { return UICollectionViewCell() }
         cell.setupView()
+        cell.delegate = self
         if indexPath.item == 0 {
             cell.setupStyle(sleepStyle: .nightOwl)
         } else if indexPath.item == 1 {
@@ -136,5 +138,13 @@ extension SleepStyleView: UICollectionViewDelegate, UICollectionViewDataSource, 
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
+    }
+}
+
+extension SleepStyleView: SleepStyleCellDelegate {
+    func didTapCell(sleepStyle: SleepStyle) {
+        nextBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
+        nextBtn.isUserInteractionEnabled = true
+        delegate?.didTapStyle(sleepStyle: sleepStyle)
     }
 }

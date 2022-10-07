@@ -111,6 +111,8 @@ class OnboardingCoordinator {
     }
 
     private func presentMotivationStyle() {
-
+        let viewModel = MotivationStyleViewModel()
+        let viewController = MotivationStyleVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
