@@ -12,9 +12,11 @@ class MotivationStyleVC: BaseViewController<MotivationStyleViewModel> {
     lazy var controllerView: MotivationStyleView = {
         let v = MotivationStyleView()
         v.translatesAutoresizingMaskIntoConstraints = false
-//        v.delegate = self
+        v.delegate = self
         return v
     }()
+
+    var selectedMotivationStyleArray = [MotivationStyle]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol MotivationStyleViewDelegate: AnyObject {
+    func didTapCell(motivationStyle: MotivationStyle, selected: Bool)
+}
+
 class MotivationStyleView: BaseView {
+
+    weak var delegate: MotivationStyleViewDelegate?
 
     let onboardingBar: OnboardingOrangeBar = {
         let v = OnboardingOrangeBar()
@@ -112,6 +118,7 @@ extension MotivationStyleView: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MotivationStyleCell.ResuableIdentifier, for: indexPath) as? MotivationStyleCell else { return UICollectionViewCell() }
         cell.setupView()
+        cell.delegate = self
         if indexPath.row == 0 {
             cell.setupStyle(style: .family)
         }else if indexPath.row == 1 {
@@ -143,5 +150,11 @@ extension MotivationStyleView: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // TODO: add dynamic cells to text ask trent if we really need this
         return CGSize(width: 98, height: 42)
+    }
+}
+
+extension MotivationStyleView: MotivationStyleCellDelegate {
+    func didTapCell(motivationStyle: MotivationStyle, selected: Bool) {
+        delegate?.didTapCell(motivationStyle: motivationStyle, selected: selected)
     }
 }

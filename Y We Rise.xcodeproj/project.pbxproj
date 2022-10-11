@@ -35,6 +35,7 @@
 		9A413D6A28ED485A00D67D0C /* EnterNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */; };
 		9A413D6D28ED488800D67D0C /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6C28ED488800D67D0C /* EnterNameView.swift */; };
 		9A450CBD28F5DF700017167D /* EnterBirthdayVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CBC28F5DF700017167D /* EnterBirthdayVCDelegates.swift */; };
+		9A450CBF28F5E9960017167D /* MotivationStyleVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CBE28F5E9960017167D /* MotivationStyleVCDelegates.swift */; };
 		9A89EEFB28EF6A000087A73D /* EnterNameDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */; };
 		9A89EEFE28EF6EB90087A73D /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFD28EF6EB90087A73D /* PermissionsView.swift */; };
 		9A89EF0028EF6EC40087A73D /* PersmissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFF28EF6EC40087A73D /* PersmissionsVC.swift */; };
@@ -90,6 +91,7 @@
 		9A413D6928ED485A00D67D0C /* EnterNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameViewModel.swift; sourceTree = "<group>"; };
 		9A413D6C28ED488800D67D0C /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
 		9A450CBC28F5DF700017167D /* EnterBirthdayVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterBirthdayVCDelegates.swift; sourceTree = "<group>"; };
+		9A450CBE28F5E9960017167D /* MotivationStyleVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationStyleVCDelegates.swift; sourceTree = "<group>"; };
 		9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameDelegates.swift; sourceTree = "<group>"; };
 		9A89EEFD28EF6EB90087A73D /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
 		9A89EEFF28EF6EC40087A73D /* PersmissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersmissionsVC.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 			children = (
 				9A89EF1228EFC6B50087A73D /* MotivationStyleViewModel.swift */,
 				9A89EF1428EFC6B90087A73D /* Subviews */,
+				9A450CBE28F5E9960017167D /* MotivationStyleVCDelegates.swift */,
 				9A89EF1028EFC6920087A73D /* MotivationStyleVC.swift */,
 			);
 			path = MotivationStyle;
@@ -594,6 +597,7 @@
 				9A413D4E28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift in Sources */,
 				9A89EF0D28EF77A20087A73D /* SleepStyleView.swift in Sources */,
 				9AC9C51B28EB9540003EEE6B /* TabCoordinator.swift in Sources */,
+				9A450CBF28F5E9960017167D /* MotivationStyleVCDelegates.swift in Sources */,
 				9A413D3F28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift in Sources */,
 				9A89EF1628EFC6D40087A73D /* MotivationStyleView.swift in Sources */,
 				9A413D6D28ED488800D67D0C /* EnterNameView.swift in Sources */,
