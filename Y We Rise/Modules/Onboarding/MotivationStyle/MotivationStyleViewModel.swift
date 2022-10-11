@@ -9,6 +9,12 @@ import Foundation
 
 class MotivationStyleViewModel {
     enum Event {
-        
+        case didTapNext
     }
+    var eventTriggered: ((Event) -> Void)?
+
+    func didTapNext() {
+        eventTriggered?(.didTapNext)
+    }
+    
 }

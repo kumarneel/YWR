@@ -19,5 +19,9 @@ extension MotivationStyleVC: MotivationStyleViewDelegate {
             }
         }
         print(selectedMotivationStyleArray)
+        controllerView.canUserProceed((selectedMotivationStyleArray.count >= 2))
+    }
+    func didTapNext() {
+        viewModel.didTapNext()
     }
 }

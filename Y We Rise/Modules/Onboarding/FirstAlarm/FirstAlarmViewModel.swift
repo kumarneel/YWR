@@ -8,5 +8,16 @@
 import Foundation
 
 class FirstAlarmViewModel {
-    
+    enum Event {
+        case didTapNext
+        case didTapSkip
+    }
+    var eventTriggered: ((Event) -> Void)?
+
+    func didTapNext() {
+        eventTriggered?(.didTapNext)
+    }
+    func didTapSkip() {
+        eventTriggered?(.didTapSkip)
+    }
 }

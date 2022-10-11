@@ -19,6 +19,6 @@ class BaseView: UIView {
     }
 
     func setupView() {
-
+        
     }
 }

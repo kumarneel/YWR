@@ -19,7 +19,7 @@ class OnboardingCoordinator {
 
     func start() {
 //        presentGetStarted()
-        presentMotivationStyle()
+        presentFirstAlarm()
     }
 
     private func presentGetStarted() {
@@ -112,7 +112,27 @@ class OnboardingCoordinator {
 
     private func presentMotivationStyle() {
         let viewModel = MotivationStyleViewModel()
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapNext:
+                self.presentFirstAlarm()
+            }
+        }
         let viewController = MotivationStyleVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    private func presentFirstAlarm() {
+        let viewModel = FirstAlarmViewModel()
+        viewModel.eventTriggered = { event in
+            switch event {
+            case.didTapNext:
+                break
+            case .didTapSkip:
+                break
+            }
+        }
+        let viewController = FirstAlarmVC(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }

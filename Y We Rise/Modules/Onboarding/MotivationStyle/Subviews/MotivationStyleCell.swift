@@ -102,7 +102,6 @@ class MotivationStyleCell: UICollectionViewCell {
             delegate?.didTapCell(motivationStyle: motivationStyle, selected: cellSelected)
         }
     }
-
 }
 
 

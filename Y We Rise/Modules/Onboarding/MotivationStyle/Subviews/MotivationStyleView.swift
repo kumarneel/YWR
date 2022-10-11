@@ -9,6 +9,7 @@ import UIKit
 
 protocol MotivationStyleViewDelegate: AnyObject {
     func didTapCell(motivationStyle: MotivationStyle, selected: Bool)
+    func didTapNext()
 }
 
 class MotivationStyleView: BaseView {
@@ -100,8 +101,17 @@ class MotivationStyleView: BaseView {
         onboardingBar.setupBar(percentage: 0.7125)
     }
 
-    @objc func handleDidTapNext() {
+    func canUserProceed(_ canProceed: Bool) {
+        if canProceed {
+            nextBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
+        } else {
+            nextBtn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
+        }
+        nextBtn.isUserInteractionEnabled = canProceed
+    }
 
+    @objc func handleDidTapNext() {
+        delegate?.didTapNext()
     }
 }
 
