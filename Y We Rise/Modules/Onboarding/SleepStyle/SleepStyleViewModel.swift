@@ -17,4 +17,6 @@ class SleepStyleViewModel {
     func didTapNext() {
         eventTriggered?(.didTapNext)
     }
+    // TODO: Upload style to firestore
+
 }

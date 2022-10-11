@@ -13,7 +13,15 @@ extension SleepStyleVC: SleepStyleViewDelegate {
         viewModel.didTapNext()
     }
     func didTapStyle(sleepStyle: SleepStyle, selected: Bool) {
-        // TODO: Upload style to firestore
-        print(sleepStyle, selected)
+        if selected {
+            selectedSleepStyleArray.append(sleepStyle)
+        } else {
+            for i in 0...selectedSleepStyleArray.count-1 {
+                if selectedSleepStyleArray[i] == sleepStyle {
+                    selectedSleepStyleArray.remove(at: i)
+                }
+            }
+        }
+        print(selectedSleepStyleArray)
     }
 }

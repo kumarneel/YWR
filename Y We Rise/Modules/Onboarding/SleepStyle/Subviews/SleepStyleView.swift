@@ -129,6 +129,7 @@ extension SleepStyleView: UICollectionViewDelegate, UICollectionViewDataSource, 
         } else if indexPath.item == 2 {
             cell.setupStyle(sleepStyle: .wakerUpper)
         }
+        cell.setupCellBorder()
         return cell
     }
 
