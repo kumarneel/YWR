@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol EnterBirthdayViewDelegate: AnyObject {
+    func didTapDone(date: Date)
+}
+
 class EnterBirthdayView: BaseView {
+
+    weak var delegate: EnterBirthdayViewDelegate?
 
     let onboardingBar: OnboardingOrangeBar = {
         let v = OnboardingOrangeBar()
@@ -98,6 +104,8 @@ class EnterBirthdayView: BaseView {
         }
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.sizeToFit()
+
+        birthdayTextField.inputView = datePicker
     }
 
     @objc func donedatePicker(){
@@ -107,8 +115,8 @@ class EnterBirthdayView: BaseView {
         formatter.dateFormat = "MM-dd-yyyy"
         //        userBirthdayString = formatter.string(from: datePicker.date)
         birthdayTextField.layer.borderWidth = 0
-        // TODO: send data to view controller for potential save
         self.endEditing(true)
+        delegate?.didTapDone(date: datePicker.date)
     }
 
     @objc func cancelDatePicker(){

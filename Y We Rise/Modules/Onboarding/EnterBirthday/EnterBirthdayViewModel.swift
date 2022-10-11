@@ -14,7 +14,13 @@ class EnterBirthdayViewModel {
 
     var eventTriggered: ((Event) -> Void)?
 
+    var date = Date()
+
     func didTapSaveBirthday() {
         eventTriggered?(.didTapSaveBirthday)
+    }
+
+    func didUpdateBirthday(date: Date) {
+        
     }
 }

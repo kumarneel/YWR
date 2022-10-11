@@ -14,7 +14,7 @@ enum SleepStyle {
 }
 
 protocol SleepStyleCellDelegate: AnyObject {
-    func didTapCell(sleepStyle: SleepStyle)
+    func didTapCell(sleepStyle: SleepStyle, selected: Bool)
 }
 
 class SleepStyleCell: UICollectionViewCell {
@@ -101,10 +101,11 @@ class SleepStyleCell: UICollectionViewCell {
         if cellSelected {
             layer.borderColor = #colorLiteral(red: 0.8784313725, green: 0.8784313725, blue: 0.8784313725, alpha: 1)
             cellSelected = false
+            delegate?.didTapCell(sleepStyle: sleepStyle, selected: cellSelected)
         } else {
             layer.borderColor = UIColor(named: "YWROrange")!.cgColor
             cellSelected = true
+            delegate?.didTapCell(sleepStyle: sleepStyle, selected: cellSelected)
         }
-        delegate?.didTapCell(sleepStyle: sleepStyle)
     }
 }

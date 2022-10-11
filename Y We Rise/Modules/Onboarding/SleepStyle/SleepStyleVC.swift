@@ -16,6 +16,8 @@ class SleepStyleVC: BaseViewController<SleepStyleViewModel> {
         return v
     }()
 
+    var selectedSleepStyle = [String]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

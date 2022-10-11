@@ -9,7 +9,7 @@ import UIKit
 
 protocol SleepStyleViewDelegate: AnyObject {
     func didTapNext()
-    func didTapStyle(sleepStyle: SleepStyle)
+    func didTapStyle(sleepStyle: SleepStyle, selected: Bool)
 }
 
 class SleepStyleView: BaseView {
@@ -142,9 +142,9 @@ extension SleepStyleView: UICollectionViewDelegate, UICollectionViewDataSource, 
 }
 
 extension SleepStyleView: SleepStyleCellDelegate {
-    func didTapCell(sleepStyle: SleepStyle) {
+    func didTapCell(sleepStyle: SleepStyle, selected: Bool) {
         nextBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
         nextBtn.isUserInteractionEnabled = true
-        delegate?.didTapStyle(sleepStyle: sleepStyle)
+        delegate?.didTapStyle(sleepStyle: sleepStyle, selected: selected)
     }
 }

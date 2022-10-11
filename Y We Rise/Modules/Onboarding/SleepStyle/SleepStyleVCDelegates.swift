@@ -8,10 +8,12 @@
 import Foundation
 
 extension SleepStyleVC: SleepStyleViewDelegate {
+
     func didTapNext() {
         viewModel.didTapNext()
     }
-    func didTapStyle(sleepStyle: SleepStyle) {
+    func didTapStyle(sleepStyle: SleepStyle, selected: Bool) {
         // TODO: Upload style to firestore
+        print(sleepStyle, selected)
     }
 }

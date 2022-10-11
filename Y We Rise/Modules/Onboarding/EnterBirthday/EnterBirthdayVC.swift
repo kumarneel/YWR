@@ -12,7 +12,7 @@ class EnterBirthdayVC: BaseViewController<EnterBirthdayViewModel> {
     lazy var controllerView: EnterBirthdayView = {
         let v = EnterBirthdayView()
         v.translatesAutoresizingMaskIntoConstraints = false
-//        v.delegate = self
+        v.delegate = self
         return v
     }()
 
@@ -21,7 +21,7 @@ class EnterBirthdayVC: BaseViewController<EnterBirthdayViewModel> {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
         btn.addTarget(self, action: #selector(handleNextBtnPressed), for: .touchUpInside)
-        btn.isUserInteractionEnabled = true
+        btn.isUserInteractionEnabled = false
         return btn
     }()
 
