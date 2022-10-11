@@ -123,7 +123,7 @@ class FirstAlarmView: BaseView {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(handleDidTapNext), for: .touchUpInside)
         btn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
-        btn.isUserInteractionEnabled = false
+        btn.isUserInteractionEnabled = true
         return btn
     }()
 
@@ -182,7 +182,7 @@ class FirstAlarmView: BaseView {
     }
 
     @objc func handleDidTapNext() {
-        
+        delegate?.didTapNext(alarmString: alarmString)
     }
 }
 
@@ -223,7 +223,6 @@ extension FirstAlarmView: UIPickerViewDelegate, UIPickerViewDataSource {
         let minute = minuteArray[pickerView.selectedRow(inComponent: 1)]
         let amPM = amPMArray[pickerView.selectedRow(inComponent: 2)]
         alarmString = hour + ":" + minute + amPM
-        print(alarmString)
     }
 
     func setupLabel(row: Int, component: Int) -> String {

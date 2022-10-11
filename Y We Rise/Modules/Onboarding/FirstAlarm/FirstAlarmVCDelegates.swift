@@ -9,7 +9,7 @@ import Foundation
 
 extension FirstAlarmVC: FirstAlarmViewDelegate {
     func didTapNext(alarmString: String) {
-        viewModel.didTapNext()
+        viewModel.didTapNext(alarmString: alarmString)
     }
     func didTapSkip() {
         viewModel.didTapSkip()

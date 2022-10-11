@@ -19,7 +19,7 @@ class OnboardingCoordinator {
 
     func start() {
 //        presentGetStarted()
-        presentFirstAlarm()
+        presentAddMotiviation(alarmString: "hey")
     }
 
     private func presentGetStarted() {
@@ -126,13 +126,25 @@ class OnboardingCoordinator {
         let viewModel = FirstAlarmViewModel()
         viewModel.eventTriggered = { event in
             switch event {
-            case.didTapNext:
-                break
+            case.didTapNext(let alarmString):
+                self.presentAddMotiviation(alarmString: alarmString)
             case .didTapSkip:
-                break
+                self.userSignedUpTriggered?()
             }
         }
         let viewController = FirstAlarmVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    private func presentAddMotiviation(alarmString: String) {
+        let viewModel = AddMotivationViewModel(alarmString: alarmString)
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapNext:
+                self.userSignedUpTriggered?()
+            }
+        }
+        let viewController = AddMotivationVC(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
