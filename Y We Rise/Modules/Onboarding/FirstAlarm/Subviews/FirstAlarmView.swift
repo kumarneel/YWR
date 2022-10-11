@@ -7,7 +7,80 @@
 
 import UIKit
 
+protocol FirstAlarmViewDelegate: AnyObject {
+    func didTapNext(alarmString: String)
+    func didTapSkip()
+}
+
 class FirstAlarmView: BaseView {
+
+    var hourArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+
+    var minuteArray = [
+        "00",
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59"]
+
+    var amPMArray = ["AM", "PM"]
+
+    weak var delegate: FirstAlarmViewDelegate?
 
     let onboardingBar: OnboardingOrangeBar = {
         let v = OnboardingOrangeBar()
@@ -49,7 +122,7 @@ class FirstAlarmView: BaseView {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(handleDidTapNext), for: .touchUpInside)
-        btn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
+        btn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
         btn.isUserInteractionEnabled = false
         return btn
     }()
@@ -61,6 +134,8 @@ class FirstAlarmView: BaseView {
         pv.translatesAutoresizingMaskIntoConstraints = false
         return pv
     }()
+
+    var alarmString = "1:00AM"
 
     override func setupView() {
 
@@ -103,7 +178,7 @@ class FirstAlarmView: BaseView {
     }
 
     @objc func handleDidTapSkip() {
-
+        delegate?.didTapSkip()
     }
 
     @objc func handleDidTapNext() {
@@ -117,15 +192,13 @@ extension FirstAlarmView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-
         if (component == 0) {
-            return 12
+            return hourArray.count
         } else if component == 1 {
-            return 60
+            return minuteArray.count
         } else {
-            return 2
+            return amPMArray.count
         }
-
     }
 
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -145,22 +218,21 @@ extension FirstAlarmView: UIPickerViewDelegate, UIPickerViewDataSource {
         return 73
     }
 
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let hour = hourArray[pickerView.selectedRow(inComponent: 0)]
+        let minute = minuteArray[pickerView.selectedRow(inComponent: 1)]
+        let amPM = amPMArray[pickerView.selectedRow(inComponent: 2)]
+        alarmString = hour + ":" + minute + amPM
+        print(alarmString)
+    }
+
     func setupLabel(row: Int, component: Int) -> String {
         if component == 0 {
-            return "\(row + 1)"
+            return hourArray[row]
         } else if component == 1 {
-            if row < 10 {
-                return "0\(row)"
-            } else {
-                return "\(row)"
-            }
+            return minuteArray[row]
         } else {
-            if row == 0 {
-                return "AM"
-            } else {
-                return "PM"
-            }
+            return amPMArray[row]
         }
-
     }
 }

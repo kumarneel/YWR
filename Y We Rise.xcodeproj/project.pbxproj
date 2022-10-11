@@ -36,6 +36,7 @@
 		9A413D6D28ED488800D67D0C /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D6C28ED488800D67D0C /* EnterNameView.swift */; };
 		9A450CBD28F5DF700017167D /* EnterBirthdayVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CBC28F5DF700017167D /* EnterBirthdayVCDelegates.swift */; };
 		9A450CBF28F5E9960017167D /* MotivationStyleVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CBE28F5E9960017167D /* MotivationStyleVCDelegates.swift */; };
+		9A450CC128F5F3980017167D /* FirstAlarmVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CC028F5F3980017167D /* FirstAlarmVCDelegates.swift */; };
 		9A89EEFB28EF6A000087A73D /* EnterNameDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */; };
 		9A89EEFE28EF6EB90087A73D /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFD28EF6EB90087A73D /* PermissionsView.swift */; };
 		9A89EF0028EF6EC40087A73D /* PersmissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFF28EF6EC40087A73D /* PersmissionsVC.swift */; };
@@ -92,6 +93,7 @@
 		9A413D6C28ED488800D67D0C /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
 		9A450CBC28F5DF700017167D /* EnterBirthdayVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterBirthdayVCDelegates.swift; sourceTree = "<group>"; };
 		9A450CBE28F5E9960017167D /* MotivationStyleVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationStyleVCDelegates.swift; sourceTree = "<group>"; };
+		9A450CC028F5F3980017167D /* FirstAlarmVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAlarmVCDelegates.swift; sourceTree = "<group>"; };
 		9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameDelegates.swift; sourceTree = "<group>"; };
 		9A89EEFD28EF6EB90087A73D /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
 		9A89EEFF28EF6EC40087A73D /* PersmissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersmissionsVC.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 				9A89EF1F28F0ACA80087A73D /* FirstAlarmViewModel.swift */,
 				9A89EF1A28EFCE220087A73D /* Subviews */,
 				9A89EF1B28F0AC8E0087A73D /* FirstAlarmVC.swift */,
+				9A450CC028F5F3980017167D /* FirstAlarmVCDelegates.swift */,
 			);
 			path = FirstAlarm;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				9A89EF1828EFC8B10087A73D /* MotivationStyleCell.swift in Sources */,
 				9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */,
 				9A413D3228EC9B2D00D67D0C /* BaseViewController.swift in Sources */,
+				9A450CC128F5F3980017167D /* FirstAlarmVCDelegates.swift in Sources */,
 				9A89EF0028EF6EC40087A73D /* PersmissionsVC.swift in Sources */,
 				9A413D5B28ED3BF400D67D0C /* EnterBirthdayViewModel.swift in Sources */,
 				9A89EF1E28F0AC9C0087A73D /* FirstAlarmView.swift in Sources */,
