@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A12B27328F8B45F00D99D67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A12B27228F8B45F00D99D67 /* GoogleService-Info.plist */; };
 		9A413D2A28EC9ADC00D67D0C /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D2928EC9ADC00D67D0C /* GetStartedVC.swift */; };
 		9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D2B28EC9AEA00D67D0C /* GetStartedView.swift */; };
 		9A413D2E28EC9AF400D67D0C /* GetStartedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D2D28EC9AF400D67D0C /* GetStartedViewModel.swift */; };
@@ -42,6 +43,10 @@
 		9A450CC828F601890017167D /* AddMotivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CC728F601890017167D /* AddMotivationView.swift */; };
 		9A450CCF28F60B410017167D /* BaseMotivationImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CCE28F60B410017167D /* BaseMotivationImageView.swift */; };
 		9A450CD128F611080017167D /* AddMotivitionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CD028F611080017167D /* AddMotivitionDelegates.swift */; };
+		9A77148428F8832100F8C2F1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148328F8832100F8C2F1 /* FirebaseAnalytics */; };
+		9A77148628F8832100F8C2F1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148528F8832100F8C2F1 /* FirebaseAuth */; };
+		9A77148828F8832100F8C2F1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148728F8832100F8C2F1 /* FirebaseFirestore */; };
+		9A77148A28F8854700F8C2F1 /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A77148928F8854700F8C2F1 /* OnboardingService.swift */; };
 		9A89EEFB28EF6A000087A73D /* EnterNameDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */; };
 		9A89EEFE28EF6EB90087A73D /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFD28EF6EB90087A73D /* PermissionsView.swift */; };
 		9A89EF0028EF6EC40087A73D /* PersmissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EEFF28EF6EC40087A73D /* PersmissionsVC.swift */; };
@@ -70,6 +75,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A12B27228F8B45F00D99D67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9A413D2928EC9ADC00D67D0C /* GetStartedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedVC.swift; sourceTree = "<group>"; };
 		9A413D2B28EC9AEA00D67D0C /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
 		9A413D2D28EC9AF400D67D0C /* GetStartedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewModel.swift; sourceTree = "<group>"; };
@@ -104,6 +110,8 @@
 		9A450CC728F601890017167D /* AddMotivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMotivationView.swift; sourceTree = "<group>"; };
 		9A450CCE28F60B410017167D /* BaseMotivationImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMotivationImageView.swift; sourceTree = "<group>"; };
 		9A450CD028F611080017167D /* AddMotivitionDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMotivitionDelegates.swift; sourceTree = "<group>"; };
+		9A77148928F8854700F8C2F1 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
+		9A77148B28F8A2C000F8C2F1 /* Y We Rise.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Y We Rise.entitlements"; sourceTree = "<group>"; };
 		9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameDelegates.swift; sourceTree = "<group>"; };
 		9A89EEFD28EF6EB90087A73D /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
 		9A89EEFF28EF6EC40087A73D /* PersmissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersmissionsVC.swift; sourceTree = "<group>"; };
@@ -138,6 +146,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A77148428F8832100F8C2F1 /* FirebaseAnalytics in Frameworks */,
+				9A77148828F8832100F8C2F1 /* FirebaseFirestore in Frameworks */,
+				9A77148628F8832100F8C2F1 /* FirebaseAuth in Frameworks */,
 				9A413D5428ED2C5F00D67D0C /* PhoneNumberKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +359,9 @@
 		9AC9C4F028EB9159003EEE6B /* Y We Rise */ = {
 			isa = PBXGroup;
 			children = (
+				9A77148B28F8A2C000F8C2F1 /* Y We Rise.entitlements */,
 				9AC9C4FF28EB915A003EEE6B /* Info.plist */,
+				9A12B27228F8B45F00D99D67 /* GoogleService-Info.plist */,
 				9AC9C50728EB919F003EEE6B /* Foundation */,
 				9A413D2F28EC9AFF00D67D0C /* Resuable */,
 				9AC9C50628EB9194003EEE6B /* Services */,
@@ -371,6 +384,7 @@
 		9AC9C50628EB9194003EEE6B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9A77148928F8854700F8C2F1 /* OnboardingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -542,6 +556,9 @@
 			name = "Y We Rise";
 			packageProductDependencies = (
 				9A413D5328ED2C5F00D67D0C /* PhoneNumberKit */,
+				9A77148328F8832100F8C2F1 /* FirebaseAnalytics */,
+				9A77148528F8832100F8C2F1 /* FirebaseAuth */,
+				9A77148728F8832100F8C2F1 /* FirebaseFirestore */,
 			);
 			productName = "Y We Rise";
 			productReference = 9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */;
@@ -573,6 +590,7 @@
 			mainGroup = 9AC9C4E528EB9159003EEE6B;
 			packageReferences = (
 				9A413D5228ED2C5F00D67D0C /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+				9A77148228F8832100F8C2F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 9AC9C4EF28EB9159003EEE6B /* Products */;
 			projectDirPath = "";
@@ -591,6 +609,7 @@
 				9A413D4728ECD5AF00D67D0C /* SF-Pro-Text-Semibold.otf in Resources */,
 				9AC9C4FE28EB915A003EEE6B /* LaunchScreen.storyboard in Resources */,
 				9A413D4528ECD58E00D67D0C /* SF-Pro-Text-Regular.otf in Resources */,
+				9A12B27328F8B45F00D99D67 /* GoogleService-Info.plist in Resources */,
 				9AC9C4FB28EB915A003EEE6B /* Assets.xcassets in Resources */,
 				9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */,
 				9A413D3728ECA87A00D67D0C /* Net-Proxima-Nova-Bold.otf in Resources */,
@@ -616,6 +635,7 @@
 				9A450CD128F611080017167D /* AddMotivitionDelegates.swift in Sources */,
 				9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */,
 				9A450CC428F6014B0017167D /* AddMotivationViewModel.swift in Sources */,
+				9A77148A28F8854700F8C2F1 /* OnboardingService.swift in Sources */,
 				9A89EF1328EFC6B50087A73D /* MotivationStyleViewModel.swift in Sources */,
 				9A413D4C28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift in Sources */,
 				9A413D2A28EC9ADC00D67D0C /* GetStartedVC.swift in Sources */,
@@ -803,10 +823,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Y We Rise/Y We Rise.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5JTTJXL82Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Y We Rise/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Y We Rise";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Enable Y We Rise to access your camera roll to upload your photos to set an alarm.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -817,8 +842,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.YWR.Y-We-Rise";
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.y.ywr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -831,10 +856,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Y We Rise/Y We Rise.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5JTTJXL82Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Y We Rise/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Y We Rise";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Enable Y We Rise to access your camera roll to upload your photos to set an alarm.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -845,8 +875,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.YWR.Y-We-Rise";
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.y.ywr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -886,6 +916,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		9A77148228F8832100F8C2F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -893,6 +931,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A413D5228ED2C5F00D67D0C /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
 			productName = PhoneNumberKit;
+		};
+		9A77148328F8832100F8C2F1 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A77148228F8832100F8C2F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		9A77148528F8832100F8C2F1 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A77148228F8832100F8C2F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		9A77148728F8832100F8C2F1 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A77148228F8832100F8C2F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

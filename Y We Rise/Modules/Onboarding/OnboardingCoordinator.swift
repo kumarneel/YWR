@@ -18,8 +18,7 @@ class OnboardingCoordinator {
     }
 
     func start() {
-//        presentGetStarted()
-        presentAddMotiviation(alarmString: "hey")
+        presentGetStarted()
     }
 
     private func presentGetStarted() {
