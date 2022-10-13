@@ -15,8 +15,14 @@ class EnterPhoneNumberViewModel {
 
     var eventTriggered: ((Event) -> Void)?
 
+    var phoneNumber: String = ""
+
     func didTapSendCode() {
-        eventTriggered?(.didTapSendCode)
+        print(phoneNumber)
+        OnboardingService.instance.registerPhoneNumber(phoneNumber: phoneNumber) { [weak self] success, error in
+            print(success, error)
+//            self?.eventTriggered?(.didTapSendCode)
+        }
     }
 
     func didTapBackBtn() {

@@ -10,9 +10,9 @@ import UIKit
 extension EnterPhoneNumberVC: EnterPhoneNumberViewDelegate {
     func didUpdateTextField(_ text: String) {
         if isValidPhoneNumber(phoneNumber: text) {
+            viewModel.phoneNumber = getPhoneNumber(phoneNumber: text)
             sendCodeBtn.isUserInteractionEnabled = true
             sendCodeBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
-
         } else {
             sendCodeBtn.isUserInteractionEnabled = false
             sendCodeBtn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
