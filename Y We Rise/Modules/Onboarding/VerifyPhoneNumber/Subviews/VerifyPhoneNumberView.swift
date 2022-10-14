@@ -15,12 +15,6 @@ class VerifyPhoneNumberView: BaseView {
 
     weak var delegate: VerifyPhoneNumberViewDelegate?
 
-    let activityView: UIActivityIndicatorView = {
-        let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
-        av.translatesAutoresizingMaskIntoConstraints = false
-        return av
-    }()
-
     let titleLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -156,12 +150,7 @@ class VerifyPhoneNumberView: BaseView {
 
         updateStyleForTextFields(style: .typing)
 
-        addSubview(activityView)
-
-        NSLayoutConstraint.activate([
-            activityView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            activityView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        addActivityView()
     }
 
     func updateStyleForTextFields(style: StyleType) {

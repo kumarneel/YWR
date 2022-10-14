@@ -14,7 +14,13 @@ class EnterNameViewModel {
 
     var eventTriggered: ((Event) -> Void)?
 
+    var name: String = ""
+
     func didTapSaveName() {
-        eventTriggered?(.didTapSaveName)
+        OnboardingService.instance.saveName(name: name) { [weak self] success in
+            if success {
+                self?.eventTriggered?(.didTapSaveName)
+            }
+        }
     }
 }

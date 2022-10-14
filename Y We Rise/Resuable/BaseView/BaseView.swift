@@ -9,6 +9,12 @@ import UIKit
 
 class BaseView: UIView {
 
+    let activityView: UIActivityIndicatorView = {
+        let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        av.translatesAutoresizingMaskIntoConstraints = false
+        return av
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -20,5 +26,14 @@ class BaseView: UIView {
 
     func setupView() {
         
+    }
+
+    func addActivityView() {
+        addSubview(activityView)
+
+        NSLayoutConstraint.activate([
+            activityView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
 }

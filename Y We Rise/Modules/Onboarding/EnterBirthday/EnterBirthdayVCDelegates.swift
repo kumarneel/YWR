@@ -9,7 +9,7 @@ import UIKit
 
 extension EnterBirthdayVC: EnterBirthdayViewDelegate {
     func didTapDone(date: Date) {
-        viewModel.didUpdateBirthday(date: date)
+        viewModel.date = date.timeIntervalSince1970
         nextBtn.isUserInteractionEnabled = true
         nextBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
     }

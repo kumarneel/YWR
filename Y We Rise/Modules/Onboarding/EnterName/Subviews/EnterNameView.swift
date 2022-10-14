@@ -103,6 +103,8 @@ class EnterNameView: BaseView {
 
         nameTextField.becomeFirstResponder()
         onboardingBar.setupBar(percentage: 0.1425)
+
+        addActivityView()
     }
 
     @objc func handleTextChange(_ textField: UITextField) {

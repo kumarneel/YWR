@@ -9,6 +9,7 @@ import UIKit
 
 extension EnterNameVC: EnterNameViewDelegate {
     func didChangeText(text: String, canProceed: Bool) {
+        viewModel.name = text
         if canProceed {
             nextBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
             nextBtn.isUserInteractionEnabled = true

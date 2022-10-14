@@ -44,25 +44,25 @@ class OnboardingService {
     }
 
     func saveName(name: String, handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["name": name]) { error in
+        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["name": name], merge: true) { error in
             handler(error == nil)
         }
     }
 
-    func saveBirthday(birthday: String, handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["birthday": birthday]) { error in
+    func saveBirthday(birthday: Double, handler: @escaping(_ success: Bool) -> Void) {
+        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["birthday": birthday], merge: true) { error in
             handler(error == nil)
         }
     }
 
     func saveSleepStyles(styles: [String], handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["styles": styles]) { error in
+        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["styles": styles], merge: true) { error in
             handler(error == nil)
         }
     }
     
     func saveMotivationsStyles(styles: [String], handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["styles": styles]) { error in
+        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["styles": styles], merge: true) { error in
             handler(error == nil)
         }
     }

@@ -14,13 +14,13 @@ class EnterBirthdayViewModel {
 
     var eventTriggered: ((Event) -> Void)?
 
-    var date = Date()
+    var date: Double = 0.0
 
     func didTapSaveBirthday() {
-        eventTriggered?(.didTapSaveBirthday)
-    }
-
-    func didUpdateBirthday(date: Date) {
-        
+        OnboardingService.instance.saveBirthday(birthday: date) { [weak self] success in
+            if success {
+                self?.eventTriggered?(.didTapSaveBirthday)
+            }
+        }
     }
 }
