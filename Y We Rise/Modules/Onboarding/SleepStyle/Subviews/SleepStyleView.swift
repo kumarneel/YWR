@@ -101,6 +101,8 @@ class SleepStyleView: BaseView {
         ])
 
         onboardingBar.setupBar(percentage: 0.57)
+
+        addActivityView()
     }
 
     @objc func handleDidTapNext() {

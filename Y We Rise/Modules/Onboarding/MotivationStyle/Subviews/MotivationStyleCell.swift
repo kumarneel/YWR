@@ -7,19 +7,19 @@
 
 import UIKit
 
-enum MotivationStyle {
-    case family
-    case wealth
-    case cars
-    case love
-    case career
-    case kids
-    case fame
-    case health
-    case winning
-    case power
-    case partner
-    case fear
+enum MotivationStyle: String {
+    case family = "family"
+    case wealth = "wealth"
+    case cars = "cars"
+    case love = "love"
+    case career = "careers"
+    case kids = "kids"
+    case fame = "fame"
+    case health = "health"
+    case winning = "winning"
+    case power = "power"
+    case partner = "partner"
+    case fear = "fear"
 }
 
 protocol MotivationStyleCellDelegate: AnyObject {

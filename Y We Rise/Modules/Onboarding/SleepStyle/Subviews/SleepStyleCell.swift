@@ -7,10 +7,10 @@
 
 import UIKit
 
-enum SleepStyle {
-    case nightOwl
-    case earlyBird
-    case wakerUpper
+enum SleepStyle: String {
+    case nightOwl = "nightOwl"
+    case earlyBird = "earlyBird"
+    case wakerUpper = "wakerUpper"
 }
 
 protocol SleepStyleCellDelegate: AnyObject {

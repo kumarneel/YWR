@@ -5,12 +5,15 @@
 //  Created by Neel Kumar on 10/6/22.
 //
 
-import Foundation
+import UIKit
 
 extension SleepStyleVC: SleepStyleViewDelegate {
 
     func didTapNext() {
-        viewModel.didTapNext()
+        controllerView.nextBtn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
+        controllerView.nextBtn.isUserInteractionEnabled = false
+        controllerView.activityView.startAnimating()
+        viewModel.didTapNext(stylesArray: selectedSleepStyleArray)
     }
     func didTapStyle(sleepStyle: SleepStyle, selected: Bool) {
         if selected {
@@ -22,6 +25,5 @@ extension SleepStyleVC: SleepStyleViewDelegate {
                 }
             }
         }
-        print(selectedSleepStyleArray)
     }
 }

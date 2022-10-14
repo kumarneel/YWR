@@ -14,9 +14,10 @@ class SleepStyleViewModel {
 
     var eventTriggered: ((Event) -> Void)?
 
-    func didTapNext() {
-        eventTriggered?(.didTapNext)
+    func didTapNext(stylesArray: [SleepStyle]) {
+        let stringArr = stylesArray.map({ return $0.rawValue })
+        OnboardingService.instance.saveSleepStyles(styles: stringArr) { [weak self] success in
+            self?.eventTriggered?(.didTapNext)
+        }
     }
-    // TODO: Upload style to firestore
-
 }

@@ -52,6 +52,9 @@ class EnterNameVC: BaseViewController<EnterNameViewModel> {
     }
 
     @objc func handleNextBtnPressed() {
+        nextBtn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
+        nextBtn.isUserInteractionEnabled = false
+        controllerView.activityView.startAnimating()
         viewModel.didTapSaveName()
     }
 }

@@ -82,6 +82,8 @@ class EnterBirthdayView: BaseView {
 
         setupDatePicker()
         onboardingBar.setupBar(percentage: 0.285)
+
+        addActivityView()
     }
 
 

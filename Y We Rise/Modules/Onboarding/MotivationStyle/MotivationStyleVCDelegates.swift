@@ -5,7 +5,7 @@
 //  Created by Neel Kumar on 10/11/22.
 //
 
-import Foundation
+import UIKit
 
 extension MotivationStyleVC: MotivationStyleViewDelegate {
     func didTapCell(motivationStyle: MotivationStyle, selected: Bool) {
@@ -18,10 +18,13 @@ extension MotivationStyleVC: MotivationStyleViewDelegate {
                 }
             }
         }
-        print(selectedMotivationStyleArray)
         controllerView.canUserProceed((selectedMotivationStyleArray.count >= 2))
     }
+    
     func didTapNext() {
-        viewModel.didTapNext()
+        controllerView.nextBtn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
+        controllerView.nextBtn.isUserInteractionEnabled = false
+        controllerView.activityView.startAnimating()
+        viewModel.didTapNext(stylesArray: selectedMotivationStyleArray)
     }
 }

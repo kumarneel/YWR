@@ -8,13 +8,20 @@
 import Foundation
 
 class MotivationStyleViewModel {
+    
     enum Event {
         case didTapNext
     }
+
     var eventTriggered: ((Event) -> Void)?
 
-    func didTapNext() {
-        eventTriggered?(.didTapNext)
+    func didTapNext(stylesArray: [MotivationStyle]) {
+        let strArray = stylesArray.map({ return $0.rawValue })
+
+        OnboardingService.instance.saveMotivationsStyles(styles: strArray) { [weak self] success in
+            if success {
+                self?.eventTriggered?(.didTapNext)
+            }
+        }
     }
-    
 }

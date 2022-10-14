@@ -99,6 +99,8 @@ class MotivationStyleView: BaseView {
         ])
 
         onboardingBar.setupBar(percentage: 0.7125)
+
+        addActivityView()
     }
 
     func canUserProceed(_ canProceed: Bool) {
