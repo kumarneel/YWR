@@ -6,22 +6,29 @@
 //
 
 import Foundation
+import Combine
 
-class EnterPhoneNumberViewModel {
+class EnterPhoneNumberViewModel: ObservableObject {
     enum Event {
         case didTapBackBtn
-        case didTapSendCode
+        case didTapSendCode(phoneNumber: String)
     }
 
     var eventTriggered: ((Event) -> Void)?
 
     var phoneNumber: String = ""
 
+    @Published var error: String = ""
+
+    let observable = PassthroughSubject<Void, Never>()
+
     func didTapSendCode() {
         print(phoneNumber)
         OnboardingService.instance.registerPhoneNumber(phoneNumber: phoneNumber) { [weak self] success, error in
-            print(success, error)
-//            self?.eventTriggered?(.didTapSendCode)
+            if success {
+                self?.eventTriggered?(.didTapSendCode(phoneNumber: self?.phoneNumber ?? ""))
+            }
+
         }
     }
 

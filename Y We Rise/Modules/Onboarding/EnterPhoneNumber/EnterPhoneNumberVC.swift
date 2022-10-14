@@ -36,6 +36,8 @@ class EnterPhoneNumberVC: BaseViewController<EnterPhoneNumberViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
+        controllerView.activityView.stopAnimating()
+
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -54,6 +56,9 @@ class EnterPhoneNumberVC: BaseViewController<EnterPhoneNumberViewModel> {
     }
 
     @objc func handleSendCodeBtnPressed() {
+        controllerView.activityView.startAnimating()
+        sendCodeBtn.isUserInteractionEnabled = false
+        sendCodeBtn.setImage(UIImage(named: "SendCodeBtnUnfilled"), for: .normal)
         viewModel.didTapSendCode()
     }
 

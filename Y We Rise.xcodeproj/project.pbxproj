@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A12B27328F8B45F00D99D67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A12B27228F8B45F00D99D67 /* GoogleService-Info.plist */; };
+		9A12B27528F8C70900D99D67 /* CachingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B27428F8C70900D99D67 /* CachingService.swift */; };
+		9A12B27928F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B27828F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift */; };
 		9A413D2A28EC9ADC00D67D0C /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D2928EC9ADC00D67D0C /* GetStartedVC.swift */; };
 		9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D2B28EC9AEA00D67D0C /* GetStartedView.swift */; };
 		9A413D2E28EC9AF400D67D0C /* GetStartedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D2D28EC9AF400D67D0C /* GetStartedViewModel.swift */; };
@@ -76,6 +78,8 @@
 
 /* Begin PBXFileReference section */
 		9A12B27228F8B45F00D99D67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9A12B27428F8C70900D99D67 /* CachingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingService.swift; sourceTree = "<group>"; };
+		9A12B27828F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberVCDelegates.swift; sourceTree = "<group>"; };
 		9A413D2928EC9ADC00D67D0C /* GetStartedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedVC.swift; sourceTree = "<group>"; };
 		9A413D2B28EC9AEA00D67D0C /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
 		9A413D2D28EC9AF400D67D0C /* GetStartedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewModel.swift; sourceTree = "<group>"; };
@@ -156,6 +160,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A12B27628F8C72400D99D67 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9A77148928F8854700F8C2F1 /* OnboardingService.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9A12B27728F8C72D00D99D67 /* Caching */ = {
+			isa = PBXGroup;
+			children = (
+				9A12B27428F8C70900D99D67 /* CachingService.swift */,
+			);
+			path = Caching;
+			sourceTree = "<group>";
+		};
 		9A413D2828EC998300D67D0C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +404,8 @@
 		9AC9C50628EB9194003EEE6B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9A77148928F8854700F8C2F1 /* OnboardingService.swift */,
+				9A12B27628F8C72400D99D67 /* Onboarding */,
+				9A12B27728F8C72D00D99D67 /* Caching */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -478,6 +499,7 @@
 			children = (
 				9A413D4D28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift */,
 				9A413D4F28ECE4BE00D67D0C /* Subviews */,
+				9A12B27828F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift */,
 				9A413D4B28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift */,
 			);
 			path = VerifyPhoneNumber;
@@ -637,6 +659,7 @@
 				9A450CC428F6014B0017167D /* AddMotivationViewModel.swift in Sources */,
 				9A77148A28F8854700F8C2F1 /* OnboardingService.swift in Sources */,
 				9A89EF1328EFC6B50087A73D /* MotivationStyleViewModel.swift in Sources */,
+				9A12B27528F8C70900D99D67 /* CachingService.swift in Sources */,
 				9A413D4C28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift in Sources */,
 				9A413D2A28EC9ADC00D67D0C /* GetStartedVC.swift in Sources */,
 				9A413D5928ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift in Sources */,
@@ -650,6 +673,7 @@
 				9A89EF1E28F0AC9C0087A73D /* FirstAlarmView.swift in Sources */,
 				9A89EF0428EF72D50087A73D /* PermissionsVCDelegates.swift in Sources */,
 				9A89EEFE28EF6EB90087A73D /* PermissionsView.swift in Sources */,
+				9A12B27928F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift in Sources */,
 				9A413D6528ED3DCE00D67D0C /* OnboardingOrangeBar.swift in Sources */,
 				9A413D4E28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift in Sources */,
 				9A89EF0D28EF77A20087A73D /* SleepStyleView.swift in Sources */,

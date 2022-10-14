@@ -21,14 +21,14 @@ class OnboardingService {
             if let error = error {
                 handler(false, error.localizedDescription)
             }
-//            CachingService.instance.saveVerificationId(verificationId: verificationId ?? "")
+            CachingService.instance.saveVerificationId(verificationId: verificationId ?? "")
             handler(true, "")
         }
     }
 
     func verifyCode(code: String, phoneNumber: String, handler: @escaping (_ success: Bool, _ error: String, _ isNewUser: Bool) -> Void) {
-//        let verificationId = CachingService.instance.getVerificationId()
-        let credential = PhoneAuthProvider.provider().credential(withVerificationID: "verificationId", verificationCode: code)
+        let verificationId = CachingService.instance.getVerificationId()
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationId, verificationCode: code)
         Auth.auth().signIn(with: credential) { authResult, error in
             if let error = error {
                 print("error signing in: ", error)

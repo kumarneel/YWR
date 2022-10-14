@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootController = UINavigationController()
         window.rootViewController = rootController
         // TODO: Add actual firestore auth here
-        AppCoordinator.init(navigationController: rootController).start(userIsLoggedIn: false)
+        AppCoordinator.init(navigationController: rootController).start(userIsLoggedIn: Auth.auth().currentUser != nil)
         self.window = window
         window.makeKeyAndVisible()
     }

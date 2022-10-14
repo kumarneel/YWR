@@ -16,6 +16,12 @@ class EnterPhoneNumberView: BaseView {
 
     weak var delegate: EnterPhoneNumberViewDelegate?
 
+    let activityView: UIActivityIndicatorView = {
+        let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        av.translatesAutoresizingMaskIntoConstraints = false
+        return av
+    }()
+
     let titleLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +95,13 @@ class EnterPhoneNumberView: BaseView {
         ])
 
         phoneNumberTextField.becomeFirstResponder()
+
+        addSubview(activityView)
+
+        NSLayoutConstraint.activate([
+            activityView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
 
     @objc func handlePhoneTextChange(textField: UITextField) {

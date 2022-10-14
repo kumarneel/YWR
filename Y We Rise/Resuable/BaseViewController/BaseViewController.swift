@@ -24,6 +24,7 @@ class BaseViewController<ViewModel>: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         overrideUserInterfaceStyle = .light
+        
     }
 
     /// - SeeAlso: NSCoding.init?(coder:)

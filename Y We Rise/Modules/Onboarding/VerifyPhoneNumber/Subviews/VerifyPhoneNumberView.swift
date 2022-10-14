@@ -7,7 +7,19 @@
 
 import UIKit
 
+protocol VerifyPhoneNumberViewDelegate: AnyObject {
+    func didUpdateCode(code: String)
+}
+
 class VerifyPhoneNumberView: BaseView {
+
+    weak var delegate: VerifyPhoneNumberViewDelegate?
+
+    let activityView: UIActivityIndicatorView = {
+        let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        av.translatesAutoresizingMaskIntoConstraints = false
+        return av
+    }()
 
     let titleLbl: UILabel = {
         let lbl = UILabel()
@@ -143,11 +155,23 @@ class VerifyPhoneNumberView: BaseView {
         codeTextField1.becomeFirstResponder()
 
         updateStyleForTextFields(style: .typing)
+
+        addSubview(activityView)
+
+        NSLayoutConstraint.activate([
+            activityView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
 
     func updateStyleForTextFields(style: StyleType) {
         incorrectCodeLbl.isHidden = (style != .error)
         [codeTextField1, codeTextField2, codeTextField3, codeTextField4, codeTextField5, codeTextField6].forEach({$0.changeStyle(styleType: style)})
+    }
+
+    func handleUpdateText() {
+        let code = codeTextField1.text! + codeTextField2.text! + codeTextField3.text! + codeTextField4.text! + codeTextField5.text! + codeTextField6.text!
+        delegate?.didUpdateCode(code: code)
     }
 }
 
@@ -155,6 +179,7 @@ extension VerifyPhoneNumberView: VerificationCodeTextFieldDelegate, UITextFieldD
     /// handle delete single number
     func didTapTextFieldDelete(_ textField: UITextField) {
         updateStyleForTextFields(style: .typing)
+        handleUpdateText()
         if textField == codeTextField1 {
             codeTextField1.text = nil
         } else if textField == codeTextField2 {
@@ -184,11 +209,8 @@ extension VerifyPhoneNumberView: VerificationCodeTextFieldDelegate, UITextFieldD
                 let nextResponder: UIResponder? = viewWithTag(textField.tag + 1)
                 if (nextResponder != nil) {
                     nextResponder?.becomeFirstResponder()
-                }else {
-                    // TODO: send code
-//                    handleSendCodeBtn()
                 }
-
+                handleUpdateText()
             }else {
                 // typing with code already in textfield edge case
                 let nextResponder: UIResponder? = viewWithTag(textField.tag + 1)
