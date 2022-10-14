@@ -7,9 +7,16 @@
 
 import UIKit
 
+enum ImageNumber {
+    case one
+    case two
+    case three
+    case four
+}
+
 protocol AddMotivationViewDelegate: AnyObject {
     func didTapNext()
-    func didTapAddImage()
+    func didTapAddImage(imageNumber: ImageNumber)
 }
 
 class AddMotivationView: BaseView {
@@ -34,7 +41,7 @@ class AddMotivationView: BaseView {
     let subtitleLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Choose up to three photos that will\nmotivate you to wake up."
+        lbl.text = "Choose up to four photos that will\nmotivate you to wake up."
         lbl.textColor = UIColor(named: "YWRCreamText")
         lbl.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         lbl.numberOfLines = 2
@@ -46,30 +53,39 @@ class AddMotivationView: BaseView {
         let imv = BaseMotivationImageView()
         imv.translatesAutoresizingMaskIntoConstraints = false
         imv.setupEmptyImageIcon()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImageView1))
         imv.addGestureRecognizer(tap)
         imv.isUserInteractionEnabled = true
         return imv
     }()
 
-    let imageView2: BaseMotivationImageView = {
+    lazy var imageView2: BaseMotivationImageView = {
         let imv = BaseMotivationImageView()
         imv.translatesAutoresizingMaskIntoConstraints = false
         imv.setupEmptyImageIcon()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImageView2))
+        imv.addGestureRecognizer(tap)
+        imv.isUserInteractionEnabled = true
         return imv
     }()
 
-    let imageView3: BaseMotivationImageView = {
+    lazy var imageView3: BaseMotivationImageView = {
         let imv = BaseMotivationImageView()
         imv.translatesAutoresizingMaskIntoConstraints = false
         imv.setupEmptyImageIcon()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImageView3))
+        imv.addGestureRecognizer(tap)
+        imv.isUserInteractionEnabled = true
         return imv
     }()
 
-    let imageView4: BaseMotivationImageView = {
+    lazy var imageView4: BaseMotivationImageView = {
         let imv = BaseMotivationImageView()
         imv.translatesAutoresizingMaskIntoConstraints = false
         imv.setupEmptyImageIcon()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImageView4))
+        imv.addGestureRecognizer(tap)
+        imv.isUserInteractionEnabled = true
         return imv
     }()
 
@@ -95,7 +111,6 @@ class AddMotivationView: BaseView {
     }()
 
     override func setupView() {
-
         backgroundColor = UIColor(named: "YWRCream")!
 
         [onboardingBar,
@@ -158,9 +173,25 @@ class AddMotivationView: BaseView {
         delegate?.didTapNext()
     }
 
-    @objc func didTapImageView(_ recognizer: UITapGestureRecognizer) {
-        print("tapped")
-        delegate?.didTapAddImage()
+    @objc func didTapImageView1(_ recognizer: UITapGestureRecognizer) {
+        delegate?.didTapAddImage(imageNumber: .one)
+    }
+
+    @objc func didTapImageView2(_ recognizer: UITapGestureRecognizer) {
+        delegate?.didTapAddImage(imageNumber: .two)
+    }
+
+    @objc func didTapImageView3(_ recognizer: UITapGestureRecognizer) {
+        delegate?.didTapAddImage(imageNumber: .three)
+    }
+
+    @objc func didTapImageView4(_ recognizer: UITapGestureRecognizer) {
+        delegate?.didTapAddImage(imageNumber: .four)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView1.layer.cornerRadius = 16
     }
 }
 

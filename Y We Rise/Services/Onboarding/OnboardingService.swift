@@ -56,13 +56,13 @@ class OnboardingService {
     }
 
     func saveSleepStyles(styles: [String], handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["styles": styles], merge: true) { error in
+        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["sleep_styles": styles], merge: true) { error in
             handler(error == nil)
         }
     }
     
     func saveMotivationsStyles(styles: [String], handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["styles": styles], merge: true) { error in
+        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["motivation_styles": styles], merge: true) { error in
             handler(error == nil)
         }
     }

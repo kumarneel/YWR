@@ -10,6 +10,15 @@
 		9A12B27328F8B45F00D99D67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A12B27228F8B45F00D99D67 /* GoogleService-Info.plist */; };
 		9A12B27528F8C70900D99D67 /* CachingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B27428F8C70900D99D67 /* CachingService.swift */; };
 		9A12B27928F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B27828F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift */; };
+		9A12B28028F9BDB300D99D67 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B27F28F9BDB300D99D67 /* SettingsViewModel.swift */; };
+		9A12B28228F9BDC100D99D67 /* SettingsVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28128F9BDC100D99D67 /* SettingsVIew.swift */; };
+		9A12B28428F9BDD600D99D67 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28328F9BDD600D99D67 /* SettingsVC.swift */; };
+		9A12B28628F9BDE800D99D67 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28528F9BDE800D99D67 /* AlarmVC.swift */; };
+		9A12B28928F9BDFD00D99D67 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28828F9BDFD00D99D67 /* AlarmView.swift */; };
+		9A12B28B28F9BE0C00D99D67 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28A28F9BE0C00D99D67 /* AlarmViewModel.swift */; };
+		9A12B28D28F9BE5000D99D67 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28C28F9BE5000D99D67 /* ProfileViewModel.swift */; };
+		9A12B29028F9BE6400D99D67 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28F28F9BE6400D99D67 /* ProfileView.swift */; };
+		9A12B29228F9BE7100D99D67 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B29128F9BE7100D99D67 /* ProfileVC.swift */; };
 		9A413D2A28EC9ADC00D67D0C /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D2928EC9ADC00D67D0C /* GetStartedVC.swift */; };
 		9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D2B28EC9AEA00D67D0C /* GetStartedView.swift */; };
 		9A413D2E28EC9AF400D67D0C /* GetStartedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A413D2D28EC9AF400D67D0C /* GetStartedViewModel.swift */; };
@@ -80,6 +89,15 @@
 		9A12B27228F8B45F00D99D67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9A12B27428F8C70900D99D67 /* CachingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingService.swift; sourceTree = "<group>"; };
 		9A12B27828F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberVCDelegates.swift; sourceTree = "<group>"; };
+		9A12B27F28F9BDB300D99D67 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		9A12B28128F9BDC100D99D67 /* SettingsVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVIew.swift; sourceTree = "<group>"; };
+		9A12B28328F9BDD600D99D67 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		9A12B28528F9BDE800D99D67 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
+		9A12B28828F9BDFD00D99D67 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
+		9A12B28A28F9BE0C00D99D67 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
+		9A12B28C28F9BE5000D99D67 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		9A12B28F28F9BE6400D99D67 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9A12B29128F9BE7100D99D67 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		9A413D2928EC9ADC00D67D0C /* GetStartedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedVC.swift; sourceTree = "<group>"; };
 		9A413D2B28EC9AEA00D67D0C /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
 		9A413D2D28EC9AF400D67D0C /* GetStartedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewModel.swift; sourceTree = "<group>"; };
@@ -174,6 +192,30 @@
 				9A12B27428F8C70900D99D67 /* CachingService.swift */,
 			);
 			path = Caching;
+			sourceTree = "<group>";
+		};
+		9A12B27E28F9BD9F00D99D67 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A12B28128F9BDC100D99D67 /* SettingsVIew.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9A12B28728F9BDEB00D99D67 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A12B28828F9BDFD00D99D67 /* AlarmView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9A12B28E28F9BE5300D99D67 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A12B28F28F9BE6400D99D67 /* ProfileView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		9A413D2828EC998300D67D0C /* Storyboards */ = {
@@ -397,6 +439,7 @@
 			children = (
 				9AC9C50E28EB922C003EEE6B /* AppCoordinator.swift */,
 				9AC9C50828EB91B9003EEE6B /* Onboarding */,
+				9AC9C50928EB91C1003EEE6B /* TabBar */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -435,7 +478,6 @@
 				9AC9C51628EB93DE003EEE6B /* MotivationStyle */,
 				9AC9C51728EB940C003EEE6B /* FirstAlarm */,
 				9A89EF1928EFCD150087A73D /* AddMotivation */,
-				9AC9C50928EB91C1003EEE6B /* TabBar */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -444,16 +486,20 @@
 			isa = PBXGroup;
 			children = (
 				9AC9C51A28EB9540003EEE6B /* TabCoordinator.swift */,
-				9AC9C50D28EB9217003EEE6B /* Alarm */,
 				9AC9C50C28EB9210003EEE6B /* Settings */,
+				9AC9C50D28EB9217003EEE6B /* Alarm */,
 				9AC9C50A28EB91F9003EEE6B /* Profile */,
 			);
-			path = TabBar;
+			name = TabBar;
+			path = Onboarding/TabBar;
 			sourceTree = "<group>";
 		};
 		9AC9C50A28EB91F9003EEE6B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				9A12B28C28F9BE5000D99D67 /* ProfileViewModel.swift */,
+				9A12B28E28F9BE5300D99D67 /* Subviews */,
+				9A12B29128F9BE7100D99D67 /* ProfileVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -461,6 +507,9 @@
 		9AC9C50C28EB9210003EEE6B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				9A12B27F28F9BDB300D99D67 /* SettingsViewModel.swift */,
+				9A12B27E28F9BD9F00D99D67 /* Subviews */,
+				9A12B28328F9BDD600D99D67 /* SettingsVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -468,6 +517,9 @@
 		9AC9C50D28EB9217003EEE6B /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				9A12B28A28F9BE0C00D99D67 /* AlarmViewModel.swift */,
+				9A12B28728F9BDEB00D99D67 /* Subviews */,
+				9A12B28528F9BDE800D99D67 /* AlarmVC.swift */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -648,6 +700,7 @@
 				9A89EF1C28F0AC8F0087A73D /* FirstAlarmVC.swift in Sources */,
 				9A413D5D28ED3C0300D67D0C /* EnterBirthdayView.swift in Sources */,
 				9AC9C50F28EB922C003EEE6B /* AppCoordinator.swift in Sources */,
+				9A12B28028F9BDB300D99D67 /* SettingsViewModel.swift in Sources */,
 				9A413D5728ED2CB400D67D0C /* USTextField.swift in Sources */,
 				9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */,
 				9A89EF2028F0ACA80087A73D /* FirstAlarmViewModel.swift in Sources */,
@@ -658,6 +711,7 @@
 				9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */,
 				9A450CC428F6014B0017167D /* AddMotivationViewModel.swift in Sources */,
 				9A77148A28F8854700F8C2F1 /* OnboardingService.swift in Sources */,
+				9A12B28D28F9BE5000D99D67 /* ProfileViewModel.swift in Sources */,
 				9A89EF1328EFC6B50087A73D /* MotivationStyleViewModel.swift in Sources */,
 				9A12B27528F8C70900D99D67 /* CachingService.swift in Sources */,
 				9A413D4C28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift in Sources */,
@@ -668,6 +722,8 @@
 				9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */,
 				9A413D3228EC9B2D00D67D0C /* BaseViewController.swift in Sources */,
 				9A450CC128F5F3980017167D /* FirstAlarmVCDelegates.swift in Sources */,
+				9A12B28228F9BDC100D99D67 /* SettingsVIew.swift in Sources */,
+				9A12B29028F9BE6400D99D67 /* ProfileView.swift in Sources */,
 				9A89EF0028EF6EC40087A73D /* PersmissionsVC.swift in Sources */,
 				9A413D5B28ED3BF400D67D0C /* EnterBirthdayViewModel.swift in Sources */,
 				9A89EF1E28F0AC9C0087A73D /* FirstAlarmView.swift in Sources */,
@@ -681,6 +737,8 @@
 				9AC9C51B28EB9540003EEE6B /* TabCoordinator.swift in Sources */,
 				9A450CBF28F5E9960017167D /* MotivationStyleVCDelegates.swift in Sources */,
 				9A413D3F28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift in Sources */,
+				9A12B28B28F9BE0C00D99D67 /* AlarmViewModel.swift in Sources */,
+				9A12B29228F9BE7100D99D67 /* ProfileVC.swift in Sources */,
 				9A89EF1628EFC6D40087A73D /* MotivationStyleView.swift in Sources */,
 				9A413D6D28ED488800D67D0C /* EnterNameView.swift in Sources */,
 				9A450CC828F601890017167D /* AddMotivationView.swift in Sources */,
@@ -693,6 +751,7 @@
 				9A413D3D28ECC1D600D67D0C /* extension+UIViewController.swift in Sources */,
 				9AC9C51928EB952D003EEE6B /* OnboardingCoordinator.swift in Sources */,
 				9A413D3A28ECACCA00D67D0C /* BaseView.swift in Sources */,
+				9A12B28428F9BDD600D99D67 /* SettingsVC.swift in Sources */,
 				9A413D5128ECE4CD00D67D0C /* VerificationTextField.swift in Sources */,
 				9A450CBD28F5DF700017167D /* EnterBirthdayVCDelegates.swift in Sources */,
 				9A413D2E28EC9AF400D67D0C /* GetStartedViewModel.swift in Sources */,
@@ -700,6 +759,8 @@
 				9A413D6828ED483100D67D0C /* EnterNameVC.swift in Sources */,
 				9A89EF0228EF6ED00087A73D /* PermissionsViewModel.swift in Sources */,
 				9A413D4328ECD06F00D67D0C /* EnterPhoneNumberView.swift in Sources */,
+				9A12B28628F9BDE800D99D67 /* AlarmVC.swift in Sources */,
+				9A12B28928F9BDFD00D99D67 /* AlarmView.swift in Sources */,
 				9A413D6A28ED485A00D67D0C /* EnterNameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,7 +29,7 @@ class AppCoordinator {
     }
 
     private func presentTabBar() {
-        // TODO: Create Tab bar Coordinator
+        TabBarCoordinator.init(navigationController: navigationController).start()
     }
 }
 

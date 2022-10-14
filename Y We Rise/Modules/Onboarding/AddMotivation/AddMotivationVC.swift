@@ -18,6 +18,8 @@ class AddMotivationVC: BaseViewController<AddMotivationViewModel> {
 
     let picker = UIImagePickerController()
 
+    var imageNumber: ImageNumber = .one
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
