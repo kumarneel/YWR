@@ -23,5 +23,6 @@ class GetStartedVC: BaseViewController<GetStartedViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addControllerView(controllerView)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }

@@ -22,14 +22,20 @@ class AppCoordinator {
     private func presentOnboarding() {
         let coordinator = OnboardingCoordinator.init(navigationController: navigationController)
         coordinator.userSignedUpTriggered = {
-            self.navigationController.popViewController(animated: false)
+            self.navigationController.popToRootViewController(animated: false)
             self.presentTabBar()
         }
         coordinator.start()
     }
 
     private func presentTabBar() {
-        TabBarCoordinator.init(navigationController: navigationController).start()
+        let coordinator = TabBarCoordinator.init(navigationController: navigationController)
+        coordinator.userLoggedOutTriggered = {
+            self.navigationController.popToRootViewController(animated: false)
+            self.presentOnboarding()
+        }
+        coordinator.start()
+
     }
 }
 

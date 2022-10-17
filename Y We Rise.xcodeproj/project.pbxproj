@@ -11,7 +11,7 @@
 		9A12B27528F8C70900D99D67 /* CachingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B27428F8C70900D99D67 /* CachingService.swift */; };
 		9A12B27928F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B27828F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift */; };
 		9A12B28028F9BDB300D99D67 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B27F28F9BDB300D99D67 /* SettingsViewModel.swift */; };
-		9A12B28228F9BDC100D99D67 /* SettingsVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28128F9BDC100D99D67 /* SettingsVIew.swift */; };
+		9A12B28228F9BDC100D99D67 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28128F9BDC100D99D67 /* SettingsView.swift */; };
 		9A12B28428F9BDD600D99D67 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28328F9BDD600D99D67 /* SettingsVC.swift */; };
 		9A12B28628F9BDE800D99D67 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28528F9BDE800D99D67 /* AlarmVC.swift */; };
 		9A12B28928F9BDFD00D99D67 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12B28828F9BDFD00D99D67 /* AlarmView.swift */; };
@@ -83,6 +83,7 @@
 		9AC9C50F28EB922C003EEE6B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C50E28EB922C003EEE6B /* AppCoordinator.swift */; };
 		9AC9C51928EB952D003EEE6B /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C51828EB952D003EEE6B /* OnboardingCoordinator.swift */; };
 		9AC9C51B28EB9540003EEE6B /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C51A28EB9540003EEE6B /* TabCoordinator.swift */; };
+		9AF478AB28FDD852002DF3B4 /* SettingsVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF478AA28FDD852002DF3B4 /* SettingsVCDelegates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,7 +91,7 @@
 		9A12B27428F8C70900D99D67 /* CachingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingService.swift; sourceTree = "<group>"; };
 		9A12B27828F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberVCDelegates.swift; sourceTree = "<group>"; };
 		9A12B27F28F9BDB300D99D67 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		9A12B28128F9BDC100D99D67 /* SettingsVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVIew.swift; sourceTree = "<group>"; };
+		9A12B28128F9BDC100D99D67 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9A12B28328F9BDD600D99D67 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		9A12B28528F9BDE800D99D67 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		9A12B28828F9BDFD00D99D67 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 		9AC9C50E28EB922C003EEE6B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9AC9C51828EB952D003EEE6B /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		9AC9C51A28EB9540003EEE6B /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
+		9AF478AA28FDD852002DF3B4 /* SettingsVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCDelegates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +199,7 @@
 		9A12B27E28F9BD9F00D99D67 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				9A12B28128F9BDC100D99D67 /* SettingsVIew.swift */,
+				9A12B28128F9BDC100D99D67 /* SettingsView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -509,6 +511,7 @@
 			children = (
 				9A12B27F28F9BDB300D99D67 /* SettingsViewModel.swift */,
 				9A12B27E28F9BD9F00D99D67 /* Subviews */,
+				9AF478AA28FDD852002DF3B4 /* SettingsVCDelegates.swift */,
 				9A12B28328F9BDD600D99D67 /* SettingsVC.swift */,
 			);
 			path = Settings;
@@ -701,6 +704,7 @@
 				9A413D5D28ED3C0300D67D0C /* EnterBirthdayView.swift in Sources */,
 				9AC9C50F28EB922C003EEE6B /* AppCoordinator.swift in Sources */,
 				9A12B28028F9BDB300D99D67 /* SettingsViewModel.swift in Sources */,
+				9AF478AB28FDD852002DF3B4 /* SettingsVCDelegates.swift in Sources */,
 				9A413D5728ED2CB400D67D0C /* USTextField.swift in Sources */,
 				9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */,
 				9A89EF2028F0ACA80087A73D /* FirstAlarmViewModel.swift in Sources */,
@@ -722,7 +726,7 @@
 				9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */,
 				9A413D3228EC9B2D00D67D0C /* BaseViewController.swift in Sources */,
 				9A450CC128F5F3980017167D /* FirstAlarmVCDelegates.swift in Sources */,
-				9A12B28228F9BDC100D99D67 /* SettingsVIew.swift in Sources */,
+				9A12B28228F9BDC100D99D67 /* SettingsView.swift in Sources */,
 				9A12B29028F9BE6400D99D67 /* ProfileView.swift in Sources */,
 				9A89EF0028EF6EC40087A73D /* PersmissionsVC.swift in Sources */,
 				9A413D5B28ED3BF400D67D0C /* EnterBirthdayViewModel.swift in Sources */,
@@ -911,7 +915,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Y We Rise/Y We Rise.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5JTTJXL82Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Y We Rise/Info.plist";
@@ -944,7 +948,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Y We Rise/Y We Rise.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5JTTJXL82Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Y We Rise/Info.plist";

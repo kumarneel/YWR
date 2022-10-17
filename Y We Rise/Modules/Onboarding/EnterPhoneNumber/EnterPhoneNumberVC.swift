@@ -37,6 +37,7 @@ class EnterPhoneNumberVC: BaseViewController<EnterPhoneNumberViewModel> {
         super.viewWillAppear(animated)
         setupViewController()
         controllerView.activityView.stopAnimating()
+        navigationController?.setNavigationBarHidden(false, animated: false)
 
     }
 
