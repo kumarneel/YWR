@@ -41,6 +41,7 @@ class TabBarCoordinator {
         nv3.setNavigationBarHidden(true, animated: false)
 
         tabBarController.setViewControllers([settingsNavController, nv2, nv3], animated: true)
+        tabBarController.selectedIndex = 2
         navigationController.viewControllers = [tabBarController]
     }
 

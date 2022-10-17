@@ -86,7 +86,6 @@ class EnterBirthdayView: BaseView {
         addActivityView()
     }
 
-
     func setupDatePicker() {
         // setting up date picker...
         let toolbar = UIToolbar()
