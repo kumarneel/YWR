@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol ProfileViewDelegate: AnyObject {
+    func didTapEditSleepStyle()
+    func didTapEditMotivationStyle()
+}
+
 class ProfileView: BaseView {
 
+    weak var delegate: ProfileViewDelegate?
 
     var user: User? {
         didSet {
@@ -95,10 +101,12 @@ class ProfileView: BaseView {
         return lbl
     }()
 
-    let sleepStyleEditIconImageView: UIImageView = {
+    lazy var sleepStyleEditIconImageView: UIImageView = {
         let imv = UIImageView()
         imv.translatesAutoresizingMaskIntoConstraints = false
         imv.image = UIImage(named: "EditIcon")
+        imv.isUserInteractionEnabled = true
+        imv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleEditSleepStyleIconTapped)))
         return imv
     }()
 
@@ -126,10 +134,12 @@ class ProfileView: BaseView {
         return lbl
     }()
 
-    let motivationStyleIconImageView: UIImageView = {
+    lazy var motivationStyleIconImageView: UIImageView = {
         let imv = UIImageView()
         imv.translatesAutoresizingMaskIntoConstraints = false
         imv.image = UIImage(named: "EditIcon")
+        imv.isUserInteractionEnabled = true
+        imv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleEditMovitionIconTapped)))
         return imv
     }()
 
@@ -273,6 +283,14 @@ class ProfileView: BaseView {
 
     @objc func cancelDatePicker(){
         self.endEditing(true)
+    }
+
+    @objc func handleEditMovitionIconTapped() {
+        delegate?.didTapEditMotivationStyle()
+    }
+
+    @objc func handleEditSleepStyleIconTapped() {
+        delegate?.didTapEditSleepStyle()
     }
 }
 

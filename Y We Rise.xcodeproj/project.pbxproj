@@ -59,6 +59,7 @@
 		9A64E7C428FF3B95006DA4CA /* extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C328FF3B95006DA4CA /* extension+Double.swift */; };
 		9A64E7C628FF4107006DA4CA /* SleepStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C528FF4107006DA4CA /* SleepStyle.swift */; };
 		9A64E7C828FF42CE006DA4CA /* MotivationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C728FF42CE006DA4CA /* MotivationStyle.swift */; };
+		9A64E7CA28FF4760006DA4CA /* ProfileVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C928FF4760006DA4CA /* ProfileVCDelegates.swift */; };
 		9A77148428F8832100F8C2F1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148328F8832100F8C2F1 /* FirebaseAnalytics */; };
 		9A77148628F8832100F8C2F1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148528F8832100F8C2F1 /* FirebaseAuth */; };
 		9A77148828F8832100F8C2F1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148728F8832100F8C2F1 /* FirebaseFirestore */; };
@@ -143,6 +144,7 @@
 		9A64E7C328FF3B95006DA4CA /* extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Double.swift"; sourceTree = "<group>"; };
 		9A64E7C528FF4107006DA4CA /* SleepStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStyle.swift; sourceTree = "<group>"; };
 		9A64E7C728FF42CE006DA4CA /* MotivationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationStyle.swift; sourceTree = "<group>"; };
+		9A64E7C928FF4760006DA4CA /* ProfileVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCDelegates.swift; sourceTree = "<group>"; };
 		9A77148928F8854700F8C2F1 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		9A77148B28F8A2C000F8C2F1 /* Y We Rise.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Y We Rise.entitlements"; sourceTree = "<group>"; };
 		9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameDelegates.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 			children = (
 				9A12B28C28F9BE5000D99D67 /* ProfileViewModel.swift */,
 				9A12B28E28F9BE5300D99D67 /* Subviews */,
+				9A64E7C928FF4760006DA4CA /* ProfileVCDelegates.swift */,
 				9A12B29128F9BE7100D99D67 /* ProfileVC.swift */,
 			);
 			path = Profile;
@@ -792,6 +795,7 @@
 				9A413D3A28ECACCA00D67D0C /* BaseView.swift in Sources */,
 				9A12B28428F9BDD600D99D67 /* SettingsVC.swift in Sources */,
 				9A413D5128ECE4CD00D67D0C /* VerificationTextField.swift in Sources */,
+				9A64E7CA28FF4760006DA4CA /* ProfileVCDelegates.swift in Sources */,
 				9A450CBD28F5DF700017167D /* EnterBirthdayVCDelegates.swift in Sources */,
 				9A413D2E28EC9AF400D67D0C /* GetStartedViewModel.swift in Sources */,
 				9A413D5F28ED3C4F00D67D0C /* EnterBirthdayVC.swift in Sources */,

@@ -11,7 +11,7 @@ import Combine
 class ProfileViewModel: ObservableObject {
 
     enum Event {
-        case didTapEditMotivation
+        case didTapEditMotivation(motivationStyles: [String])
         case didTapEditStyle
     }
     var eventTriggered: ((Event) -> Void)?
@@ -31,4 +31,11 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
+    func didTapEditMotivition(motivationStyles: [String]) {
+        eventTriggered?(.didTapEditMotivation(motivationStyles: motivationStyles))
+    }
+
+    func didTapEditStyle() {
+        eventTriggered?(.didTapEditStyle)
+    }
 }

@@ -14,6 +14,15 @@ protocol MotivationStyleViewDelegate: AnyObject {
 
 class MotivationStyleView: BaseView {
 
+    var isEditing: Bool? {
+        didSet {
+            guard let isEditing = isEditing else { return }
+            onboardingBar.isHidden = isEditing
+            nextBtn.isHidden = isEditing
+            saveChangesBtn.isHidden = !isEditing
+        }
+    }
+
     weak var delegate: MotivationStyleViewDelegate?
 
     let onboardingBar: OnboardingOrangeBar = {
@@ -65,6 +74,17 @@ class MotivationStyleView: BaseView {
         return cv
     }()
 
+    lazy var saveChangesBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Save Changes", for: .normal)
+        btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
+        btn.layer.cornerRadius = 15
+        btn.backgroundColor = UIColor(named: "YWROrange")
+        btn.setTitleColor(#colorLiteral(red: 0.9877046943, green: 0.981163919, blue: 0.9719136357, alpha: 1), for: .normal)
+        return btn
+    }()
+
     override func setupView() {
 
         backgroundColor = UIColor(named: "YWRCream")!
@@ -73,6 +93,7 @@ class MotivationStyleView: BaseView {
          titleLbl,
          subtitleLbl,
          collectionView,
+         saveChangesBtn,
          nextBtn].forEach({addSubview($0)})
 
         NSLayoutConstraint.activate([
@@ -93,6 +114,11 @@ class MotivationStyleView: BaseView {
             collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 25),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: -25),
             collectionView.heightAnchor.constraint(equalToConstant: 350),
+
+            saveChangesBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -54),
+            saveChangesBtn.heightAnchor.constraint(equalToConstant: 69),
+            saveChangesBtn.leftAnchor.constraint(equalTo: leftAnchor, constant: 17),
+            saveChangesBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
 
             nextBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
             nextBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),

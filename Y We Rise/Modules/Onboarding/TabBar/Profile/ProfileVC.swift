@@ -13,7 +13,7 @@ class ProfileVC: BaseViewController<ProfileViewModel> {
     lazy var controllerView: ProfileView = {
         let v = ProfileView()
         v.translatesAutoresizingMaskIntoConstraints = false
-//        v.delegate = self
+        v.delegate = self
         return v
     }()
 

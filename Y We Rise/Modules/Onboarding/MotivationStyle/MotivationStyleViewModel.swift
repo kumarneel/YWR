@@ -15,6 +15,15 @@ class MotivationStyleViewModel {
 
     var eventTriggered: ((Event) -> Void)?
 
+    var isEditing: Bool
+
+    var motivation_styles = [String]()
+
+    init(isEditing: Bool, motivation_styles: [String]? = nil) {
+        self.isEditing = isEditing
+        self.motivation_styles = motivation_styles ?? []
+    }
+
     func didTapNext(stylesArray: [MotivationStyle]) {
         let strArray = stylesArray.map({ return $0.rawValue })
 

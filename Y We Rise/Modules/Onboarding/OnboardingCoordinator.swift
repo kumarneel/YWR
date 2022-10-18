@@ -115,7 +115,7 @@ class OnboardingCoordinator {
     }
 
     private func presentMotivationStyle() {
-        let viewModel = MotivationStyleViewModel()
+        let viewModel = MotivationStyleViewModel(isEditing: false)
         viewModel.eventTriggered = { event in
             switch event {
             case .didTapNext:

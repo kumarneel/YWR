@@ -26,19 +26,16 @@ class TabBarCoordinator {
 
         let settingsNavController = setupSettings()
 
-        let profileNavController = setupProfile()
-
         let alarmViewModel = AlarmViewModel()
         let alarmVC = AlarmVC(viewModel: alarmViewModel)
         let nv2 = UINavigationController(rootViewController: alarmVC)
 
-
-
+        let profileNavController = setupProfile()
 
         nv2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "AlarmIconUnfilled"), selectedImage: UIImage(named: "AlarmIconFilled"))
         nv2.setNavigationBarHidden(true, animated: false)
 
-        tabBarController.setViewControllers([settingsNavController, nv2, nv3], animated: true)
+        tabBarController.setViewControllers([settingsNavController, nv2, profileNavController], animated: true)
         tabBarController.selectedIndex = 2
         navigationController.viewControllers = [tabBarController]
     }
@@ -70,10 +67,10 @@ class TabBarCoordinator {
         let profileViewModel = ProfileViewModel()
         profileViewModel.eventTriggered = { event in
             switch event {
-            case .didTapEditMotivation:
-                break
+            case .didTapEditMotivation(let motivationStyles):
+                self.presentEditMovivation(motivationStyles: motivationStyles)
             case .didTapEditStyle:
-                break
+                self.presentEditSleepStyle()
             }
         }
         let profileVC = ProfileVC(viewModel: profileViewModel)
@@ -86,8 +83,20 @@ class TabBarCoordinator {
 
     }
 
-    func presentEditMovivation() {
-        
+    func presentEditMovivation(motivationStyles: [String]) {
+        let viewModel = MotivationStyleViewModel(isEditing: true, motivation_styles: motivationStyles)
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapNext:
+                self.navigationController.popViewController(animated: true)
+            }
+        }
+        let viewController = MotivationStyleVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func presentEditSleepStyle() {
+
     }
 
 }

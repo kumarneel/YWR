@@ -32,5 +32,6 @@ extension MotivationStyleVC {
     func setupViewController() {
         navigationItem.setHidesBackButton(true, animated: true)
         addControllerView(controllerView)
+        controllerView.isEditing = viewModel.isEditing
     }
 }
