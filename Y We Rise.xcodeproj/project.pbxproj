@@ -54,6 +54,11 @@
 		9A450CC828F601890017167D /* AddMotivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CC728F601890017167D /* AddMotivationView.swift */; };
 		9A450CCF28F60B410017167D /* BaseMotivationImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CCE28F60B410017167D /* BaseMotivationImageView.swift */; };
 		9A450CD128F611080017167D /* AddMotivitionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A450CD028F611080017167D /* AddMotivitionDelegates.swift */; };
+		9A64E7BF28FF109E006DA4CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7BE28FF109E006DA4CA /* User.swift */; };
+		9A64E7C228FF1383006DA4CA /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C128FF1383006DA4CA /* ProfileService.swift */; };
+		9A64E7C428FF3B95006DA4CA /* extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C328FF3B95006DA4CA /* extension+Double.swift */; };
+		9A64E7C628FF4107006DA4CA /* SleepStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C528FF4107006DA4CA /* SleepStyle.swift */; };
+		9A64E7C828FF42CE006DA4CA /* MotivationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C728FF42CE006DA4CA /* MotivationStyle.swift */; };
 		9A77148428F8832100F8C2F1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148328F8832100F8C2F1 /* FirebaseAnalytics */; };
 		9A77148628F8832100F8C2F1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148528F8832100F8C2F1 /* FirebaseAuth */; };
 		9A77148828F8832100F8C2F1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148728F8832100F8C2F1 /* FirebaseFirestore */; };
@@ -133,6 +138,11 @@
 		9A450CC728F601890017167D /* AddMotivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMotivationView.swift; sourceTree = "<group>"; };
 		9A450CCE28F60B410017167D /* BaseMotivationImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMotivationImageView.swift; sourceTree = "<group>"; };
 		9A450CD028F611080017167D /* AddMotivitionDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMotivitionDelegates.swift; sourceTree = "<group>"; };
+		9A64E7BE28FF109E006DA4CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9A64E7C128FF1383006DA4CA /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		9A64E7C328FF3B95006DA4CA /* extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Double.swift"; sourceTree = "<group>"; };
+		9A64E7C528FF4107006DA4CA /* SleepStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStyle.swift; sourceTree = "<group>"; };
+		9A64E7C728FF42CE006DA4CA /* MotivationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationStyle.swift; sourceTree = "<group>"; };
 		9A77148928F8854700F8C2F1 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		9A77148B28F8A2C000F8C2F1 /* Y We Rise.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Y We Rise.entitlements"; sourceTree = "<group>"; };
 		9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameDelegates.swift; sourceTree = "<group>"; };
@@ -271,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				9A413D3C28ECC1D600D67D0C /* extension+UIViewController.swift */,
+				9A64E7C328FF3B95006DA4CA /* extension+Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +370,22 @@
 			path = Motivation;
 			sourceTree = "<group>";
 		};
+		9A64E7BD28FF1054006DA4CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9A64E7BE28FF109E006DA4CA /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9A64E7C028FF1377006DA4CA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9A64E7C128FF1383006DA4CA /* ProfileService.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		9A89EEFC28EF6EAC0087A73D /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +399,7 @@
 			children = (
 				9A89EF0C28EF77A20087A73D /* SleepStyleView.swift */,
 				9A89EF0E28EF79600087A73D /* SleepStyleCell.swift */,
+				9A64E7C528FF4107006DA4CA /* SleepStyle.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -381,6 +409,7 @@
 			children = (
 				9A89EF1528EFC6D40087A73D /* MotivationStyleView.swift */,
 				9A89EF1728EFC8B10087A73D /* MotivationStyleCell.swift */,
+				9A64E7C728FF42CE006DA4CA /* MotivationStyle.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -427,6 +456,7 @@
 				9AC9C4FF28EB915A003EEE6B /* Info.plist */,
 				9A12B27228F8B45F00D99D67 /* GoogleService-Info.plist */,
 				9AC9C50728EB919F003EEE6B /* Foundation */,
+				9A64E7BD28FF1054006DA4CA /* Models */,
 				9A413D2F28EC9AFF00D67D0C /* Resuable */,
 				9AC9C50628EB9194003EEE6B /* Services */,
 				9A413D3B28ECC1C300D67D0C /* Extensions */,
@@ -449,6 +479,7 @@
 		9AC9C50628EB9194003EEE6B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9A64E7C028FF1377006DA4CA /* Profile */,
 				9A12B27628F8C72400D99D67 /* Onboarding */,
 				9A12B27728F8C72D00D99D67 /* Caching */,
 			);
@@ -700,6 +731,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A64E7C428FF3B95006DA4CA /* extension+Double.swift in Sources */,
 				9A89EF1C28F0AC8F0087A73D /* FirstAlarmVC.swift in Sources */,
 				9A413D5D28ED3C0300D67D0C /* EnterBirthdayView.swift in Sources */,
 				9AC9C50F28EB922C003EEE6B /* AppCoordinator.swift in Sources */,
@@ -741,10 +773,13 @@
 				9AC9C51B28EB9540003EEE6B /* TabCoordinator.swift in Sources */,
 				9A450CBF28F5E9960017167D /* MotivationStyleVCDelegates.swift in Sources */,
 				9A413D3F28ECCFA100D67D0C /* EnterPhoneNumberViewModel.swift in Sources */,
+				9A64E7C228FF1383006DA4CA /* ProfileService.swift in Sources */,
 				9A12B28B28F9BE0C00D99D67 /* AlarmViewModel.swift in Sources */,
 				9A12B29228F9BE7100D99D67 /* ProfileVC.swift in Sources */,
 				9A89EF1628EFC6D40087A73D /* MotivationStyleView.swift in Sources */,
 				9A413D6D28ED488800D67D0C /* EnterNameView.swift in Sources */,
+				9A64E7BF28FF109E006DA4CA /* User.swift in Sources */,
+				9A64E7C828FF42CE006DA4CA /* MotivationStyle.swift in Sources */,
 				9A450CC828F601890017167D /* AddMotivationView.swift in Sources */,
 				9A450CCF28F60B410017167D /* BaseMotivationImageView.swift in Sources */,
 				9A89EF0F28EF79600087A73D /* SleepStyleCell.swift in Sources */,
@@ -766,6 +801,7 @@
 				9A12B28628F9BDE800D99D67 /* AlarmVC.swift in Sources */,
 				9A12B28928F9BDFD00D99D67 /* AlarmView.swift in Sources */,
 				9A413D6A28ED485A00D67D0C /* EnterNameViewModel.swift in Sources */,
+				9A64E7C628FF4107006DA4CA /* SleepStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,7 +951,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Y We Rise/Y We Rise.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 5JTTJXL82Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Y We Rise/Info.plist";
@@ -948,7 +984,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Y We Rise/Y We Rise.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 5JTTJXL82Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Y We Rise/Info.plist";

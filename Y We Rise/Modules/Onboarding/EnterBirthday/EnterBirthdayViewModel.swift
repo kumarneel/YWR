@@ -17,7 +17,7 @@ class EnterBirthdayViewModel {
     var date: Double = 0.0
 
     func didTapSaveBirthday() {
-        OnboardingService.instance.saveBirthday(birthday: date) { [weak self] success in
+        ProfileService.instance.saveBirthday(birthday: date) { [weak self] success in
             if success {
                 self?.eventTriggered?(.didTapSaveBirthday)
             }

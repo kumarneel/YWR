@@ -18,7 +18,7 @@ class MotivationStyleViewModel {
     func didTapNext(stylesArray: [MotivationStyle]) {
         let strArray = stylesArray.map({ return $0.rawValue })
 
-        OnboardingService.instance.saveMotivationsStyles(styles: strArray) { [weak self] success in
+        ProfileService.instance.saveMotivationsStyles(styles: strArray) { [weak self] success in
             if success {
                 self?.eventTriggered?(.didTapNext)
             }

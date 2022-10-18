@@ -16,7 +16,7 @@ class SleepStyleViewModel {
 
     func didTapNext(stylesArray: [SleepStyle]) {
         let stringArr = stylesArray.map({ return $0.rawValue })
-        OnboardingService.instance.saveSleepStyles(styles: stringArr) { [weak self] success in
+        ProfileService.instance.saveSleepStyles(styles: stringArr) { [weak self] success in
             self?.eventTriggered?(.didTapNext)
         }
     }

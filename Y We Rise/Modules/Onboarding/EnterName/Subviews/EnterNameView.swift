@@ -54,6 +54,7 @@ class EnterNameView: BaseView {
         tf.layer.borderWidth = 3
         tf.layer.borderColor = UIColor.clear.cgColor
         tf.clearButtonMode = .whileEditing
+        tf.autocorrectionType = .no
         return tf
     }()
 

@@ -42,28 +42,4 @@ class OnboardingService {
             }
         }
     }
-
-    func saveName(name: String, handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["name": name], merge: true) { error in
-            handler(error == nil)
-        }
-    }
-
-    func saveBirthday(birthday: Double, handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["birthday": birthday], merge: true) { error in
-            handler(error == nil)
-        }
-    }
-
-    func saveSleepStyles(styles: [String], handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["sleep_styles": styles], merge: true) { error in
-            handler(error == nil)
-        }
-    }
-    
-    func saveMotivationsStyles(styles: [String], handler: @escaping(_ success: Bool) -> Void) {
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData(["motivation_styles": styles], merge: true) { error in
-            handler(error == nil)
-        }
-    }
 }

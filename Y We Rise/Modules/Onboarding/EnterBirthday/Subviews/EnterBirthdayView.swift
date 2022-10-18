@@ -113,8 +113,6 @@ class EnterBirthdayView: BaseView {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM d, yyyy"
         birthdayTextField.text = formatter.string(from: datePicker.date)
-        formatter.dateFormat = "MM-dd-yyyy"
-        //        userBirthdayString = formatter.string(from: datePicker.date)
         birthdayTextField.layer.borderWidth = 0
         self.endEditing(true)
         delegate?.didTapDone(date: datePicker.date)

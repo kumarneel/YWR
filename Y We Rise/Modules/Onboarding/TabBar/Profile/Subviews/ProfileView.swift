@@ -9,6 +9,17 @@ import UIKit
 
 class ProfileView: BaseView {
 
+
+    var user: User? {
+        didSet {
+            guard let user = user else { return }
+            nameTextField.text = user.name
+            birthdayTextField.text = user.birthday.getBirthdayFromTimestamp()
+            sleepStyleCollectionView.reloadData()
+            motivationStyleCollectionView.reloadData()
+        }
+    }
+
     var scrollView: UIScrollView!
 
     let roundView: UIView = {
@@ -137,7 +148,7 @@ class ProfileView: BaseView {
     }()
 
     var datePicker = UIDatePicker()
-
+    
     override func setupView() {
         let screensize: CGRect = UIScreen.main.bounds
         let screenWidth = screensize.width
@@ -215,6 +226,7 @@ class ProfileView: BaseView {
 
         setupDatePicker()
 
+        addActivityView()
     }
 
     @objc func handleTextChange(_ textField: UITextField) {
@@ -267,12 +279,12 @@ class ProfileView: BaseView {
 extension ProfileView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let user = user else { return 0 }
         if collectionView == sleepStyleCollectionView {
-            return 3
+            return user.sleep_styles.count
         } else {
-            return 12
+            return user.motivation_styles.count
         }
-
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -280,48 +292,25 @@ extension ProfileView: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let user = user else { return UICollectionViewCell() }
         if collectionView == sleepStyleCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepStyleCell.ResuableIdentifier, for: indexPath) as? SleepStyleCell else { return UICollectionViewCell() }
             cell.setupView()
-    //        cell.delegate = self
-            if indexPath.item == 0 {
-                cell.setupStyle(sleepStyle: .nightOwl)
-            } else if indexPath.item == 1 {
-                cell.setupStyle(sleepStyle: .earlyBird)
-            } else if indexPath.item == 2 {
-                cell.setupStyle(sleepStyle: .wakerUpper)
-            }
+            var style: SleepStyle = .nightOwl
+            style = style.getCorrectStyle(name: user.sleep_styles[indexPath.item])
+
+            cell.setupStyle(sleepStyle: style)
             cell.setupCellBorder()
+            cell.isUserInteractionEnabled = false
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MotivationStyleCell.ResuableIdentifier, for: indexPath) as? MotivationStyleCell else { return UICollectionViewCell() }
             cell.setupView()
-//            cell.delegate = self
-            if indexPath.row == 0 {
-                cell.setupStyle(style: .family)
-            }else if indexPath.row == 1 {
-                cell.setupStyle(style: .wealth)
-            }else if indexPath.row == 2 {
-                cell.setupStyle(style: .cars)
-            }else if indexPath.row == 3 {
-                cell.setupStyle(style: .love)
-            }else if indexPath.row == 4 {
-                cell.setupStyle(style: .career)
-            }else if indexPath.row == 5 {
-                cell.setupStyle(style: .kids)
-            }else if indexPath.row == 6 {
-                cell.setupStyle(style: .fame)
-            }else if indexPath.row == 7 {
-                cell.setupStyle(style: .health)
-            }else if indexPath.row == 8 {
-                cell.setupStyle(style: .winning)
-            }else if indexPath.row == 9 {
-                cell.setupStyle(style: .power)
-            }else if indexPath.row == 10 {
-                cell.setupStyle(style: .partner)
-            }else if indexPath.row == 11 {
-                cell.setupStyle(style: .fear)
-            }
+            var style: MotivationStyle = .fear
+            style = style.getCorrectMotivation(name: user.motivation_styles[indexPath.item])
+            cell.setupStyle(style: style)
+            cell.isUserInteractionEnabled = false
+            cell.handleCellTapped()
             return cell
         }
     }

@@ -7,12 +7,6 @@
 
 import UIKit
 
-enum SleepStyle: String {
-    case nightOwl = "nightOwl"
-    case earlyBird = "earlyBird"
-    case wakerUpper = "wakerUpper"
-}
-
 protocol SleepStyleCellDelegate: AnyObject {
     func didTapCell(sleepStyle: SleepStyle, selected: Bool)
 }

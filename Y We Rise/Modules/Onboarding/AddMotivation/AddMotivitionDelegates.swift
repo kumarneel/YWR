@@ -14,7 +14,7 @@ extension AddMotivationVC: AddMotivationViewDelegate {
     }
 
     func didTapNext() {
-
+        viewModel.didTapNext(alarmString: "yo")
     }
 }
 

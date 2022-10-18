@@ -6,7 +6,29 @@
 //
 
 import Foundation
+import Combine
 
-class ProfileViewModel {
-    
+class ProfileViewModel: ObservableObject {
+
+    enum Event {
+        case didTapEditMotivation
+        case didTapEditStyle
+    }
+    var eventTriggered: ((Event) -> Void)?
+
+    @Published var user: User? = nil
+
+    let observable = PassthroughSubject<Void, Never>()
+
+    init() {
+        getUser()
+    }
+
+    func getUser() {
+        ProfileService.instance.getUser { [weak self] user in
+            self?.user = user
+            self?.observable.send()
+        }
+    }
+
 }

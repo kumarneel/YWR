@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class ProfileVC: BaseViewController<ProfileViewModel> {
 
@@ -16,14 +17,33 @@ class ProfileVC: BaseViewController<ProfileViewModel> {
         return v
     }()
 
+    private var cancellables: Set<AnyCancellable> = []
+
+    var didLaunch = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
+        bindViewModel()
+
+        if !didLaunch {
+            controllerView.activityView.startAnimating()
+            didLaunch = true
+        }
+    }
+
+    func bindViewModel() {
+        viewModel.observable.sink { [weak self] in
+            guard let self = self else { return }
+            self.controllerView.activityView.stopAnimating()
+            self.controllerView.user = self.viewModel.user
+        }.store(in: &cancellables)
     }
 }
 

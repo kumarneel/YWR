@@ -7,21 +7,6 @@
 
 import UIKit
 
-enum MotivationStyle: String {
-    case family = "family"
-    case wealth = "wealth"
-    case cars = "cars"
-    case love = "love"
-    case career = "careers"
-    case kids = "kids"
-    case fame = "fame"
-    case health = "health"
-    case winning = "winning"
-    case power = "power"
-    case partner = "partner"
-    case fear = "fear"
-}
-
 protocol MotivationStyleCellDelegate: AnyObject {
     func didTapCell(motivationStyle: MotivationStyle, selected: Bool)
 }
