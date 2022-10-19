@@ -31,6 +31,22 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
+    func updateName(name: String) {
+        ProfileService.instance.saveName(name: name) { [weak self] success in
+            if success {
+                self?.user?.name = name
+            }
+        }
+    }
+
+    func updateBirthday(date: Double) {
+        ProfileService.instance.saveBirthday(birthday: date) { [weak self] success in
+            if success {
+                self?.user?.birthday = Int(date)
+            }
+        }
+    }
+
     func didTapEditMotivition() {
         guard let user = user else { return }
         eventTriggered?(.didTapEditMotivation(motivationStyles: user.motivation_styles))

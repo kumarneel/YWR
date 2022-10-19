@@ -9,10 +9,10 @@ import Foundation
 
 
 struct User {
-    let birthday: Int
-    let motivation_styles: [String]
-    let sleep_styles: [String]
-    let name: String
+    var birthday: Int
+    var motivation_styles: [String]
+    var sleep_styles: [String]
+    var name: String
 
     init(dictionary: [String: Any]) {
         self.birthday = dictionary["birthday"] as? Int ?? 0

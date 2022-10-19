@@ -10,6 +10,8 @@ import UIKit
 protocol ProfileViewDelegate: AnyObject {
     func didTapEditSleepStyle()
     func didTapEditMotivationStyle()
+    func didUpdateBirthday(date: Date)
+    func didUpdateName(name: String)
 }
 
 class ProfileView: BaseView {
@@ -53,18 +55,19 @@ class ProfileView: BaseView {
         return lbl
     }()
 
-    let nameTextField: UITextField = {
+    lazy var nameTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.backgroundColor = UIColor(named: "YWRCreamDarkened")
+        tf.delegate = self
         tf.layer.cornerRadius = 15
         tf.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         tf.placeholder = "Name"
         tf.textAlignment = .center
-        tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         tf.layer.borderWidth = 3
         tf.layer.borderColor = UIColor.clear.cgColor
         tf.clearButtonMode = .whileEditing
+        tf.returnKeyType = .done
         return tf
     }()
 
@@ -77,15 +80,15 @@ class ProfileView: BaseView {
         return lbl
     }()
 
-    let birthdayTextField: UITextField = {
+    lazy var birthdayTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.delegate = self
         tf.backgroundColor = UIColor(named: "YWRCreamDarkened")
         tf.layer.cornerRadius = 15
         tf.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         tf.placeholder = "10/22/2000"
         tf.textAlignment = .center
-        tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         tf.layer.borderWidth = 3
         tf.layer.borderColor = UIColor.clear.cgColor
         tf.clearButtonMode = .whileEditing
@@ -239,14 +242,6 @@ class ProfileView: BaseView {
         addActivityView()
     }
 
-    @objc func handleTextChange(_ textField: UITextField) {
-        if textField == nameTextField {
-
-        } else if textField == birthdayTextField {
-
-        }
-    }
-
     func setupDatePicker() {
         // setting up date picker...
         let toolbar = UIToolbar()
@@ -278,7 +273,7 @@ class ProfileView: BaseView {
         birthdayTextField.layer.borderWidth = 0
         self.endEditing(true)
         // TODO: Save new date to firebase
-//        delegate?.didTapDone(date: datePicker.date)
+        delegate?.didUpdateBirthday(date: datePicker.date)
     }
 
     @objc func cancelDatePicker(){
@@ -296,6 +291,8 @@ class ProfileView: BaseView {
 
 extension ProfileView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
+
+    // MARK: CollectionView Delegates
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let user = user else { return 0 }
         if collectionView == sleepStyleCollectionView {
@@ -348,5 +345,26 @@ extension ProfileView: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         } else {
             return 0
         }
+    }
+
+    // MARK: UITextFieldDelegates
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if textField == nameTextField {
+            delegate?.didUpdateName(name: text)
+        } else {
+
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else { return true}
+
+        if textField == nameTextField {
+            delegate?.didUpdateName(name: text)
+        }
+        self.endEditing(true)
+        return true
     }
 }
