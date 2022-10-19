@@ -9,7 +9,7 @@ import UIKit
 
 extension VerifyPhoneNumberVC: VerifyPhoneNumberViewDelegate {
     func didUpdateCode(code: String) {
-        print(code)
+        print("verification code: ", code)
         viewModel.code = code
         if code.count > 5 {
             sendCodeBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)

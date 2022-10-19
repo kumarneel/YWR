@@ -191,6 +191,7 @@ extension VerifyPhoneNumberView: VerificationCodeTextFieldDelegate, UITextFieldD
 
     /// handle enter number
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        handleUpdateText()
         if (string != "") {
             if (textField.text == "") {
                 updateStyleForTextFields(style: .typing)
@@ -206,7 +207,7 @@ extension VerifyPhoneNumberView: VerificationCodeTextFieldDelegate, UITextFieldD
                 if (nextResponder != nil) {
                     nextResponder?.becomeFirstResponder()
                 }
-
+//                handleUpdateText()
             }
             return false
         }

@@ -23,7 +23,7 @@ class TabBarCoordinator {
 
     private func setupTabBar() {
         let tabBarController = UITabBarController()
-
+        tabBarController.overrideUserInterfaceStyle = .light
         let settingsNavController = setupSettings()
 
         let alarmViewModel = AlarmViewModel()
