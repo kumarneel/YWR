@@ -60,6 +60,7 @@
 		9A64E7C628FF4107006DA4CA /* SleepStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C528FF4107006DA4CA /* SleepStyle.swift */; };
 		9A64E7C828FF42CE006DA4CA /* MotivationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C728FF42CE006DA4CA /* MotivationStyle.swift */; };
 		9A64E7CA28FF4760006DA4CA /* ProfileVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C928FF4760006DA4CA /* ProfileVCDelegates.swift */; };
+		9A64E7CD28FF8A3B006DA4CA /* Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7CC28FF8A3B006DA4CA /* Observers.swift */; };
 		9A77148428F8832100F8C2F1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148328F8832100F8C2F1 /* FirebaseAnalytics */; };
 		9A77148628F8832100F8C2F1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148528F8832100F8C2F1 /* FirebaseAuth */; };
 		9A77148828F8832100F8C2F1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9A77148728F8832100F8C2F1 /* FirebaseFirestore */; };
@@ -145,6 +146,7 @@
 		9A64E7C528FF4107006DA4CA /* SleepStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStyle.swift; sourceTree = "<group>"; };
 		9A64E7C728FF42CE006DA4CA /* MotivationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationStyle.swift; sourceTree = "<group>"; };
 		9A64E7C928FF4760006DA4CA /* ProfileVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCDelegates.swift; sourceTree = "<group>"; };
+		9A64E7CC28FF8A3B006DA4CA /* Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observers.swift; sourceTree = "<group>"; };
 		9A77148928F8854700F8C2F1 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		9A77148B28F8A2C000F8C2F1 /* Y We Rise.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Y We Rise.entitlements"; sourceTree = "<group>"; };
 		9A89EEFA28EF6A000087A73D /* EnterNameDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameDelegates.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		9A413D2F28EC9AFF00D67D0C /* Resuable */ = {
 			isa = PBXGroup;
 			children = (
+				9A64E7CB28FF8A28006DA4CA /* Observers */,
 				9A450CCB28F603D60017167D /* Motivation */,
 				9A413D6328ED3DA900D67D0C /* OnboardingOrangeBar */,
 				9A413D5528ED2CA600D67D0C /* USTextField */,
@@ -386,6 +389,14 @@
 				9A64E7C128FF1383006DA4CA /* ProfileService.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		9A64E7CB28FF8A28006DA4CA /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				9A64E7CC28FF8A3B006DA4CA /* Observers.swift */,
+			);
+			path = Observers;
 			sourceTree = "<group>";
 		};
 		9A89EEFC28EF6EAC0087A73D /* Subviews */ = {
@@ -764,6 +775,7 @@
 				9A12B28228F9BDC100D99D67 /* SettingsView.swift in Sources */,
 				9A12B29028F9BE6400D99D67 /* ProfileView.swift in Sources */,
 				9A89EF0028EF6EC40087A73D /* PersmissionsVC.swift in Sources */,
+				9A64E7CD28FF8A3B006DA4CA /* Observers.swift in Sources */,
 				9A413D5B28ED3BF400D67D0C /* EnterBirthdayViewModel.swift in Sources */,
 				9A89EF1E28F0AC9C0087A73D /* FirstAlarmView.swift in Sources */,
 				9A89EF0428EF72D50087A73D /* PermissionsVCDelegates.swift in Sources */,

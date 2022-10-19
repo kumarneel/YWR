@@ -30,7 +30,7 @@ class ProfileVC: BaseViewController<ProfileViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
-        bindViewModel()
+        setupObservers()
 
         if !didLaunch {
             controllerView.activityView.startAnimating()
@@ -38,13 +38,22 @@ class ProfileVC: BaseViewController<ProfileViewModel> {
         }
     }
 
-    func bindViewModel() {
+    func setupObservers() {
         viewModel.observable.sink { [weak self] in
             guard let self = self else { return }
             self.controllerView.activityView.stopAnimating()
             self.controllerView.user = self.viewModel.user
         }.store(in: &cancellables)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateUserInformation), name: Notification.Name(Observers.updateUserInfo), object: nil)
+
     }
+
+    @objc func handleUpdateUserInformation() {
+        controllerView.activityView.startAnimating()
+        viewModel.getUser()
+    }
+
 }
 
 extension ProfileVC {

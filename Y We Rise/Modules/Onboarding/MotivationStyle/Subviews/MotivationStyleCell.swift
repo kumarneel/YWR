@@ -87,6 +87,11 @@ class MotivationStyleCell: UICollectionViewCell {
             delegate?.didTapCell(motivationStyle: motivationStyle, selected: cellSelected)
         }
     }
+
+    func setupSelectedCell() {
+        titleLbl.textColor = #colorLiteral(red: 0.9752898812, green: 0.9653753638, blue: 0.9498916268, alpha: 1)
+        backgroundColor = UIColor(named: "YWROrange")
+    }
 }
 
 

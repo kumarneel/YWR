@@ -29,6 +29,7 @@ class MotivationStyleViewModel {
 
         ProfileService.instance.saveMotivationsStyles(styles: strArray) { [weak self] success in
             if success {
+                NotificationCenter.default.post(name: Notification.Name(Observers.updateUserInfo), object: nil)
                 self?.eventTriggered?(.didTapNext)
             }
         }

@@ -33,5 +33,6 @@ extension MotivationStyleVC {
         navigationItem.setHidesBackButton(true, animated: true)
         addControllerView(controllerView)
         controllerView.isEditing = viewModel.isEditing
+        controllerView.motivationStyles = viewModel.motivation_styles
     }
 }

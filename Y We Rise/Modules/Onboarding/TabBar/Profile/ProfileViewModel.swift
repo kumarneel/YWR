@@ -31,8 +31,10 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
-    func didTapEditMotivition(motivationStyles: [String]) {
-        eventTriggered?(.didTapEditMotivation(motivationStyles: motivationStyles))
+    func didTapEditMotivition() {
+        guard let user = user else { return }
+        print(user.motivation_styles)
+        eventTriggered?(.didTapEditMotivation(motivationStyles: user.motivation_styles))
     }
 
     func didTapEditStyle() {

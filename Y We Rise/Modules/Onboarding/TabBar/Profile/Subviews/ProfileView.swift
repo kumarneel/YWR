@@ -328,7 +328,7 @@ extension ProfileView: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             style = style.getCorrectMotivation(name: user.motivation_styles[indexPath.item])
             cell.setupStyle(style: style)
             cell.isUserInteractionEnabled = false
-            cell.handleCellTapped()
+            cell.setupSelectedCell()
             return cell
         }
     }

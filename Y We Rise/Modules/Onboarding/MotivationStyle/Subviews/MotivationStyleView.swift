@@ -10,6 +10,7 @@ import UIKit
 protocol MotivationStyleViewDelegate: AnyObject {
     func didTapCell(motivationStyle: MotivationStyle, selected: Bool)
     func didTapNext()
+    func didTapSave()
 }
 
 class MotivationStyleView: BaseView {
@@ -20,8 +21,15 @@ class MotivationStyleView: BaseView {
             onboardingBar.isHidden = isEditing
             nextBtn.isHidden = isEditing
             saveChangesBtn.isHidden = !isEditing
+
+            if isEditing {
+                titleLbl.text = "Motivation Preferences"
+                subtitleLbl.text = "Pick at least two things that\nmotivate you. These will be used in\nlater YWR updates."
+            }
         }
     }
+
+    var motivationStyles: [String]? 
 
     weak var delegate: MotivationStyleViewDelegate?
 
@@ -47,7 +55,7 @@ class MotivationStyleView: BaseView {
         lbl.text = "Pick at least two categories\nthat motivate you."
         lbl.textColor = UIColor(named: "YWRCreamText")
         lbl.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        lbl.numberOfLines = 2
+        lbl.numberOfLines = 3
         return lbl
     }()
 
@@ -82,6 +90,7 @@ class MotivationStyleView: BaseView {
         btn.layer.cornerRadius = 15
         btn.backgroundColor = UIColor(named: "YWROrange")
         btn.setTitleColor(#colorLiteral(red: 0.9877046943, green: 0.981163919, blue: 0.9719136357, alpha: 1), for: .normal)
+        btn.addTarget(self, action: #selector(handleSaveChangesBtnPressed), for: .touchUpInside)
         return btn
     }()
 
@@ -138,6 +147,10 @@ class MotivationStyleView: BaseView {
         nextBtn.isUserInteractionEnabled = canProceed
     }
 
+    @objc func handleSaveChangesBtnPressed() {
+        delegate?.didTapSave()
+    }
+
     @objc func handleDidTapNext() {
         delegate?.didTapNext()
     }
@@ -182,6 +195,10 @@ extension MotivationStyleView: UICollectionViewDelegate, UICollectionViewDataSou
         }else if indexPath.row == 11 {
             cell.setupStyle(style: .fear)
         }
+
+        if isMotivitionAlreadySelected(style: cell.motivationStyle) {
+            cell.handleCellTapped()
+        }
         return cell
     }
 
@@ -194,5 +211,20 @@ extension MotivationStyleView: UICollectionViewDelegate, UICollectionViewDataSou
 extension MotivationStyleView: MotivationStyleCellDelegate {
     func didTapCell(motivationStyle: MotivationStyle, selected: Bool) {
         delegate?.didTapCell(motivationStyle: motivationStyle, selected: selected)
+    }
+}
+
+extension MotivationStyleView {
+    func isMotivitionAlreadySelected(style: MotivationStyle) -> Bool {
+        guard let motivationStyles = motivationStyles else { return false }
+
+        for styleString in motivationStyles {
+            var alreadySelectedStyle: MotivationStyle = .fear
+            alreadySelectedStyle = alreadySelectedStyle.getCorrectMotivation(name: styleString)
+            if style == alreadySelectedStyle {
+                return true
+            }
+        }
+        return false
     }
 }
