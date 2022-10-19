@@ -103,7 +103,7 @@ class OnboardingCoordinator {
     }
 
     private func presentSleepStyle() {
-        let viewModel = SleepStyleViewModel()
+        let viewModel = SleepStyleViewModel(isEditing: false)
         viewModel.eventTriggered = { event in
             switch event {
             case .didTapNext:

@@ -12,7 +12,7 @@ class ProfileViewModel: ObservableObject {
 
     enum Event {
         case didTapEditMotivation(motivationStyles: [String])
-        case didTapEditStyle
+        case didTapEditStyle(sleepStyles: [String])
     }
     var eventTriggered: ((Event) -> Void)?
 
@@ -33,11 +33,11 @@ class ProfileViewModel: ObservableObject {
 
     func didTapEditMotivition() {
         guard let user = user else { return }
-        print(user.motivation_styles)
         eventTriggered?(.didTapEditMotivation(motivationStyles: user.motivation_styles))
     }
 
     func didTapEditStyle() {
-        eventTriggered?(.didTapEditStyle)
+        guard let user = user else { return }
+        eventTriggered?(.didTapEditStyle(sleepStyles: user.sleep_styles))
     }
 }

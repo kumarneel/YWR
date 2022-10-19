@@ -15,6 +15,12 @@ extension SleepStyleVC: SleepStyleViewDelegate {
         controllerView.activityView.startAnimating()
         viewModel.didTapNext(stylesArray: selectedSleepStyleArray)
     }
+
+    func didTapSave() {
+        controllerView.activityView.startAnimating()
+        viewModel.didTapNext(stylesArray: selectedSleepStyleArray)
+    }
+
     func didTapStyle(sleepStyle: SleepStyle, selected: Bool) {
         if selected {
             selectedSleepStyleArray.append(sleepStyle)
@@ -22,6 +28,7 @@ extension SleepStyleVC: SleepStyleViewDelegate {
             for i in 0...selectedSleepStyleArray.count-1 {
                 if selectedSleepStyleArray[i] == sleepStyle {
                     selectedSleepStyleArray.remove(at: i)
+                    break // crash fix
                 }
             }
         }

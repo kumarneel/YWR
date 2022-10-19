@@ -69,8 +69,8 @@ class TabBarCoordinator {
             switch event {
             case .didTapEditMotivation(let motivationStyles):
                 self.presentEditMovivation(motivationStyles: motivationStyles)
-            case .didTapEditStyle:
-                self.presentEditSleepStyle()
+            case .didTapEditStyle(let sleepStyles):
+                self.presentEditSleepStyle(sleepStyles: sleepStyles)
             }
         }
         let profileVC = ProfileVC(viewModel: profileViewModel)
@@ -95,8 +95,16 @@ class TabBarCoordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func presentEditSleepStyle() {
-
+    func presentEditSleepStyle(sleepStyles: [String]) {
+        let viewModel = SleepStyleViewModel(isEditing: true, sleep_styles: sleepStyles)
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapNext:
+                self.navigationController.popViewController(animated: true)
+            }
+        }
+        let viewController = SleepStyleVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
 }

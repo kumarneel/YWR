@@ -16,7 +16,7 @@ extension MotivationStyleVC: MotivationStyleViewDelegate {
             for i in 0...selectedMotivationStyleArray.count-1 {
                 if selectedMotivationStyleArray[i] == motivationStyle {
                     selectedMotivationStyleArray.remove(at: i)
-                    break
+                    break // crash fix
                 }
             }
         }

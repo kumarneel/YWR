@@ -32,5 +32,7 @@ extension SleepStyleVC {
     func setupViewController() {
         navigationItem.setHidesBackButton(true, animated: true)
         addControllerView(controllerView)
+        controllerView.isEditing = viewModel.isEditing
+        controllerView.sleepStyles = viewModel.sleep_styles
     }
 }

@@ -10,9 +10,26 @@ import UIKit
 protocol SleepStyleViewDelegate: AnyObject {
     func didTapNext()
     func didTapStyle(sleepStyle: SleepStyle, selected: Bool)
+    func didTapSave()
 }
 
 class SleepStyleView: BaseView {
+
+    var isEditing: Bool? {
+        didSet {
+            guard let isEditing = isEditing else { return }
+            onboardingBar.isHidden = isEditing
+            nextBtn.isHidden = isEditing
+            saveChangesBtn.isHidden = !isEditing
+
+            if isEditing {
+                titleLbl.text = "Sleep Preferences"
+                subtitleLbl.text = "Pick the sleep type that best\nrepresents you. These will be used\nin later YWR updates."
+            }
+        }
+    }
+
+    var sleepStyles: [String]?
 
     weak var delegate: SleepStyleViewDelegate?
 
@@ -38,7 +55,7 @@ class SleepStyleView: BaseView {
         lbl.text = "Pick the one that most describes\nyour average sleep habits."
         lbl.textColor = UIColor(named: "YWRCreamText")
         lbl.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        lbl.numberOfLines = 2
+        lbl.numberOfLines = 3
         return lbl
     }()
 
@@ -66,6 +83,17 @@ class SleepStyleView: BaseView {
         return cv
     }()
 
+    lazy var saveChangesBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Save Changes", for: .normal)
+        btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
+        btn.layer.cornerRadius = 15
+        btn.backgroundColor = UIColor(named: "YWROrange")
+        btn.setTitleColor(#colorLiteral(red: 0.9877046943, green: 0.981163919, blue: 0.9719136357, alpha: 1), for: .normal)
+        btn.addTarget(self, action: #selector(handleSaveChangesBtnPressed), for: .touchUpInside)
+        return btn
+    }()
 
     override func setupView() {
         backgroundColor = UIColor(named: "YWRCream")!
@@ -74,6 +102,7 @@ class SleepStyleView: BaseView {
          titleLbl,
          subtitleLbl,
          collectionView,
+         saveChangesBtn,
          nextBtn].forEach({addSubview($0)})
 
         NSLayoutConstraint.activate([
@@ -95,6 +124,11 @@ class SleepStyleView: BaseView {
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
 
+            saveChangesBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -54),
+            saveChangesBtn.heightAnchor.constraint(equalToConstant: 69),
+            saveChangesBtn.leftAnchor.constraint(equalTo: leftAnchor, constant: 17),
+            saveChangesBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
+
             nextBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
             nextBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),
 
@@ -107,6 +141,10 @@ class SleepStyleView: BaseView {
 
     @objc func handleDidTapNext() {
         delegate?.didTapNext()
+    }
+
+    @objc func handleSaveChangesBtnPressed() {
+        delegate?.didTapSave()
     }
 }
 
@@ -132,6 +170,10 @@ extension SleepStyleView: UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.setupStyle(sleepStyle: .wakerUpper)
         }
         cell.setupCellBorder()
+
+        if isSleepStyleAlreadySelected(style: cell.sleepStyle) {
+            cell.handleCellTapped()
+        }
         return cell
     }
 
@@ -149,5 +191,20 @@ extension SleepStyleView: SleepStyleCellDelegate {
         nextBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
         nextBtn.isUserInteractionEnabled = true
         delegate?.didTapStyle(sleepStyle: sleepStyle, selected: selected)
+    }
+}
+
+extension SleepStyleView {
+    func isSleepStyleAlreadySelected(style: SleepStyle) -> Bool {
+        guard let sleepStyles = sleepStyles else { return false }
+
+        for styleString in sleepStyles {
+            var alreadySelectedStyle: SleepStyle = .nightOwl
+            alreadySelectedStyle = alreadySelectedStyle.getCorrectStyle(name: styleString)
+            if style == alreadySelectedStyle {
+                return true
+            }
+        }
+        return false
     }
 }
