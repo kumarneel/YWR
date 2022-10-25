@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol AlarmViewDelegate: AnyObject {
+    func didTapAddNewAlarm()
+}
+
 class AlarmView: BaseView {
+
+    weak var delegate: AlarmViewDelegate?
 
     let YWRLogo: UIImageView = {
         let imv = UIImageView()
@@ -44,8 +50,8 @@ class AlarmView: BaseView {
             tableView.rightAnchor.constraint(equalTo: rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
 
+    }
 }
 
 extension AlarmView: UITableViewDelegate, UITableViewDataSource {
@@ -74,6 +80,7 @@ extension AlarmView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = NewAlarmFooterView()
+        footerView.delegate = self
         return footerView
     }
 
@@ -81,4 +88,10 @@ extension AlarmView: UITableViewDelegate, UITableViewDataSource {
         return 69
     }
 
+}
+
+extension AlarmView: NewAlarmFooterViewDelegate {
+    func didTapAddNewAlarm() {
+        delegate?.didTapAddNewAlarm()
+    }
 }

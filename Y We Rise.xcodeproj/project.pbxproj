@@ -57,6 +57,7 @@
 		9A5EC135290769AC0015744D /* NewAlarmFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EC134290769AC0015744D /* NewAlarmFooterView.swift */; };
 		9A5EC137290769C10015744D /* NoAlarmsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EC136290769C10015744D /* NoAlarmsHeaderView.swift */; };
 		9A5EC1392907715D0015744D /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EC1382907715D0015744D /* AlarmCell.swift */; };
+		9A5EC13B290778620015744D /* AlarmVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5EC13A290778620015744D /* AlarmVCDelegates.swift */; };
 		9A64E7BF28FF109E006DA4CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7BE28FF109E006DA4CA /* User.swift */; };
 		9A64E7C228FF1383006DA4CA /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C128FF1383006DA4CA /* ProfileService.swift */; };
 		9A64E7C428FF3B95006DA4CA /* extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64E7C328FF3B95006DA4CA /* extension+Double.swift */; };
@@ -146,6 +147,7 @@
 		9A5EC134290769AC0015744D /* NewAlarmFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlarmFooterView.swift; sourceTree = "<group>"; };
 		9A5EC136290769C10015744D /* NoAlarmsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAlarmsHeaderView.swift; sourceTree = "<group>"; };
 		9A5EC1382907715D0015744D /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		9A5EC13A290778620015744D /* AlarmVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVCDelegates.swift; sourceTree = "<group>"; };
 		9A64E7BE28FF109E006DA4CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9A64E7C128FF1383006DA4CA /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		9A64E7C328FF3B95006DA4CA /* extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Double.swift"; sourceTree = "<group>"; };
@@ -384,6 +386,24 @@
 			path = Motivation;
 			sourceTree = "<group>";
 		};
+		9A5EC13C2907790E0015744D /* AddAlarm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddAlarm;
+			sourceTree = "<group>";
+		};
+		9A5EC13D290779170015744D /* ViewAlarms */ = {
+			isa = PBXGroup;
+			children = (
+				9A12B28A28F9BE0C00D99D67 /* AlarmViewModel.swift */,
+				9A12B28728F9BDEB00D99D67 /* Subviews */,
+				9A5EC13A290778620015744D /* AlarmVCDelegates.swift */,
+				9A12B28528F9BDE800D99D67 /* AlarmVC.swift */,
+			);
+			path = ViewAlarms;
+			sourceTree = "<group>";
+		};
 		9A64E7BD28FF1054006DA4CA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,9 +594,8 @@
 		9AC9C50D28EB9217003EEE6B /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				9A12B28A28F9BE0C00D99D67 /* AlarmViewModel.swift */,
-				9A12B28728F9BDEB00D99D67 /* Subviews */,
-				9A12B28528F9BDE800D99D67 /* AlarmVC.swift */,
+				9A5EC13D290779170015744D /* ViewAlarms */,
+				9A5EC13C2907790E0015744D /* AddAlarm */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -780,6 +799,7 @@
 				9A413D3428EC9FE600D67D0C /* GetStartedVCDelegates.swift in Sources */,
 				9A89EF1828EFC8B10087A73D /* MotivationStyleCell.swift in Sources */,
 				9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */,
+				9A5EC13B290778620015744D /* AlarmVCDelegates.swift in Sources */,
 				9A413D3228EC9B2D00D67D0C /* BaseViewController.swift in Sources */,
 				9A450CC128F5F3980017167D /* FirstAlarmVCDelegates.swift in Sources */,
 				9A12B28228F9BDC100D99D67 /* SettingsView.swift in Sources */,

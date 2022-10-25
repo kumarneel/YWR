@@ -12,7 +12,7 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
     lazy var controllerView: AlarmView = {
         let v = AlarmView()
         v.translatesAutoresizingMaskIntoConstraints = false
-//        v.delegate = self
+        v.delegate = self
         return v
     }()
 

@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol NewAlarmFooterViewDelegate: AnyObject {
+    func didTapAddNewAlarm()
+}
+
 class NewAlarmFooterView: BaseView {
 
     static let ReusableIdentifier = "NewAlarmFooterView"
 
+    weak var delegate: NewAlarmFooterViewDelegate?
 
     let roundView: UIView = {
         let v = UIView()
@@ -55,5 +60,11 @@ class NewAlarmFooterView: BaseView {
             addIconImageView.heightAnchor.constraint(equalToConstant: 20),
             addIconImageView.widthAnchor.constraint(equalToConstant: 20)
         ])
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapAddNewAlarm)))
+        isUserInteractionEnabled = true
+    }
+
+    @objc func didTapAddNewAlarm() {
+        delegate?.didTapAddNewAlarm()
     }
 }

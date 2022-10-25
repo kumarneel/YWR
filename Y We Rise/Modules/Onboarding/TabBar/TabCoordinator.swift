@@ -55,9 +55,16 @@ class TabBarCoordinator {
 
     func setupAlarm() -> UINavigationController {
         let alarmViewModel = AlarmViewModel()
-        let alarmVC = AlarmVC(viewModel: alarmViewModel)
+        alarmViewModel.eventTriggered = { event in
+            switch event {
+            case .didTapAddNewAlarm:
+                break
+            }
+        }
 
+        let alarmVC = AlarmVC(viewModel: alarmViewModel)
         let navController = UINavigationController(rootViewController: alarmVC)
+
         navController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "AlarmIconUnfilled"), selectedImage: UIImage(named: "AlarmIconFilled"))
         navController.setNavigationBarHidden(true, animated: false)
         return navController
