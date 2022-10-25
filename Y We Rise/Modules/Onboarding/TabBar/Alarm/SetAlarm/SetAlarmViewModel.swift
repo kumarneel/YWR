@@ -10,10 +10,15 @@ import Foundation
 class SetAlarmViewModel {
     enum Event {
         case didTapBackBtn
+        case didTapNext(alarmString: String, snoozeTime: Int)
     }
     var eventTriggered: ((Event) -> Void)?
 
     func didTapBackBtn() {
         eventTriggered?(.didTapBackBtn)
+    }
+
+    func didTapNext(alarmString: String, snoozeTime: Int) {
+        eventTriggered?(.didTapNext(alarmString: alarmString, snoozeTime: snoozeTime))
     }
 }

@@ -89,6 +89,7 @@
 		9A96D0ED2908543C00495C50 /* SetAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0EC2908543C00495C50 /* SetAlarmViewModel.swift */; };
 		9A96D0EF2908544E00495C50 /* SetAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0EE2908544E00495C50 /* SetAlarmVC.swift */; };
 		9A96D0F22908546300495C50 /* SetAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F12908546300495C50 /* SetAlarmView.swift */; };
+		9A96D0F42908601B00495C50 /* SetAlarmVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F32908601B00495C50 /* SetAlarmVCDelegates.swift */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -180,6 +181,7 @@
 		9A96D0EC2908543C00495C50 /* SetAlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewModel.swift; sourceTree = "<group>"; };
 		9A96D0EE2908544E00495C50 /* SetAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmVC.swift; sourceTree = "<group>"; };
 		9A96D0F12908546300495C50 /* SetAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmView.swift; sourceTree = "<group>"; };
+		9A96D0F32908601B00495C50 /* SetAlarmVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmVCDelegates.swift; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			children = (
 				9A96D0EC2908543C00495C50 /* SetAlarmViewModel.swift */,
 				9A96D0F02908545000495C50 /* Subviews */,
+				9A96D0F32908601B00495C50 /* SetAlarmVCDelegates.swift */,
 				9A96D0EE2908544E00495C50 /* SetAlarmVC.swift */,
 			);
 			path = SetAlarm;
@@ -833,6 +836,7 @@
 				9A96D0ED2908543C00495C50 /* SetAlarmViewModel.swift in Sources */,
 				9A413D4E28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift in Sources */,
 				9A89EF0D28EF77A20087A73D /* SleepStyleView.swift in Sources */,
+				9A96D0F42908601B00495C50 /* SetAlarmVCDelegates.swift in Sources */,
 				9A450CC628F6016F0017167D /* AddMotivationVC.swift in Sources */,
 				9AC9C51B28EB9540003EEE6B /* TabCoordinator.swift in Sources */,
 				9A450CBF28F5E9960017167D /* MotivationStyleVCDelegates.swift in Sources */,

@@ -120,11 +120,25 @@ class TabBarCoordinator {
             switch event {
             case .didTapBackBtn:
                 self.navigationController.popViewController(animated: true)
+            case .didTapNext(let alarmString, let snoozeTime):
+                self.presentAddMotiviation(alarmString: alarmString, snoozeTime: snoozeTime)
             }
         }
-
         let viewController = SetAlarmVC(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 
+    private func presentAddMotiviation(alarmString: String, snoozeTime: Int) {
+        let viewModel = AddMotivationViewModel(alarmString: alarmString, snoozeTime: snoozeTime, isOnboarding: false)
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapNext:
+                self.navigationController.popToRootViewController(animated: true)
+            case .didTapBackBtn:
+                self.navigationController.popViewController(animated: true)
+            }
+        }
+        let viewController = AddMotivationVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

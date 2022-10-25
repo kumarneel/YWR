@@ -146,6 +146,8 @@ class OnboardingCoordinator {
             switch event {
             case .didTapNext:
                 self.userSignedUpTriggered?()
+            case .didTapBackBtn:
+                break
             }
         }
         let viewController = AddMotivationVC(viewModel: viewModel)

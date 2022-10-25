@@ -44,12 +44,21 @@ class AddMotivationVC: BaseViewController<AddMotivationViewModel> {
         optionMenu.addAction(cancelAction)
         self.present(optionMenu, animated: true, completion: nil)
     }
+
+    @objc func didTapBackBtn() {
+        viewModel.didTapBackBtn()
+    }
 }
 
 extension AddMotivationVC {
     func setupViewController() {
         navigationItem.setHidesBackButton(true, animated: true)
         addControllerView(controllerView)
+
+        controllerView.onboardingBar.isHidden = !viewModel.isOnboarding
+        if !viewModel.isOnboarding {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "YWRBackButtonIcon"), style: .plain, target: self, action: #selector(didTapBackBtn))
+        }
     }
 }
 

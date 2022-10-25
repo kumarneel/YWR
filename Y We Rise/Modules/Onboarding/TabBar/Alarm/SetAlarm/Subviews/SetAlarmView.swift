@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SetAlarmViewDelegate: AnyObject {
-    func didTapNext(alarmString: String, snoozeTime: String)
+    func didTapNext(alarmString: String, snoozeTime: Int)
 }
 
 class SetAlarmView: BaseView {
@@ -115,7 +115,9 @@ class SetAlarmView: BaseView {
         return btn
     }()
 
-    var alarmString = "1:00AM"
+    var alarmString: String = "1:00AM"
+
+    var snoozeTime = 0
 
     override func setupView() {
         backgroundColor = UIColor(named: "YWRCream")
@@ -170,6 +172,8 @@ class SetAlarmView: BaseView {
     }
 
     @objc func handleFiveBtnPressed() {
+        snoozeTime = 5
+
         nextBtn.backgroundColor = UIColor(named: "YWROrange")
         nextBtn.isUserInteractionEnabled = true
 
@@ -184,6 +188,8 @@ class SetAlarmView: BaseView {
     }
 
     @objc func handleTenBtnPressed() {
+        snoozeTime = 10
+
         nextBtn.backgroundColor = UIColor(named: "YWROrange")
         nextBtn.isUserInteractionEnabled = true
 
@@ -198,6 +204,8 @@ class SetAlarmView: BaseView {
     }
 
     @objc func handleFifteenBtnPressed() {
+        snoozeTime = 15
+
         nextBtn.backgroundColor = UIColor(named: "YWROrange")
         nextBtn.isUserInteractionEnabled = true
 
@@ -212,7 +220,7 @@ class SetAlarmView: BaseView {
     }
 
     @objc func handleNextBtnPressed() {
-
+        delegate?.didTapNext(alarmString: alarmString, snoozeTime: snoozeTime)
     }
 }
 
