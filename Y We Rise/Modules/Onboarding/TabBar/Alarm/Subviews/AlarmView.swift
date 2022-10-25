@@ -17,11 +17,13 @@ class AlarmView: BaseView {
     }()
 
     lazy var tableView: UITableView = {
-        let tv = UITableView()
+        let tv = UITableView(frame: CGRect.zero, style: .grouped)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.delegate = self
         tv.dataSource = self
         tv.backgroundColor = .clear
+        tv.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.ReusableIdentifier)
+        tv.register(UITableViewCell.self, forCellReuseIdentifier: "CellId")
         return tv
     }()
 
@@ -47,21 +49,27 @@ class AlarmView: BaseView {
 
 extension AlarmView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 2
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AlarmCell.ReusableIdentifier, for: indexPath) as? AlarmCell else { return UITableViewCell() }
+        cell.setupView()
+        return cell
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = NoAlarmsHeaderView()
-        return headerView
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+//
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = NoAlarmsHeaderView()
+//        return headerView
+//    }
+//
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 120
+//    }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = NewAlarmFooterView()
