@@ -160,7 +160,6 @@ class SetAlarmView: BaseView {
             nextBtn.leftAnchor.constraint(equalTo: leftAnchor, constant: 17),
             nextBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
             nextBtn.heightAnchor.constraint(equalToConstant: 69)
-
         ])
 
 

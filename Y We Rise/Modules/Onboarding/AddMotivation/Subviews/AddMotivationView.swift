@@ -110,6 +110,19 @@ class AddMotivationView: BaseView {
         return btn
     }()
 
+    lazy var setAlarmBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.layer.cornerRadius = 16
+        btn.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.4666666667, blue: 0, alpha: 0.12)
+        btn.setTitle("Set Alarm", for: .normal)
+        btn.addTarget(self, action: #selector(handleSetAlarmBtnPressed), for: .touchUpInside)
+        btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
+        btn.setTitleColor(#colorLiteral(red: 0.9843137255, green: 0.9764705882, blue: 0.9647058824, alpha: 1), for: .normal)
+        return btn
+    }()
+
+
     override func setupView() {
         backgroundColor = UIColor(named: "YWRCream")!
 
@@ -121,6 +134,7 @@ class AddMotivationView: BaseView {
          imageView3,
          imageView4,
          clickToAddPhotoLbl,
+         setAlarmBtn,
          nextBtn].forEach({addSubview($0)})
 
         NSLayoutConstraint.activate([
@@ -162,6 +176,11 @@ class AddMotivationView: BaseView {
             clickToAddPhotoLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
             clickToAddPhotoLbl.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
 
+            setAlarmBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            setAlarmBtn.leftAnchor.constraint(equalTo: leftAnchor, constant: 17),
+            setAlarmBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
+            setAlarmBtn.heightAnchor.constraint(equalToConstant: 69),
+
             nextBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
             nextBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),
         ])
@@ -187,6 +206,10 @@ class AddMotivationView: BaseView {
 
     @objc func didTapImageView4(_ recognizer: UITapGestureRecognizer) {
         delegate?.didTapAddImage(imageNumber: .four)
+    }
+
+    @objc func handleSetAlarmBtnPressed() {
+        
     }
 
     override func layoutSubviews() {

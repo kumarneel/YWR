@@ -56,6 +56,9 @@ extension AddMotivationVC {
         addControllerView(controllerView)
 
         controllerView.onboardingBar.isHidden = !viewModel.isOnboarding
+        controllerView.nextBtn.isHidden = !viewModel.isOnboarding
+        controllerView.setAlarmBtn.isHidden = viewModel.isOnboarding
+
         if !viewModel.isOnboarding {
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "YWRBackButtonIcon"), style: .plain, target: self, action: #selector(didTapBackBtn))
         }
