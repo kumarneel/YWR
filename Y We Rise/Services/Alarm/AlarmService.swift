@@ -34,6 +34,7 @@ class AlarmService {
         }
         saveImageCount(alarmString: alarmString, count: images.count)
         changeActiveStatus(isActive: true, alarmString: alarmString)
+        NotificationCenter.default.post(name: Notification.Name(Observers.addedNewAlarm), object: nil)
         handler(true)
     }
 
@@ -48,7 +49,7 @@ class AlarmService {
     }
 
     func saveImage(image: UIImage, alarmString: String, index: Int) {
-        let data = image.jpegData (compressionQuality: 0.5)
+        let data = image.jpegData (compressionQuality: 0.1)
         do {
             let encoded = try PropertyListEncoder ().encode (data)
             let key = Constants.imageKey + alarmString + "\(index)"

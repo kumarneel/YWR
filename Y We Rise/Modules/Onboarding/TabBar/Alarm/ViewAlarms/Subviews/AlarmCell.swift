@@ -97,4 +97,10 @@ class AlarmCell: UITableViewCell {
         }
     }
 
+    override func prepareForReuse() {
+        alarm = nil
+        roundView.layer.borderWidth = 0
+        alarmSwitch.isOn = false
+    }
+
 }

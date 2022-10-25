@@ -27,7 +27,6 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
-        viewModel.getAlarms()
     }
 
     func bindViewModel() {
@@ -35,6 +34,12 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
             guard let self = self else { return }
             self.controllerView.configure(viewModel: self.viewModel)
         }.store(in: &cancellables)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAddedNewAlarm), name: Notification.Name(Observers.addedNewAlarm), object: nil)
+    }
+
+    @objc func handleAddedNewAlarm() {
+        viewModel.getAlarms()
     }
 }
 

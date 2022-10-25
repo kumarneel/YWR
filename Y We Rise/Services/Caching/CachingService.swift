@@ -27,4 +27,12 @@ class CachingService {
     func getVerificationId() -> String {
         return defaults.object(forKey: Constants.authVerificationId) as? String ?? ""
     }
+
+    func clearCache() {
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach {
+            defaults.removeObject(forKey: $0)
+        }
+        defaults.synchronize()
+    }
 }

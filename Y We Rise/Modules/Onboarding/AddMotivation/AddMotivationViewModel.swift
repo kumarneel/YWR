@@ -30,22 +30,18 @@ class AddMotivationViewModel {
         self.alarmString = alarmString
         self.snoozeTime = snoozeTime
         self.isOnboarding = isOnboarding
-        print("add motitivation: ", alarmString, snoozeTime)
     }
 
     func didTapNext() {
-        eventTriggered?(.didTapNext)
-
         var motivationalImages = [UIImage]()
         [image1, image2, image3, image4].forEach({
             guard let image = $0 else { return }
             motivationalImages.append(image)
         })
 
-        AlarmService.instance.createNewAlarm(alarmString: alarmString, images: motivationalImages, snoozeTime: snoozeTime) { success in
-            print("saved alarm!")
+        AlarmService.instance.createNewAlarm(alarmString: alarmString, images: motivationalImages, snoozeTime: snoozeTime) { [weak self] success in
+            self?.eventTriggered?(.didTapNext)
         }
-        print(motivationalImages)
     }
 
     func didTapBackBtn() {
