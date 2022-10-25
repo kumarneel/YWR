@@ -9,15 +9,26 @@ import UIKit
 
 class AlarmVC: BaseViewController<AlarmViewModel> {
 
+    lazy var controllerView: AlarmView = {
+        let v = AlarmView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+//        v.delegate = self
+        return v
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor(named: "YWRCream")!
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupViewController()
     }
+}
 
+extension AlarmVC {
+    func setupViewController() {
+        navigationItem.setHidesBackButton(true, animated: true)
+        addControllerView(controllerView)
+    }
 }

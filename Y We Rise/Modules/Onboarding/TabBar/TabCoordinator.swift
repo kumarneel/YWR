@@ -24,19 +24,13 @@ class TabBarCoordinator {
     private func setupTabBar() {
         let tabBarController = UITabBarController()
         tabBarController.overrideUserInterfaceStyle = .light
+
         let settingsNavController = setupSettings()
-
-        let alarmViewModel = AlarmViewModel()
-        let alarmVC = AlarmVC(viewModel: alarmViewModel)
-        let nv2 = UINavigationController(rootViewController: alarmVC)
-
+        let alarmController = setupAlarm()
         let profileNavController = setupProfile()
 
-        nv2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "AlarmIconUnfilled"), selectedImage: UIImage(named: "AlarmIconFilled"))
-        nv2.setNavigationBarHidden(true, animated: false)
-
-        tabBarController.setViewControllers([settingsNavController, nv2, profileNavController], animated: true)
-        tabBarController.selectedIndex = 2
+        tabBarController.setViewControllers([settingsNavController, alarmController, profileNavController], animated: true)
+        tabBarController.selectedIndex = 1
         navigationController.viewControllers = [tabBarController]
     }
 
@@ -59,8 +53,14 @@ class TabBarCoordinator {
         return navController
     }
 
-    func setupAlarm() {
+    func setupAlarm() -> UINavigationController {
+        let alarmViewModel = AlarmViewModel()
+        let alarmVC = AlarmVC(viewModel: alarmViewModel)
 
+        let navController = UINavigationController(rootViewController: alarmVC)
+        navController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "AlarmIconUnfilled"), selectedImage: UIImage(named: "AlarmIconFilled"))
+        navController.setNavigationBarHidden(true, animated: false)
+        return navController
     }
 
     func setupProfile() -> UINavigationController {
