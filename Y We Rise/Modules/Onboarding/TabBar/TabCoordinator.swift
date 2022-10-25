@@ -58,7 +58,7 @@ class TabBarCoordinator {
         alarmViewModel.eventTriggered = { event in
             switch event {
             case .didTapAddNewAlarm:
-                break
+                self.presentSetAlarm()
             }
         }
 
@@ -111,6 +111,19 @@ class TabBarCoordinator {
             }
         }
         let viewController = SleepStyleVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    private func presentSetAlarm() {
+        let viewModel = SetAlarmViewModel()
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapBackBtn:
+                self.navigationController.popViewController(animated: true)
+            }
+        }
+
+        let viewController = SetAlarmVC(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 

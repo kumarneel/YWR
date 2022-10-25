@@ -86,6 +86,9 @@
 		9A89EF1C28F0AC8F0087A73D /* FirstAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EF1B28F0AC8E0087A73D /* FirstAlarmVC.swift */; };
 		9A89EF1E28F0AC9C0087A73D /* FirstAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EF1D28F0AC9C0087A73D /* FirstAlarmView.swift */; };
 		9A89EF2028F0ACA80087A73D /* FirstAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89EF1F28F0ACA80087A73D /* FirstAlarmViewModel.swift */; };
+		9A96D0ED2908543C00495C50 /* SetAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0EC2908543C00495C50 /* SetAlarmViewModel.swift */; };
+		9A96D0EF2908544E00495C50 /* SetAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0EE2908544E00495C50 /* SetAlarmVC.swift */; };
+		9A96D0F22908546300495C50 /* SetAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F12908546300495C50 /* SetAlarmView.swift */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -174,6 +177,9 @@
 		9A89EF1B28F0AC8E0087A73D /* FirstAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAlarmVC.swift; sourceTree = "<group>"; };
 		9A89EF1D28F0AC9C0087A73D /* FirstAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAlarmView.swift; sourceTree = "<group>"; };
 		9A89EF1F28F0ACA80087A73D /* FirstAlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAlarmViewModel.swift; sourceTree = "<group>"; };
+		9A96D0EC2908543C00495C50 /* SetAlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewModel.swift; sourceTree = "<group>"; };
+		9A96D0EE2908544E00495C50 /* SetAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmVC.swift; sourceTree = "<group>"; };
+		9A96D0F12908546300495C50 /* SetAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmView.swift; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -386,11 +392,14 @@
 			path = Motivation;
 			sourceTree = "<group>";
 		};
-		9A5EC13C2907790E0015744D /* AddAlarm */ = {
+		9A5EC13C2907790E0015744D /* SetAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				9A96D0EC2908543C00495C50 /* SetAlarmViewModel.swift */,
+				9A96D0F02908545000495C50 /* Subviews */,
+				9A96D0EE2908544E00495C50 /* SetAlarmVC.swift */,
 			);
-			path = AddAlarm;
+			path = SetAlarm;
 			sourceTree = "<group>";
 		};
 		9A5EC13D290779170015744D /* ViewAlarms */ = {
@@ -471,6 +480,14 @@
 			isa = PBXGroup;
 			children = (
 				9A89EF1D28F0AC9C0087A73D /* FirstAlarmView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9A96D0F02908545000495C50 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A96D0F12908546300495C50 /* SetAlarmView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -595,7 +612,7 @@
 			isa = PBXGroup;
 			children = (
 				9A5EC13D290779170015744D /* ViewAlarms */,
-				9A5EC13C2907790E0015744D /* AddAlarm */,
+				9A5EC13C2907790E0015744D /* SetAlarm */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -790,6 +807,7 @@
 				9A450CC428F6014B0017167D /* AddMotivationViewModel.swift in Sources */,
 				9A77148A28F8854700F8C2F1 /* OnboardingService.swift in Sources */,
 				9A12B28D28F9BE5000D99D67 /* ProfileViewModel.swift in Sources */,
+				9A96D0F22908546300495C50 /* SetAlarmView.swift in Sources */,
 				9A89EF1328EFC6B50087A73D /* MotivationStyleViewModel.swift in Sources */,
 				9A12B27528F8C70900D99D67 /* CachingService.swift in Sources */,
 				9A413D4C28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift in Sources */,
@@ -812,6 +830,7 @@
 				9A89EEFE28EF6EB90087A73D /* PermissionsView.swift in Sources */,
 				9A12B27928F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift in Sources */,
 				9A413D6528ED3DCE00D67D0C /* OnboardingOrangeBar.swift in Sources */,
+				9A96D0ED2908543C00495C50 /* SetAlarmViewModel.swift in Sources */,
 				9A413D4E28ECE19F00D67D0C /* VerifyPhoneNumberViewModel.swift in Sources */,
 				9A89EF0D28EF77A20087A73D /* SleepStyleView.swift in Sources */,
 				9A450CC628F6016F0017167D /* AddMotivationVC.swift in Sources */,
@@ -837,6 +856,7 @@
 				9AC9C51928EB952D003EEE6B /* OnboardingCoordinator.swift in Sources */,
 				9A413D3A28ECACCA00D67D0C /* BaseView.swift in Sources */,
 				9A12B28428F9BDD600D99D67 /* SettingsVC.swift in Sources */,
+				9A96D0EF2908544E00495C50 /* SetAlarmVC.swift in Sources */,
 				9A413D5128ECE4CD00D67D0C /* VerificationTextField.swift in Sources */,
 				9A64E7CA28FF4760006DA4CA /* ProfileVCDelegates.swift in Sources */,
 				9A450CBD28F5DF700017167D /* EnterBirthdayVCDelegates.swift in Sources */,

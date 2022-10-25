@@ -15,6 +15,5 @@ class AlarmViewModel {
 
     func didTapAddNewAlarm() {
         eventTriggered?(.didTapAddNewAlarm)
-        print("add alarm")
     }
 }
