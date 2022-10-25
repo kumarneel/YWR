@@ -16,6 +16,7 @@ class AlarmService {
         static let imageKey = "imageKey"
         static let snoozeTime = "snoozeTime"
         static let imageCount = "imageCount"
+        static let isActive = "isActive"
     }
 
     private let defaults = UserDefaults.standard
@@ -32,7 +33,13 @@ class AlarmService {
             saveImage(image: images[i], alarmString: alarmString, index: i)
         }
         saveImageCount(alarmString: alarmString, count: images.count)
+        changeActiveStatus(isActive: true, alarmString: alarmString)
         handler(true)
+    }
+
+    func changeActiveStatus(isActive: Bool, alarmString: String) {
+        let key = Constants.isActive + alarmString
+        defaults.set(isActive, forKey: key)
     }
 
     func saveSnoozeTime(time: Int, alarmString: String) {
@@ -68,6 +75,11 @@ class AlarmService {
         return defaults.object(forKey: key) as? Int ?? 00
     }
 
+    func getActiveStatus(alarmString: String) -> Bool {
+        let key = Constants.isActive + alarmString
+        return defaults.object(forKey: key) as? Bool ?? false
+    }
+
     func getImage(alarmString: String, index: Int) -> UIImage {
         let key = Constants.imageKey + alarmString + "\(index)"
         guard let data = defaults.data(forKey: key) else { return UIImage() }
@@ -78,11 +90,8 @@ class AlarmService {
         } catch {
             return UIImage()
         }
-
     }
-    // TODO: save images linked to alarm
 
-    // TODO: get all alarms
     func getAlarms() -> [Alarm] {
         var alarms = [Alarm]()
         let alarmKeys = defaults.object(forKey: Constants.alarmKeys) as? [String] ?? []
@@ -90,6 +99,7 @@ class AlarmService {
         alarmKeys.forEach({
             let snoozeTime = getSnoozeTime(alarmString: $0)
             let imageCount = getImageCount(alarmString: $0)
+            let isActive = getActiveStatus(alarmString: $0)
 
             var images = [UIImage]()
             if imageCount != 0 {
@@ -98,14 +108,20 @@ class AlarmService {
                 }
             }
 
-            alarms.append(Alarm(alarm: $0, snoozeTime: snoozeTime, images: images))
+            alarms.append(Alarm(alarm: $0, snoozeTime: snoozeTime, images: images, isActive: isActive))
         })
         return alarms
     }
 
-
-
-    // TODO: delete alarm
-
-    //
+    func removeAlarm(alarmString: String){
+        var alarmKeys = defaults.object(forKey: Constants.alarmKeys) as? [String] ?? []
+        for i in 0...alarmKeys.count-1 {
+            if alarmKeys[i] == alarmString {
+                alarmKeys.remove(at: i)
+                break
+            }
+        }
+        defaults.set(alarmKeys, forKey: Constants.alarmKeys)
+        // TODO: Remove dangling images
+    }
 }

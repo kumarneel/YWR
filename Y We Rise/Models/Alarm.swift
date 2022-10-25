@@ -11,4 +11,5 @@ struct Alarm {
     let alarm: String
     let snoozeTime: Int
     let images: [UIImage]
+    let isActive: Bool
 }

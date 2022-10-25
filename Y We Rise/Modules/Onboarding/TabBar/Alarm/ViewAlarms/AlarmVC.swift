@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class AlarmVC: BaseViewController<AlarmViewModel> {
 
@@ -16,13 +17,24 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
         return v
     }()
 
+    private var cancellables: Set<AnyCancellable> = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
+        viewModel.getAlarms()
+    }
+
+    func bindViewModel() {
+        viewModel.observable.sink { [weak self] in
+            guard let self = self else { return }
+            self.controllerView.configure(viewModel: self.viewModel)
+        }.store(in: &cancellables)
     }
 }
 

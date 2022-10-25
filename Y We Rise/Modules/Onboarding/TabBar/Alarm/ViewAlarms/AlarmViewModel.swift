@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class AlarmViewModel {
     enum Event {
@@ -13,13 +14,24 @@ class AlarmViewModel {
     }
     var eventTriggered: ((Event) -> Void)?
 
-    var alarms: [Alarm]
+    let observable = PassthroughSubject<Void, Never>()
+
+    @Published var alarms = [Alarm]()
 
     init() {
         alarms = AlarmService.instance.getAlarms()
     }
 
+    func getAlarms() {
+        alarms = AlarmService.instance.getAlarms()
+        observable.send()
+    }
+
     func didTapAddNewAlarm() {
         eventTriggered?(.didTapAddNewAlarm)
+    }
+
+    func didTapRemoveAlarm(index: Int) {
+        AlarmService.instance.removeAlarm(alarmString: alarms[index].alarm)
     }
 }

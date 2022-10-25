@@ -20,7 +20,10 @@ class AlarmCell: UITableViewCell {
             timeLbl.text = String(time)
             amPMLbl.text = amPMString
 
-
+            if alarm.isActive {
+                roundView.layer.borderWidth = 2
+                alarmSwitch.isOn = true
+            }
         }
     }
 
@@ -84,6 +87,9 @@ class AlarmCell: UITableViewCell {
     }
 
     @objc func switchValueDidChange(_ sender: UISwitch) {
+        guard let alarm = alarm else { return }
+
+        AlarmService.instance.changeActiveStatus(isActive: sender.isOn, alarmString: alarm.alarm)
         if sender.isOn {
             roundView.layer.borderWidth = 2
         } else {
