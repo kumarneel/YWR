@@ -24,6 +24,7 @@ class AlarmView: BaseView {
         tv.backgroundColor = .clear
         tv.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.ReusableIdentifier)
         tv.register(UITableViewCell.self, forCellReuseIdentifier: "CellId")
+        tv.separatorColor = UIColor.clear
         return tv
     }()
 

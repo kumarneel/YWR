@@ -17,7 +17,6 @@ class AlarmCell: UITableViewCell {
         v.layer.cornerRadius = 16
         v.backgroundColor = .white
         v.layer.borderColor = UIColor(named: "YWROrange")!.cgColor
-        v.layer.borderWidth = 2
         return v
     }()
 
@@ -39,25 +38,44 @@ class AlarmCell: UITableViewCell {
         return lbl
     }()
 
+    let alarmSwitch: UISwitch = {
+        let sw = UISwitch()
+        sw.translatesAutoresizingMaskIntoConstraints = false
+        sw.addTarget(self, action: #selector(switchValueDidChange), for: .valueChanged)
+        return sw
+    }()
+
     func setupView() {
         selectionStyle = .none
         backgroundColor = .clear
 
-        [roundView, timeLbl, amPMLbl].forEach({addSubview($0)})
+        [roundView, timeLbl, amPMLbl, alarmSwitch].forEach({addSubview($0)})
 
         NSLayoutConstraint.activate([
             roundView.leftAnchor.constraint(equalTo: leftAnchor, constant: 17),
             roundView.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
-            roundView.topAnchor.constraint(equalTo: topAnchor),
-            roundView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            roundView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            roundView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
 
             timeLbl.centerYAnchor.constraint(equalTo: roundView.centerYAnchor),
             timeLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 52),
 
             amPMLbl.leftAnchor.constraint(equalTo: timeLbl.rightAnchor),
-            amPMLbl.bottomAnchor.constraint(equalTo: timeLbl.bottomAnchor, constant: -5)
+            amPMLbl.bottomAnchor.constraint(equalTo: timeLbl.bottomAnchor, constant: -5),
 
+            alarmSwitch.centerYAnchor.constraint(equalTo: roundView.centerYAnchor),
+            alarmSwitch.rightAnchor.constraint(equalTo: roundView.rightAnchor, constant: -30),
+            alarmSwitch.heightAnchor.constraint(equalToConstant: 37),
+            alarmSwitch.widthAnchor.constraint(equalToConstant: 74)
         ])
+    }
+
+    @objc func switchValueDidChange(_ sender: UISwitch) {
+        if sender.isOn {
+            roundView.layer.borderWidth = 2
+        } else {
+            roundView.layer.borderWidth = 0
+        }
     }
 
 }
