@@ -13,6 +13,8 @@ protocol AlarmViewDelegate: AnyObject {
 
 class AlarmView: BaseView {
 
+    var viewModel: AlarmViewModel!
+
     weak var delegate: AlarmViewDelegate?
 
     let YWRLogo: UIImageView = {
@@ -31,6 +33,7 @@ class AlarmView: BaseView {
         tv.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.ReusableIdentifier)
         tv.register(UITableViewCell.self, forCellReuseIdentifier: "CellId")
         tv.separatorColor = UIColor.clear
+        tv.allowsMultipleSelectionDuringEditing = false
         return tv
     }()
 
@@ -50,33 +53,51 @@ class AlarmView: BaseView {
             tableView.rightAnchor.constraint(equalTo: rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
 
+    func configure(viewModel: AlarmViewModel) {
+        self.viewModel = viewModel
+        self.tableView.reloadData()
     }
 }
 
 extension AlarmView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.alarms.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AlarmCell.ReusableIdentifier, for: indexPath) as? AlarmCell else { return UITableViewCell() }
         cell.setupView()
+        cell.alarm = viewModel.alarms[indexPath.row]
         return cell
+    }
+
+    // this method handles row deletion
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            viewModel.alarms.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = NoAlarmsHeaderView()
-//        return headerView
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 120
-//    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = NoAlarmsHeaderView()
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if viewModel.alarms.isEmpty {
+            return 120
+        }
+        return 0
+    }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = NewAlarmFooterView()

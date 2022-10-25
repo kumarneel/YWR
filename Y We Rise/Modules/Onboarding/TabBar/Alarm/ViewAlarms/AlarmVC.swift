@@ -30,5 +30,6 @@ extension AlarmVC {
     func setupViewController() {
         navigationItem.setHidesBackButton(true, animated: true)
         addControllerView(controllerView)
+        controllerView.configure(viewModel: viewModel)
     }
 }

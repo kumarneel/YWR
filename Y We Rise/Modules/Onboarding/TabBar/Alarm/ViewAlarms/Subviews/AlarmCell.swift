@@ -11,6 +11,19 @@ class AlarmCell: UITableViewCell {
 
     static let ReusableIdentifier = "AlarmCellId"
 
+    var alarm: Alarm? {
+        didSet {
+            guard let alarm = alarm else { return }
+            let time = alarm.alarm.dropLast(2)
+            let amPMString = String(alarm.alarm.suffix(2))
+
+            timeLbl.text = String(time)
+            amPMLbl.text = amPMString
+
+
+        }
+    }
+
     let roundView: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false

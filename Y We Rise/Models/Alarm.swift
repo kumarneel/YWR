@@ -5,10 +5,10 @@
 //  Created by Neel Kumar on 10/25/22.
 //
 
-import Foundation
+import UIKit
 
 struct Alarm {
     let alarm: String
     let snoozeTime: Int
-    let images: [String]
+    let images: [UIImage]
 }
