@@ -90,6 +90,8 @@
 		9A96D0EF2908544E00495C50 /* SetAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0EE2908544E00495C50 /* SetAlarmVC.swift */; };
 		9A96D0F22908546300495C50 /* SetAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F12908546300495C50 /* SetAlarmView.swift */; };
 		9A96D0F42908601B00495C50 /* SetAlarmVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F32908601B00495C50 /* SetAlarmVCDelegates.swift */; };
+		9A96D0F62908722D00495C50 /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F52908722D00495C50 /* AlarmService.swift */; };
+		9A96D0F92908775C00495C50 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F82908775C00495C50 /* Alarm.swift */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -182,6 +184,8 @@
 		9A96D0EE2908544E00495C50 /* SetAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmVC.swift; sourceTree = "<group>"; };
 		9A96D0F12908546300495C50 /* SetAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmView.swift; sourceTree = "<group>"; };
 		9A96D0F32908601B00495C50 /* SetAlarmVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmVCDelegates.swift; sourceTree = "<group>"; };
+		9A96D0F52908722D00495C50 /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
+		9A96D0F82908775C00495C50 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				9A64E7BE28FF109E006DA4CA /* User.swift */,
+				9A96D0F82908775C00495C50 /* Alarm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -495,6 +500,14 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		9A96D0F72908723100495C50 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				9A96D0F52908722D00495C50 /* AlarmService.swift */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
 		9AC9C4E528EB9159003EEE6B = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +554,7 @@
 		9AC9C50628EB9194003EEE6B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9A96D0F72908723100495C50 /* Alarm */,
 				9A64E7C028FF1377006DA4CA /* Profile */,
 				9A12B27628F8C72400D99D67 /* Onboarding */,
 				9A12B27728F8C72D00D99D67 /* Caching */,
@@ -795,6 +809,7 @@
 			files = (
 				9A64E7C428FF3B95006DA4CA /* extension+Double.swift in Sources */,
 				9A89EF1C28F0AC8F0087A73D /* FirstAlarmVC.swift in Sources */,
+				9A96D0F92908775C00495C50 /* Alarm.swift in Sources */,
 				9A413D5D28ED3C0300D67D0C /* EnterBirthdayView.swift in Sources */,
 				9AC9C50F28EB922C003EEE6B /* AppCoordinator.swift in Sources */,
 				9A12B28028F9BDB300D99D67 /* SettingsViewModel.swift in Sources */,
@@ -830,6 +845,7 @@
 				9A413D5B28ED3BF400D67D0C /* EnterBirthdayViewModel.swift in Sources */,
 				9A89EF1E28F0AC9C0087A73D /* FirstAlarmView.swift in Sources */,
 				9A89EF0428EF72D50087A73D /* PermissionsVCDelegates.swift in Sources */,
+				9A96D0F62908722D00495C50 /* AlarmService.swift in Sources */,
 				9A89EEFE28EF6EB90087A73D /* PermissionsView.swift in Sources */,
 				9A12B27928F8C99100D99D67 /* VerifyPhoneNumberVCDelegates.swift in Sources */,
 				9A413D6528ED3DCE00D67D0C /* OnboardingOrangeBar.swift in Sources */,

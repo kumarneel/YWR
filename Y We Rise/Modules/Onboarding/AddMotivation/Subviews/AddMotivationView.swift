@@ -119,6 +119,7 @@ class AddMotivationView: BaseView {
         btn.addTarget(self, action: #selector(handleSetAlarmBtnPressed), for: .touchUpInside)
         btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
         btn.setTitleColor(#colorLiteral(red: 0.9843137255, green: 0.9764705882, blue: 0.9647058824, alpha: 1), for: .normal)
+        btn.isUserInteractionEnabled = false
         return btn
     }()
 
@@ -193,6 +194,7 @@ class AddMotivationView: BaseView {
     }
 
     @objc func didTapImageView1(_ recognizer: UITapGestureRecognizer) {
+
         delegate?.didTapAddImage(imageNumber: .one)
     }
 
@@ -209,7 +211,7 @@ class AddMotivationView: BaseView {
     }
 
     @objc func handleSetAlarmBtnPressed() {
-        
+        delegate?.didTapNext()
     }
 
     override func layoutSubviews() {

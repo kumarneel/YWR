@@ -14,7 +14,7 @@ extension AddMotivationVC: AddMotivationViewDelegate {
     }
 
     func didTapNext() {
-        viewModel.didTapNext(alarmString: "yo")
+        viewModel.didTapNext()
     }
 }
 
@@ -26,21 +26,25 @@ extension AddMotivationVC: UIImagePickerControllerDelegate, UINavigationControll
             switch self.imageNumber {
             case .one:
                 self.controllerView.imageView1.image = image
+                self.viewModel.image1 = image
                 self.controllerView.imageView1.emptyIconImageView.isHidden = true
                 self.controllerView.imageView1.layer.cornerRadius = 16
                 self.controllerView.imageView1.layer.masksToBounds = true
             case .two:
                 self.controllerView.imageView2.image = image
+                self.viewModel.image2 = image
                 self.controllerView.imageView2.emptyIconImageView.isHidden = true
                 self.controllerView.imageView2.layer.cornerRadius = 16
                 self.controllerView.imageView2.layer.masksToBounds = true
             case .three:
                 self.controllerView.imageView3.image = image
+                self.viewModel.image3 = image
                 self.controllerView.imageView3.emptyIconImageView.isHidden = true
                 self.controllerView.imageView3.layer.cornerRadius = 16
                 self.controllerView.imageView3.layer.masksToBounds = true
             case .four:
                 self.controllerView.imageView4.image = image
+                self.viewModel.image4 = image
                 self.controllerView.imageView4.emptyIconImageView.isHidden = true
                 self.controllerView.imageView4.layer.cornerRadius = 16
                 self.controllerView.imageView4.layer.masksToBounds = true
@@ -49,5 +53,8 @@ extension AddMotivationVC: UIImagePickerControllerDelegate, UINavigationControll
         })
         controllerView.nextBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
         controllerView.nextBtn.isUserInteractionEnabled = true
+        
+        controllerView.setAlarmBtn.backgroundColor = UIColor(named: "YWROrange")
+        controllerView.setAlarmBtn.isUserInteractionEnabled = true
     }
 }

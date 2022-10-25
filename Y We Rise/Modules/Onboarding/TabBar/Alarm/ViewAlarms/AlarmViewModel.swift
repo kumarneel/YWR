@@ -13,6 +13,10 @@ class AlarmViewModel {
     }
     var eventTriggered: ((Event) -> Void)?
 
+    init() {
+        AlarmService.instance.getAlarms()
+    }
+
     func didTapAddNewAlarm() {
         eventTriggered?(.didTapAddNewAlarm)
     }
