@@ -88,7 +88,6 @@ class AlarmCell: UITableViewCell {
 
     @objc func switchValueDidChange(_ sender: UISwitch) {
         guard let alarm = alarm else { return }
-
         AlarmService.instance.changeActiveStatus(isActive: sender.isOn, alarmString: alarm.alarm)
         if sender.isOn {
             roundView.layer.borderWidth = 2

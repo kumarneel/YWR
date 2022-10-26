@@ -272,7 +272,6 @@ class ProfileView: BaseView {
         formatter.dateFormat = "MM-dd-yyyy"
         birthdayTextField.layer.borderWidth = 0
         self.endEditing(true)
-        // TODO: Save new date to firebase
         delegate?.didUpdateBirthday(date: datePicker.date)
     }
 

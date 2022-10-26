@@ -24,15 +24,15 @@ class ProfileVC: BaseViewController<ProfileViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
-        setupObservers()
 
         if !didLaunch {
+            viewModel.viewWillAppear()
+            setupObservers()
             controllerView.activityView.startAnimating()
             didLaunch = true
         }

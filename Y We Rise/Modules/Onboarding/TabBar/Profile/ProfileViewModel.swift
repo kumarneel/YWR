@@ -20,8 +20,9 @@ class ProfileViewModel: ObservableObject {
 
     let observable = PassthroughSubject<Void, Never>()
 
-    init() {
+    func viewWillAppear() {
         getUser()
+        self.observable.send()
     }
 
     func getUser() {

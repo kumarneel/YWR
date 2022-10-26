@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class AlarmService {
     static let instance = AlarmService()
@@ -124,5 +125,17 @@ class AlarmService {
         }
         defaults.set(alarmKeys, forKey: Constants.alarmKeys)
         // TODO: Remove dangling images
+    }
+
+    func removeAnnoyingNotification() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (reqs) in
+            var ids =  [String]()
+            reqs.forEach {
+                if $0.identifier == "annoyingNotification" {
+                    ids.append($0.identifier)
+                }
+            }
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers:ids)
+        }
     }
 }

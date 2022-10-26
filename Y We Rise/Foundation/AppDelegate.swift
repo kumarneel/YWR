@@ -12,8 +12,12 @@ import FirebaseAuth
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let userNotificationCenter = UNUserNotificationCenter.current()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        attemptRegisterForNotifications()
+        sendAnnoyingNotification()
         return true
     }
 
@@ -32,3 +36,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+
+    func attemptRegisterForNotifications() {
+        userNotificationCenter.delegate = self
+        userNotificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+            print("Permission granted: \(granted)")
+            if granted {
+
+            }
+        }
+        UIApplication.shared.registerForRemoteNotifications()
+    }
+
+    @objc func sendAnnoyingNotification() {
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "Y We Rise"
+        notificationContent.body = "ALARM"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+                                                        repeats: false)
+        let request = UNNotificationRequest(identifier: "annoyingNotification",
+                                            content: notificationContent,
+                                            trigger: trigger)
+        /// reset delegate to remove bug
+        userNotificationCenter.delegate = self
+        userNotificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
+    }
+}

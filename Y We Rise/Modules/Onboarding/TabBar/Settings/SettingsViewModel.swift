@@ -22,5 +22,4 @@ class SettingsViewModel {
             print("there was an error trying to log out")
         }
     }
-
 }
