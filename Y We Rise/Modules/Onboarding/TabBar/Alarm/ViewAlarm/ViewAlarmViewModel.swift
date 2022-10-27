@@ -27,6 +27,8 @@ class ViewAlarmViewModel {
     }
 
     func didTapSnooze(alarm: Alarm) {
+        AlarmService.instance.removeAlarmNotification(alarmString: alarm.alarmString)
+        NotificationCenter.default.post(name: Notification.Name(Observers.snoozeAlarm), object: nil, userInfo: ["alarmString": alarm.alarmString, "snoozeTime": alarm.snoozeTime])
         eventTriggered?(.didTapSnooze)
     }
 }

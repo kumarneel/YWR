@@ -41,4 +41,24 @@ extension String {
         }
         return datesArray
     }
+
+    func getDateForSnooze(snoozeTime: Int) -> [DateComponents] {
+        var datesArray = [DateComponents]()
+        var count = 0
+        // alarm will last for 3 minutes
+        while count < 180 {
+            let date = Calendar.current.date(byAdding: .minute, value: snoozeTime, to: Date())
+            var component = Calendar.current.dateComponents([
+                .day,
+                .month,
+                .year,
+                .hour,
+                .minute,
+                .second], from: date ?? Date())
+            component.second = count
+            datesArray.append(component)
+            count += 1
+        }
+        return datesArray
+    }
 }

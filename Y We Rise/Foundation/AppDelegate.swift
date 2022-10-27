@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         attemptRegisterForNotifications()
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleSetNewAlarm), name: Notification.Name(Observers.setNewAlarm), object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSnoozeAlarm), name: Notification.Name(Observers.snoozeAlarm), object: nil)
         return true
     }
 
@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userInfo = response.notification.request.content.userInfo
         let alarmString = userInfo["alarmString"] as? String ?? ""
         NotificationCenter.default.post(name: Notification.Name(Observers.tappedAlarm), object: nil, userInfo: ["alarmString": alarmString])
+        print("picked up notification, sending data ")
         completionHandler()
     }
 
@@ -40,6 +41,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @objc func handleSetNewAlarm(notification: Notification) {
         if let alarmString = notification.userInfo?["alarmString"] as? String {
             setAlarmNotification(alarmString: alarmString)
+        }
+    }
+
+    @objc func handleSnoozeAlarm(notification: Notification) {
+        if let alarmString = notification.userInfo?["alarmString"] as? String {
+            if let snoozeTime = notification.userInfo?["snoozeTime"] as? Int {
+                snoozeAlarmNotification(alarmString: alarmString, snoozeTime: snoozeTime)
+            }
         }
     }
 }
@@ -66,9 +75,35 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         notificationContent.title = "Y We Rise"
         notificationContent.body = "ALARM"
         notificationContent.userInfo = ["alarmString": alarmString]
+        notificationContent.sound = UNNotificationSound.default
 
         var count = 0
         for alarmDate in alarmString.getDateForNotification() {
+            let trigger = UNCalendarNotificationTrigger.init(dateMatching: alarmDate, repeats: false)
+            let request = UNNotificationRequest(identifier: alarmString + "\(count)",
+                                                content: notificationContent,
+                                                trigger: trigger)
+            /// reset delegate to remove bug
+            userNotificationCenter.delegate = self
+            userNotificationCenter.add(request) { (error) in
+                print("registered notification")
+                if let error = error {
+                    print("Notification Error: ", error)
+                }
+            }
+            count += 1
+        }
+    }
+    func snoozeAlarmNotification(alarmString: String, snoozeTime: Int) {
+        let notificationContent = UNMutableNotificationContent()
+
+        notificationContent.title = "Y We Rise"
+        notificationContent.body = "ALARM"
+        notificationContent.userInfo = ["alarmString": alarmString]
+        notificationContent.sound = UNNotificationSound.default
+
+        var count = 0
+        for alarmDate in alarmString.getDateForSnooze(snoozeTime: snoozeTime) {
             let trigger = UNCalendarNotificationTrigger.init(dateMatching: alarmDate, repeats: false)
             let request = UNNotificationRequest(identifier: alarmString + "\(count)",
                                                 content: notificationContent,

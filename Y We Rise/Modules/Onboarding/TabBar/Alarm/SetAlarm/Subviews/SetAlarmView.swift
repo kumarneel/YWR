@@ -80,36 +80,36 @@ class SetAlarmView: BaseView {
         return sv
     }()
 
-    lazy var fiveSecondBtn: UIButton = {
+    lazy var fiveMinuteBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.cornerRadius = 16
         btn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
-        btn.setTitle("5 sec", for: .normal)
+        btn.setTitle("5 min", for: .normal)
         btn.addTarget(self, action: #selector(handleFiveBtnPressed), for: .touchUpInside)
         btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
         btn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
         return btn
     }()
 
-    lazy var tenSecondBtn: UIButton = {
+    lazy var tenMinuteBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.cornerRadius = 16
         btn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
-        btn.setTitle("10 sec", for: .normal)
+        btn.setTitle("10 min", for: .normal)
         btn.addTarget(self, action: #selector(handleTenBtnPressed), for: .touchUpInside)
         btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
         btn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
         return btn
     }()
 
-    lazy var fifteenSecondBtn: UIButton = {
+    lazy var fifteenMinBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.cornerRadius = 16
         btn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
-        btn.setTitle("15 sec", for: .normal)
+        btn.setTitle("15 min", for: .normal)
         btn.addTarget(self, action: #selector(handleFifteenBtnPressed), for: .touchUpInside)
         btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
         btn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
@@ -164,7 +164,7 @@ class SetAlarmView: BaseView {
         ])
 
 
-        [fiveSecondBtn, tenSecondBtn, fifteenSecondBtn].forEach({stackView.addArrangedSubview($0)})
+        [fiveMinuteBtn, tenMinuteBtn, fifteenMinBtn].forEach({stackView.addArrangedSubview($0)})
 
         stackView.spacing = 10
         stackView.distribution = .fillEqually
@@ -177,14 +177,14 @@ class SetAlarmView: BaseView {
         nextBtn.backgroundColor = UIColor(named: "YWROrange")
         nextBtn.isUserInteractionEnabled = true
 
-        fiveSecondBtn.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.2666666667, blue: 0.4352941176, alpha: 1)
-        fiveSecondBtn.setTitleColor(#colorLiteral(red: 0.9843137255, green: 0.9764705882, blue: 0.9647058824, alpha: 1), for: .normal)
+        fiveMinuteBtn.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.2666666667, blue: 0.4352941176, alpha: 1)
+        fiveMinuteBtn.setTitleColor(#colorLiteral(red: 0.9843137255, green: 0.9764705882, blue: 0.9647058824, alpha: 1), for: .normal)
 
-        tenSecondBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
-        tenSecondBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
+        tenMinuteBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
+        tenMinuteBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
 
-        fifteenSecondBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
-        fifteenSecondBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
+        fifteenMinBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
+        fifteenMinBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
     }
 
     @objc func handleTenBtnPressed() {
@@ -193,14 +193,14 @@ class SetAlarmView: BaseView {
         nextBtn.backgroundColor = UIColor(named: "YWROrange")
         nextBtn.isUserInteractionEnabled = true
 
-        fiveSecondBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
-        fiveSecondBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
+        fiveMinuteBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
+        fiveMinuteBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
 
-        tenSecondBtn.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.2666666667, blue: 0.4352941176, alpha: 1)
-        tenSecondBtn.setTitleColor(#colorLiteral(red: 0.9843137255, green: 0.9764705882, blue: 0.9647058824, alpha: 1), for: .normal)
+        tenMinuteBtn.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.2666666667, blue: 0.4352941176, alpha: 1)
+        tenMinuteBtn.setTitleColor(#colorLiteral(red: 0.9843137255, green: 0.9764705882, blue: 0.9647058824, alpha: 1), for: .normal)
 
-        fifteenSecondBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
-        fifteenSecondBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
+        fifteenMinBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
+        fifteenMinBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
     }
 
     @objc func handleFifteenBtnPressed() {
@@ -209,14 +209,14 @@ class SetAlarmView: BaseView {
         nextBtn.backgroundColor = UIColor(named: "YWROrange")
         nextBtn.isUserInteractionEnabled = true
 
-        fiveSecondBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
-        fiveSecondBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
+        fiveMinuteBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
+        fiveMinuteBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
 
-        tenSecondBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
-        tenSecondBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
+        tenMinuteBtn.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
+        tenMinuteBtn.setTitleColor(#colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1), for: .normal)
 
-        fifteenSecondBtn.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.2666666667, blue: 0.4352941176, alpha: 1)
-        fifteenSecondBtn.setTitleColor(#colorLiteral(red: 0.9843137255, green: 0.9764705882, blue: 0.9647058824, alpha: 1), for: .normal)
+        fifteenMinBtn.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.2666666667, blue: 0.4352941176, alpha: 1)
+        fifteenMinBtn.setTitleColor(#colorLiteral(red: 0.9843137255, green: 0.9764705882, blue: 0.9647058824, alpha: 1), for: .normal)
     }
 
     @objc func handleNextBtnPressed() {
