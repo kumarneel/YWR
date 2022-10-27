@@ -28,18 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
-
     // notification segueing
-    func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        didReceive response: UNNotificationResponse,
-        withCompletionHandler completionHandler: @escaping () -> Void
-    ) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        print("userinfo: ", userInfo)
         let alarmString = userInfo["alarmString"] as? String ?? ""
         NotificationCenter.default.post(name: Notification.Name(Observers.tappedAlarm), object: nil, userInfo: ["alarmString": alarmString])
-        print(alarm)
         completionHandler()
     }
 
@@ -65,13 +58,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         DispatchQueue.main.async {
             UIApplication.shared.registerForRemoteNotifications()
         }
-    }
-
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("handler")
-        // TODO: Send annoying notification
-        completionHandler([.badge, .sound, .alert])
     }
 
     func setAlarmNotification(alarmString: String) {

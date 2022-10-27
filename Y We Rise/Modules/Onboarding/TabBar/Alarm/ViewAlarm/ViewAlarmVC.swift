@@ -33,5 +33,6 @@ extension ViewAlarmVC {
     func setupViewController() {
         addControllerView(controllerView)
         controllerView.alarm = viewModel.alarm
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }

@@ -22,6 +22,8 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
 
     let userNotificationCenter = UNUserNotificationCenter.current()
 
+    var tappedAlarm = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -30,6 +32,7 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
+        viewModel.getAlarms()
     }
 
     func bindViewModel() {
@@ -46,12 +49,11 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
     @objc func handleViewingAlarm(notification: Notification) {
         if let alarmString = notification.userInfo?["alarmString"] as? String {
             guard let alarm = AlarmService.instance.getAlarm(alarmString: alarmString) else { return }
-            if alarm.isActive {
+            if alarm.isActive && !tappedAlarm {
                 viewModel.didTapViewAlarm(alarm: alarm)
+                tappedAlarm = true
             }
         }
-
-        
     }
 
     @objc func handleAddedNewAlarm() {

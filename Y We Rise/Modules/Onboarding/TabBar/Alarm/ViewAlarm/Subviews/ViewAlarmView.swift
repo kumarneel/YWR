@@ -20,6 +20,10 @@ class ViewAlarmView: BaseView {
         didSet {
             guard let alarm = alarm else { return }
             collectionView.reloadData()
+            if alarm.images.count == 1 {
+                stopAlarmBtn.backgroundColor = UIColor(named: "YWROrange")
+                stopAlarmBtn.isUserInteractionEnabled = true
+            }
         }
     }
 
