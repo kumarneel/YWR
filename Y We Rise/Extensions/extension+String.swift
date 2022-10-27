@@ -24,7 +24,7 @@ extension String {
         var count = 0
 
         // alarm will last for 3 minutes
-        while count < 180 {
+        while count < 10 {
             var dateInfo = DateComponents()
             let year = Calendar.current.component(.year, from: Date())
             let month = Calendar.current.component(.month, from: Date())

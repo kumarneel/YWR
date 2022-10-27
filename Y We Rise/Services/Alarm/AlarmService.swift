@@ -95,10 +95,30 @@ class AlarmService {
         }
     }
 
+    func getAlarm(alarmString: String) -> Alarm? {
+        let alarmKeys = defaults.object(forKey: Constants.alarmKeys) as? [String] ?? []
+        var alarm: Alarm?
+        alarmKeys.forEach({
+            if $0 == alarmString {
+                let snoozeTime = getSnoozeTime(alarmString: $0)
+                let imageCount = getImageCount(alarmString: $0)
+                let isActive = getActiveStatus(alarmString: $0)
+
+                var images = [UIImage]()
+                if imageCount != 0 {
+                    for i in 0...imageCount-1 {
+                        images.append(getImage(alarmString: $0, index: i))
+                    }
+                }
+                alarm = Alarm(alarmString: $0, snoozeTime: snoozeTime, images: images, isActive: isActive)
+            }
+        })
+        return alarm
+    }
+
     func getAlarms() -> [Alarm] {
         var alarms = [Alarm]()
         let alarmKeys = defaults.object(forKey: Constants.alarmKeys) as? [String] ?? []
-        print(alarmKeys)
         alarmKeys.forEach({
             let snoozeTime = getSnoozeTime(alarmString: $0)
             let imageCount = getImageCount(alarmString: $0)

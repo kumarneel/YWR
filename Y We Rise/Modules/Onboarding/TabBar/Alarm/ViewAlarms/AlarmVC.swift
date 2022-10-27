@@ -39,6 +39,19 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
         }.store(in: &cancellables)
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleAddedNewAlarm), name: Notification.Name(Observers.addedNewAlarm), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleViewingAlarm), name: Notification.Name(Observers.tappedAlarm), object: nil)
+
+    }
+
+    @objc func handleViewingAlarm(notification: Notification) {
+        if let alarmString = notification.userInfo?["alarmString"] as? String {
+            guard let alarm = AlarmService.instance.getAlarm(alarmString: alarmString) else { return }
+            if alarm.isActive {
+                viewModel.didTapViewAlarm(alarm: alarm)
+            }
+        }
+
+        
     }
 
     @objc func handleAddedNewAlarm() {

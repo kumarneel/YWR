@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         attemptRegisterForNotifications()
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleSetNewAlarm), name: Notification.Name(Observers.setNewAlarm), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleRemoveAlarm), name: Notification.Name(Observers.removeAlarm), object: nil)
 
         return true
     }
@@ -30,24 +29,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("user info: ", userInfo)
-    }
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    // notification segueing
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+        let userInfo = response.notification.request.content.userInfo
+        print("userinfo: ", userInfo)
+        let alarmString = userInfo["alarmString"] as? String ?? ""
+        NotificationCenter.default.post(name: Notification.Name(Observers.tappedAlarm), object: nil, userInfo: ["alarmString": alarmString])
+        print(alarm)
         completionHandler()
     }
+
 
     @objc func handleSetNewAlarm(notification: Notification) {
         if let alarmString = notification.userInfo?["alarmString"] as? String {
             setAlarmNotification(alarmString: alarmString)
-        }
-    }
-
-    @objc func handleRemoveAlarm(notification: Notification) {
-        if let alarmString = notification.userInfo?["alarmString"] as? String {
-            removeAlarmNotification(alarmString: alarmString)
-            print("removing alarm: ", alarmString)
         }
     }
 }
@@ -71,7 +70,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("handler")
-
         // TODO: Send annoying notification
         completionHandler([.badge, .sound, .alert])
     }
@@ -85,7 +83,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         var count = 0
         for alarmDate in alarmString.getDateForNotification() {
-            let date = Calendar.current.date(from: alarmDate) ?? Date()
             let trigger = UNCalendarNotificationTrigger.init(dateMatching: alarmDate, repeats: false)
             let request = UNNotificationRequest(identifier: alarmString + "\(count)",
                                                 content: notificationContent,
@@ -99,18 +96,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                 }
             }
             count += 1
-        }
-    }
-
-    func removeAlarmNotification(alarmString: String) {
-        UNUserNotificationCenter.current().getPendingNotificationRequests { (reqs) in
-            var ids =  [String]()
-            reqs.forEach {
-                if $0.identifier == alarmString {
-                    ids.append($0.identifier)
-                }
-            }
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers:ids)
         }
     }
 }

@@ -22,6 +22,7 @@ class ViewAlarmViewModel {
 
     func didTapStop(alarm: Alarm) {
         AlarmService.instance.removeAlarmNotification(alarmString: alarm.alarmString)
+        AlarmService.instance.changeActiveStatus(isActive: false, alarmString: alarm.alarmString)
         eventTriggered?(.didTapStop)
     }
 

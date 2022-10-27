@@ -11,6 +11,7 @@ import Combine
 class AlarmViewModel {
     enum Event {
         case didTapAddNewAlarm
+        case didTapViewAlarm(alarm: Alarm)
     }
     var eventTriggered: ((Event) -> Void)?
 
@@ -33,5 +34,9 @@ class AlarmViewModel {
 
     func didTapRemoveAlarm(index: Int) {
         AlarmService.instance.removeAlarm(alarmString: alarms[index].alarmString)
+    }
+
+    func didTapViewAlarm(alarm: Alarm) {
+        eventTriggered?(.didTapViewAlarm(alarm: alarm))
     }
 }

@@ -18,9 +18,7 @@ class TabBarCoordinator {
     }
 
     func start() {
-//        setupTabBar()
-        guard let alarm = AlarmService.instance.getAlarms().first else { return }
-        presentViewAlarm(alarm: alarm)
+        setupTabBar()
     }
 
     private func setupTabBar() {
@@ -61,6 +59,8 @@ class TabBarCoordinator {
             switch event {
             case .didTapAddNewAlarm:
                 self.presentSetAlarm()
+            case .didTapViewAlarm(let alarm):
+                self.presentViewAlarm(alarm: alarm)
             }
         }
 
