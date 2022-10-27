@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol ViewAlarmViewDelegate: AnyObject {
+    func didTapSnooze(alarm: Alarm)
+    func didTapStop(alarm: Alarm)
+}
+
 class ViewAlarmView: BaseView {
+
+    weak var delegate: ViewAlarmViewDelegate?
 
     var alarm: Alarm? {
         didSet {
@@ -40,7 +47,7 @@ class ViewAlarmView: BaseView {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Snooze", for: .normal)
-        btn.addTarget(self, action: #selector(handleStopBtnPressed), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(handleSnoozeBtnPressed), for: .touchUpInside)
         btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
         btn.setTitleColor(#colorLiteral(red: 0.7803921569, green: 0.7568627451, blue: 0.7137254902, alpha: 1), for: .normal)
         btn.isUserInteractionEnabled = true
@@ -49,7 +56,7 @@ class ViewAlarmView: BaseView {
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.delegate = self
@@ -58,6 +65,7 @@ class ViewAlarmView: BaseView {
         cv.register(ViewMotivationPhotoCell.self, forCellWithReuseIdentifier: ViewMotivationPhotoCell.ResuableIdentifier)
         cv.keyboardDismissMode = .none
         cv.backgroundColor = .clear
+        cv.isPagingEnabled = true
         return cv
     }()
 
@@ -81,7 +89,7 @@ class ViewAlarmView: BaseView {
             stopAlarmBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
             stopAlarmBtn.heightAnchor.constraint(equalToConstant: 69),
 
-            collectionView.topAnchor.constraint(equalTo: YWRLogo.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: YWRLogo.bottomAnchor, constant: 20),
             collectionView.bottomAnchor.constraint(equalTo: stopAlarmBtn.topAnchor, constant: -30),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor)
@@ -90,7 +98,13 @@ class ViewAlarmView: BaseView {
     }
 
     @objc func handleStopBtnPressed() {
+        guard let alarm = alarm else { return }
+        delegate?.didTapStop(alarm: alarm)
+    }
 
+    @objc func handleSnoozeBtnPressed() {
+        guard let alarm = alarm else { return }
+        delegate?.didTapSnooze(alarm: alarm)
     }
 }
 extension ViewAlarmView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -116,5 +130,19 @@ extension ViewAlarmView: UICollectionViewDelegate, UICollectionViewDataSource, U
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width, height: collectionView.frame.height)
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var visibleRect = CGRect()
+        visibleRect.origin = collectionView.contentOffset
+        visibleRect.size = collectionView.bounds.size
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        guard let indexPath = collectionView.indexPathForItem(at: visiblePoint) else { return }
+
+        guard let alarm = alarm else { return }
+        if indexPath.row == alarm.images.count-1 {
+            stopAlarmBtn.backgroundColor = UIColor(named: "YWROrange")
+            stopAlarmBtn.isUserInteractionEnabled = true
+        }
     }
 }

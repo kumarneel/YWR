@@ -97,6 +97,7 @@
 		9A96D101290A249000495C50 /* ViewAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D100290A249000495C50 /* ViewAlarmView.swift */; };
 		9A96D103290A24BF00495C50 /* ViewAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D102290A24BF00495C50 /* ViewAlarmVC.swift */; };
 		9A96D105290A268E00495C50 /* ViewMotivationPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D104290A268E00495C50 /* ViewMotivationPhotoCell.swift */; };
+		9A96D107290A303000495C50 /* ViewAlarmVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D106290A303000495C50 /* ViewAlarmVCDelegates.swift */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -196,6 +197,7 @@
 		9A96D100290A249000495C50 /* ViewAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAlarmView.swift; sourceTree = "<group>"; };
 		9A96D102290A24BF00495C50 /* ViewAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAlarmVC.swift; sourceTree = "<group>"; };
 		9A96D104290A268E00495C50 /* ViewMotivationPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMotivationPhotoCell.swift; sourceTree = "<group>"; };
+		9A96D106290A303000495C50 /* ViewAlarmVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAlarmVCDelegates.swift; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 			children = (
 				9A96D0FD290A245700495C50 /* ViewAlarmViewModel.swift */,
 				9A96D0FF290A248000495C50 /* Subviews */,
+				9A96D106290A303000495C50 /* ViewAlarmVCDelegates.swift */,
 				9A96D102290A24BF00495C50 /* ViewAlarmVC.swift */,
 			);
 			path = ViewAlarm;
@@ -854,6 +857,7 @@
 				9A450CD128F611080017167D /* AddMotivitionDelegates.swift in Sources */,
 				9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */,
 				9A450CC428F6014B0017167D /* AddMotivationViewModel.swift in Sources */,
+				9A96D107290A303000495C50 /* ViewAlarmVCDelegates.swift in Sources */,
 				9A77148A28F8854700F8C2F1 /* OnboardingService.swift in Sources */,
 				9A12B28D28F9BE5000D99D67 /* ProfileViewModel.swift in Sources */,
 				9A96D0F22908546300495C50 /* SetAlarmView.swift in Sources */,

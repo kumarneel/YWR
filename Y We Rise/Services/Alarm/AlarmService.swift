@@ -111,7 +111,7 @@ class AlarmService {
                 }
             }
 
-            alarms.append(Alarm(alarm: $0, snoozeTime: snoozeTime, images: images, isActive: isActive))
+            alarms.append(Alarm(alarmString: $0, snoozeTime: snoozeTime, images: images, isActive: isActive))
         })
         return alarms
     }
@@ -127,5 +127,25 @@ class AlarmService {
         defaults.set(alarmKeys, forKey: Constants.alarmKeys)
         NotificationCenter.default.post(name: Notification.Name(Observers.removeAlarm), object: nil, userInfo: ["alarmString": alarmString])
         // TODO: Remove dangling images
+    }
+
+    func removeAlarmNotification(alarmString: String) {
+        var alarmIds = [String]()
+        for i in 0...179 {
+            alarmIds.append(alarmString + "\(i)")
+        }
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (reqs) in
+            var ids = [String]()
+            reqs.forEach {
+                for alarmId in alarmIds {
+                    if $0.identifier == alarmId {
+                        ids.append($0.identifier)
+                    }
+                }
+
+            }
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers:ids)
+        }
     }
 }

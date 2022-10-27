@@ -14,8 +14,8 @@ class AlarmCell: UITableViewCell {
     var alarm: Alarm? {
         didSet {
             guard let alarm = alarm else { return }
-            let time = alarm.alarm.dropLast(2)
-            let amPMString = String(alarm.alarm.suffix(2))
+            let time = alarm.alarmString.dropLast(2)
+            let amPMString = String(alarm.alarmString.suffix(2))
 
             timeLbl.text = String(time)
 
@@ -89,7 +89,7 @@ class AlarmCell: UITableViewCell {
 
     @objc func switchValueDidChange(_ sender: UISwitch) {
         guard let alarm = alarm else { return }
-        AlarmService.instance.changeActiveStatus(isActive: sender.isOn, alarmString: alarm.alarm)
+        AlarmService.instance.changeActiveStatus(isActive: sender.isOn, alarmString: alarm.alarmString)
         if sender.isOn {
             roundView.layer.borderWidth = 2
         } else {

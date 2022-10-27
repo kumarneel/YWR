@@ -21,10 +21,11 @@ class ViewAlarmViewModel {
     }
 
     func didTapStop(alarm: Alarm) {
-
+        AlarmService.instance.removeAlarmNotification(alarmString: alarm.alarmString)
+        eventTriggered?(.didTapStop)
     }
 
     func didTapSnooze(alarm: Alarm) {
-
+        eventTriggered?(.didTapSnooze)
     }
 }

@@ -146,6 +146,12 @@ class TabBarCoordinator {
 
     private func presentViewAlarm(alarm: Alarm) {
         let viewModel = ViewAlarmViewModel(alarm: alarm)
+        viewModel.eventTriggered = { event in
+            switch event {
+            case .didTapStop, .didTapSnooze:
+                self.navigationController.popToRootViewController(animated: true)
+            }
+        }
         let viewController = ViewAlarmVC(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }

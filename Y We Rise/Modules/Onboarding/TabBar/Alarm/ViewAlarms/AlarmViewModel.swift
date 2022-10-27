@@ -32,6 +32,6 @@ class AlarmViewModel {
     }
 
     func didTapRemoveAlarm(index: Int) {
-        AlarmService.instance.removeAlarm(alarmString: alarms[index].alarm)
+        AlarmService.instance.removeAlarm(alarmString: alarms[index].alarmString)
     }
 }

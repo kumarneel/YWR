@@ -12,4 +12,5 @@ struct Observers {
     static let addedNewAlarm = "AddedNewAlarm"
     static let setNewAlarm = "SetNewAlarm"
     static let removeAlarm = "RemoveAlarm"
+    static let tappedAlarm = "TappedAlarm"
 }

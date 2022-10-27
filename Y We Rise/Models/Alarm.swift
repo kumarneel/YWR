@@ -8,7 +8,7 @@
 import UIKit
 
 struct Alarm {
-    let alarm: String
+    let alarmString: String
     let snoozeTime: Int
     let images: [UIImage]
     let isActive: Bool

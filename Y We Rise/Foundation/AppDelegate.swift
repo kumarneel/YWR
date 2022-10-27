@@ -15,12 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let userNotificationCenter = UNUserNotificationCenter.current()
 
-    var timer = Timer()
-    var counter = 0
-    var backgroundTaskId: UIBackgroundTaskIdentifier!
-    var shouldStop = false
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         attemptRegisterForNotifications()
@@ -35,9 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("we got the noficiation")
 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("user info: ", userInfo)
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         completionHandler()
     }
 
@@ -52,10 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             removeAlarmNotification(alarmString: alarmString)
             print("removing alarm: ", alarmString)
         }
-    }
-    @objc func timerAction() {
-        counter += 1
-        print("\(counter)")
     }
 }
 
@@ -88,6 +81,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         notificationContent.title = "Y We Rise"
         notificationContent.body = "ALARM"
+        notificationContent.userInfo = ["alarmString": alarmString]
 
         var count = 0
         for alarmDate in alarmString.getDateForNotification() {
@@ -105,26 +99,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                 }
             }
             count += 1
-        }
-    }
-
-    func sendAnnoyingNotification() {
-        let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "Y We Rise"
-        notificationContent.body = "ALARM"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1,
-                                                        repeats: false)
-
-        let request = UNNotificationRequest(identifier: "alarm",
-                                            content: notificationContent,
-                                            trigger: trigger)
-        /// reset delegate to remove bug
-        userNotificationCenter.delegate = self
-        userNotificationCenter.add(request) { (error) in
-            print("trying to send notification")
-            if let error = error {
-                print("Notification Error: ", error)
-            }
         }
     }
 
