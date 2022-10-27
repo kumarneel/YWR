@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userInfo = response.notification.request.content.userInfo
         let alarmString = userInfo["alarmString"] as? String ?? ""
         NotificationCenter.default.post(name: Notification.Name(Observers.tappedAlarm), object: nil, userInfo: ["alarmString": alarmString])
-        print("picked up notification, sending data ")
         completionHandler()
     }
 
