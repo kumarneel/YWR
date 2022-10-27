@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import UserNotifications
 
 class AlarmVC: BaseViewController<AlarmViewModel> {
 
@@ -18,6 +19,8 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
     }()
 
     private var cancellables: Set<AnyCancellable> = []
+
+    let userNotificationCenter = UNUserNotificationCenter.current()
 
     override func viewDidLoad() {
         super.viewDidLoad()

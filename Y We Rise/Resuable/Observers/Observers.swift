@@ -10,4 +10,6 @@ import Foundation
 struct Observers {
     static let updateUserInfo = "UpdateUserInfo"
     static let addedNewAlarm = "AddedNewAlarm"
+    static let setNewAlarm = "SetNewAlarm"
+    static let removeAlarm = "RemoveAlarm"
 }

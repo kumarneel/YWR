@@ -92,6 +92,11 @@
 		9A96D0F42908601B00495C50 /* SetAlarmVCDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F32908601B00495C50 /* SetAlarmVCDelegates.swift */; };
 		9A96D0F62908722D00495C50 /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F52908722D00495C50 /* AlarmService.swift */; };
 		9A96D0F92908775C00495C50 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0F82908775C00495C50 /* Alarm.swift */; };
+		9A96D0FB2909B13A00495C50 /* extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0FA2909B13A00495C50 /* extension+String.swift */; };
+		9A96D0FE290A245700495C50 /* ViewAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D0FD290A245700495C50 /* ViewAlarmViewModel.swift */; };
+		9A96D101290A249000495C50 /* ViewAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D100290A249000495C50 /* ViewAlarmView.swift */; };
+		9A96D103290A24BF00495C50 /* ViewAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D102290A24BF00495C50 /* ViewAlarmVC.swift */; };
+		9A96D105290A268E00495C50 /* ViewMotivationPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96D104290A268E00495C50 /* ViewMotivationPhotoCell.swift */; };
 		9AC9C4F228EB9159003EEE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */; };
 		9AC9C4F428EB9159003EEE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */; };
 		9AC9C4F928EB9159003EEE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9C4F728EB9159003EEE6B /* Main.storyboard */; };
@@ -186,6 +191,11 @@
 		9A96D0F32908601B00495C50 /* SetAlarmVCDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmVCDelegates.swift; sourceTree = "<group>"; };
 		9A96D0F52908722D00495C50 /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
 		9A96D0F82908775C00495C50 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		9A96D0FA2909B13A00495C50 /* extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+String.swift"; sourceTree = "<group>"; };
+		9A96D0FD290A245700495C50 /* ViewAlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAlarmViewModel.swift; sourceTree = "<group>"; };
+		9A96D100290A249000495C50 /* ViewAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAlarmView.swift; sourceTree = "<group>"; };
+		9A96D102290A24BF00495C50 /* ViewAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAlarmVC.swift; sourceTree = "<group>"; };
+		9A96D104290A268E00495C50 /* ViewMotivationPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMotivationPhotoCell.swift; sourceTree = "<group>"; };
 		9AC9C4EE28EB9159003EEE6B /* Y We Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Y We Rise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC9C4F128EB9159003EEE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC9C4F328EB9159003EEE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -310,6 +320,7 @@
 			children = (
 				9A413D3C28ECC1D600D67D0C /* extension+UIViewController.swift */,
 				9A64E7C328FF3B95006DA4CA /* extension+Double.swift */,
+				9A96D0FA2909B13A00495C50 /* extension+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -508,6 +519,25 @@
 			path = Alarm;
 			sourceTree = "<group>";
 		};
+		9A96D0FC290A244500495C50 /* ViewAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				9A96D0FD290A245700495C50 /* ViewAlarmViewModel.swift */,
+				9A96D0FF290A248000495C50 /* Subviews */,
+				9A96D102290A24BF00495C50 /* ViewAlarmVC.swift */,
+			);
+			path = ViewAlarm;
+			sourceTree = "<group>";
+		};
+		9A96D0FF290A248000495C50 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A96D100290A249000495C50 /* ViewAlarmView.swift */,
+				9A96D104290A268E00495C50 /* ViewMotivationPhotoCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		9AC9C4E528EB9159003EEE6B = {
 			isa = PBXGroup;
 			children = (
@@ -630,6 +660,7 @@
 			children = (
 				9A5EC13D290779170015744D /* ViewAlarms */,
 				9A5EC13C2907790E0015744D /* SetAlarm */,
+				9A96D0FC290A244500495C50 /* ViewAlarm */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -830,12 +861,14 @@
 				9A12B27528F8C70900D99D67 /* CachingService.swift in Sources */,
 				9A413D4C28ECE17F00D67D0C /* VerifyPhoneNumberVC.swift in Sources */,
 				9A413D2A28EC9ADC00D67D0C /* GetStartedVC.swift in Sources */,
+				9A96D105290A268E00495C50 /* ViewMotivationPhotoCell.swift in Sources */,
 				9A5EC135290769AC0015744D /* NewAlarmFooterView.swift in Sources */,
 				9A413D5928ED33AF00D67D0C /* EnterPhoneNumberVCDelegates.swift in Sources */,
 				9A413D3428EC9FE600D67D0C /* GetStartedVCDelegates.swift in Sources */,
 				9A89EF1828EFC8B10087A73D /* MotivationStyleCell.swift in Sources */,
 				9A413D2C28EC9AEA00D67D0C /* GetStartedView.swift in Sources */,
 				9A5EC13B290778620015744D /* AlarmVCDelegates.swift in Sources */,
+				9A96D0FE290A245700495C50 /* ViewAlarmViewModel.swift in Sources */,
 				9A413D3228EC9B2D00D67D0C /* BaseViewController.swift in Sources */,
 				9A450CC128F5F3980017167D /* FirstAlarmVCDelegates.swift in Sources */,
 				9A12B28228F9BDC100D99D67 /* SettingsView.swift in Sources */,
@@ -875,6 +908,7 @@
 				9A5EC1392907715D0015744D /* AlarmCell.swift in Sources */,
 				9AC9C51928EB952D003EEE6B /* OnboardingCoordinator.swift in Sources */,
 				9A413D3A28ECACCA00D67D0C /* BaseView.swift in Sources */,
+				9A96D0FB2909B13A00495C50 /* extension+String.swift in Sources */,
 				9A12B28428F9BDD600D99D67 /* SettingsVC.swift in Sources */,
 				9A96D0EF2908544E00495C50 /* SetAlarmVC.swift in Sources */,
 				9A413D5128ECE4CD00D67D0C /* VerificationTextField.swift in Sources */,
@@ -882,6 +916,7 @@
 				9A450CBD28F5DF700017167D /* EnterBirthdayVCDelegates.swift in Sources */,
 				9A413D2E28EC9AF400D67D0C /* GetStartedViewModel.swift in Sources */,
 				9A413D5F28ED3C4F00D67D0C /* EnterBirthdayVC.swift in Sources */,
+				9A96D103290A24BF00495C50 /* ViewAlarmVC.swift in Sources */,
 				9A413D6828ED483100D67D0C /* EnterNameVC.swift in Sources */,
 				9A89EF0228EF6ED00087A73D /* PermissionsViewModel.swift in Sources */,
 				9A413D4328ECD06F00D67D0C /* EnterPhoneNumberView.swift in Sources */,
@@ -890,6 +925,7 @@
 				9A413D6A28ED485A00D67D0C /* EnterNameViewModel.swift in Sources */,
 				9A5EC137290769C10015744D /* NoAlarmsHeaderView.swift in Sources */,
 				9A64E7C628FF4107006DA4CA /* SleepStyle.swift in Sources */,
+				9A96D101290A249000495C50 /* ViewAlarmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

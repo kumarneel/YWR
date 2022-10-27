@@ -36,6 +36,7 @@ class AlarmService {
         saveImageCount(alarmString: alarmString, count: images.count)
         changeActiveStatus(isActive: true, alarmString: alarmString)
         NotificationCenter.default.post(name: Notification.Name(Observers.addedNewAlarm), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(Observers.setNewAlarm), object: nil, userInfo: ["alarmString": alarmString])
         handler(true)
     }
 
@@ -124,18 +125,7 @@ class AlarmService {
             }
         }
         defaults.set(alarmKeys, forKey: Constants.alarmKeys)
+        NotificationCenter.default.post(name: Notification.Name(Observers.removeAlarm), object: nil, userInfo: ["alarmString": alarmString])
         // TODO: Remove dangling images
-    }
-
-    func removeAnnoyingNotification() {
-        UNUserNotificationCenter.current().getPendingNotificationRequests { (reqs) in
-            var ids =  [String]()
-            reqs.forEach {
-                if $0.identifier == "annoyingNotification" {
-                    ids.append($0.identifier)
-                }
-            }
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers:ids)
-        }
     }
 }

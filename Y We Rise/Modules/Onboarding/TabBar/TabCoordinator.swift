@@ -18,7 +18,9 @@ class TabBarCoordinator {
     }
 
     func start() {
-        setupTabBar()
+//        setupTabBar()
+        guard let alarm = AlarmService.instance.getAlarms().first else { return }
+        presentViewAlarm(alarm: alarm)
     }
 
     private func setupTabBar() {
@@ -139,6 +141,12 @@ class TabBarCoordinator {
             }
         }
         let viewController = AddMotivationVC(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    private func presentViewAlarm(alarm: Alarm) {
+        let viewModel = ViewAlarmViewModel(alarm: alarm)
+        let viewController = ViewAlarmVC(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }

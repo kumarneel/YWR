@@ -18,6 +18,7 @@ class AlarmCell: UITableViewCell {
             let amPMString = String(alarm.alarm.suffix(2))
 
             timeLbl.text = String(time)
+
             amPMLbl.text = amPMString
 
             if alarm.isActive {
