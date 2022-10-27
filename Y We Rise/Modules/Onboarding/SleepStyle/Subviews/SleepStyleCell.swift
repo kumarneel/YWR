@@ -24,6 +24,7 @@ class SleepStyleCell: UICollectionViewCell {
     let backgroundImageView: UIImageView = {
         let imv = UIImageView()
         imv.translatesAutoresizingMaskIntoConstraints = false
+        imv.layer.cornerRadius = 15
         return imv
     }()
 
@@ -76,16 +77,19 @@ class SleepStyleCell: UICollectionViewCell {
         case .nightOwl:
             backgroundImageView.image = UIImage(named: "NightOwlIcon")
             backgroundImageView.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.9490196078, blue: 1, alpha: 1)
+            backgroundImageView.layer.cornerRadius = 15
             titleLbl.text = "Night Owl"
             subtitleLbl.text = "“I usually fall asleep\nafter midnight”"
         case .earlyBird:
             backgroundImageView.image = UIImage(named: "EarlyBirdIcon")
             backgroundImageView.backgroundColor = #colorLiteral(red: 1, green: 0.9058823529, blue: 0.8078431373, alpha: 1)
+            backgroundImageView.layer.cornerRadius = 15
             titleLbl.text = "Early Bird"
             subtitleLbl.text = "“I wake up really early,\nusually before 6am”"
         case .wakerUpper:
             backgroundImageView.image = UIImage(named: "WakerUpperIcon")
             backgroundImageView.backgroundColor = #colorLiteral(red: 1, green: 0.9568627451, blue: 0.8078431373, alpha: 1)
+            backgroundImageView.layer.cornerRadius = 15
             titleLbl.text = "Waker Upper"
             subtitleLbl.text = "“I usually wake up 3 or 4\ntimes a night”"
         }

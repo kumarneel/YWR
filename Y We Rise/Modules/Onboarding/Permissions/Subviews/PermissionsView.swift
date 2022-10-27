@@ -25,7 +25,7 @@ class PermissionsView: BaseView {
     let titleLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Can we send you\nNotifications?"
+        lbl.text = "Can we send you\nnotifications?"
         lbl.numberOfLines = 2
         lbl.textColor = .black
         lbl.font = UIFont(name: "ProximaNova-Bold", size: 28)
@@ -37,7 +37,7 @@ class PermissionsView: BaseView {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "This is used to wake you up."
         lbl.textColor = UIColor(named: "YWRCreamText")
-        lbl.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        lbl.font = UIFont.systemFont(ofSize: 22, weight: .regular)
         lbl.numberOfLines = 2
         return lbl
     }()

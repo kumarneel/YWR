@@ -79,6 +79,7 @@ class MotivationStyleView: BaseView {
         cv.register(MotivationStyleCell.self, forCellWithReuseIdentifier: MotivationStyleCell.ResuableIdentifier)
         cv.keyboardDismissMode = .none
         cv.backgroundColor = .clear
+        cv.showsHorizontalScrollIndicator = false
         return cv
     }()
 

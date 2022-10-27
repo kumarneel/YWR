@@ -80,6 +80,7 @@ class SleepStyleView: BaseView {
         cv.register(SleepStyleCell.self, forCellWithReuseIdentifier: SleepStyleCell.ResuableIdentifier)
         cv.keyboardDismissMode = .none
         cv.backgroundColor = .clear
+        cv.showsHorizontalScrollIndicator = false
         return cv
     }()
 

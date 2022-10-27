@@ -26,7 +26,7 @@ class EnterNameView: BaseView {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "What's your first\nname?"
-        lbl.numberOfLines = 1
+        lbl.numberOfLines = 2
         lbl.textColor = .black
         lbl.font = UIFont(name: "ProximaNova-Bold", size: 28)
         return lbl
@@ -42,14 +42,14 @@ class EnterNameView: BaseView {
         return lbl
     }()
 
-    let nameTextField: UITextField = {
-        let tf = UITextField()
+    let nameTextField: PaddingTextField = {
+        let tf = PaddingTextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.backgroundColor = UIColor(named: "YWRCreamDarkened")
         tf.layer.cornerRadius = 15
         tf.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         tf.placeholder = "Name"
-        tf.textAlignment = .center
+        tf.textAlignment = .left
         tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         tf.layer.borderWidth = 3
         tf.layer.borderColor = UIColor.clear.cgColor
@@ -116,7 +116,7 @@ class EnterNameView: BaseView {
             textErrorLbl.isHidden = false
             nameTextField.layer.borderColor = UIColor(named: "YWROrange")!.cgColor
         }  else if text.count > 20 || text.count < 2 {
-            textErrorLbl.text = "Character limit but be between\n2 and 20 Characters"
+            textErrorLbl.text = "Name must be between\n2 and 20 Characters"
             textErrorLbl.isHidden = false
             nameTextField.layer.borderColor = UIColor(named: "YWROrange")!.cgColor
         } else {

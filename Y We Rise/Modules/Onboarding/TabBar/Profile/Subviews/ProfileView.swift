@@ -55,15 +55,15 @@ class ProfileView: BaseView {
         return lbl
     }()
 
-    lazy var nameTextField: UITextField = {
-        let tf = UITextField()
+    lazy var nameTextField: PaddingTextField = {
+        let tf = PaddingTextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.backgroundColor = UIColor(named: "YWRCreamDarkened")
         tf.delegate = self
         tf.layer.cornerRadius = 15
         tf.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         tf.placeholder = "Name"
-        tf.textAlignment = .center
+        tf.textAlignment = .left
         tf.layer.borderWidth = 3
         tf.layer.borderColor = UIColor.clear.cgColor
         tf.clearButtonMode = .whileEditing
@@ -80,15 +80,15 @@ class ProfileView: BaseView {
         return lbl
     }()
 
-    lazy var birthdayTextField: UITextField = {
-        let tf = UITextField()
+    lazy var birthdayTextField: PaddingTextField = {
+        let tf = PaddingTextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.delegate = self
         tf.backgroundColor = UIColor(named: "YWRCreamDarkened")
         tf.layer.cornerRadius = 15
         tf.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         tf.placeholder = "10/22/2000"
-        tf.textAlignment = .center
+        tf.textAlignment = .left
         tf.layer.borderWidth = 3
         tf.layer.borderColor = UIColor.clear.cgColor
         tf.clearButtonMode = .whileEditing
@@ -125,6 +125,7 @@ class ProfileView: BaseView {
         cv.register(SleepStyleCell.self, forCellWithReuseIdentifier: SleepStyleCell.ResuableIdentifier)
         cv.keyboardDismissMode = .none
         cv.backgroundColor = .clear
+        cv.showsHorizontalScrollIndicator = false
         return cv
     }()
 
