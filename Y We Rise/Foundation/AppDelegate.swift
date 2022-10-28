@@ -13,8 +13,6 @@ import AudioToolbox
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let userNotificationCenter = UNUserNotificationCenter.current()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         attemptRegisterForNotifications()
@@ -50,18 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+
 }
 
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("handler")
+        completionHandler([.badge, .sound, .alert])
+    }
     func attemptRegisterForNotifications() {
-        userNotificationCenter.delegate = self
-        userNotificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
             print("Permission granted: \(granted)")
-            if granted {
-
-            }
         }
         DispatchQueue.main.async {
             UIApplication.shared.registerForRemoteNotifications()
@@ -78,14 +78,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         var count = 0
         for alarmDate in alarmString.getDateForNotification() {
-            let trigger = UNCalendarNotificationTrigger.init(dateMatching: alarmDate, repeats: false)
+            let trigger = UNCalendarNotificationTrigger.init(dateMatching: alarmDate, repeats: true)
             let request = UNNotificationRequest(identifier: alarmString + "\(count)",
                                                 content: notificationContent,
                                                 trigger: trigger)
             /// reset delegate to remove bug
-            userNotificationCenter.delegate = self
-            userNotificationCenter.add(request) { (error) in
-                print("registered notification")
+            UNUserNotificationCenter.current().delegate = self
+            UNUserNotificationCenter.current().add(request) { (error) in
+                print("registered notification: ", alarmDate)
                 if let error = error {
                     print("Notification Error: ", error)
                 }
@@ -103,13 +103,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         var count = 0
         for alarmDate in alarmString.getDateForSnooze(snoozeTime: snoozeTime) {
-            let trigger = UNCalendarNotificationTrigger.init(dateMatching: alarmDate, repeats: false)
+            let trigger = UNCalendarNotificationTrigger.init(dateMatching: alarmDate, repeats: true)
             let request = UNNotificationRequest(identifier: alarmString + "\(count)",
                                                 content: notificationContent,
                                                 trigger: trigger)
             /// reset delegate to remove bug
-            userNotificationCenter.delegate = self
-            userNotificationCenter.add(request) { (error) in
+            UNUserNotificationCenter.current().delegate = self
+            UNUserNotificationCenter.current().add(request) { (error) in
                 print("registered notification")
                 if let error = error {
                     print("Notification Error: ", error)
