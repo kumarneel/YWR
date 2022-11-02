@@ -16,7 +16,8 @@ class AppCoordinator {
     }
 
     func start(userIsLoggedIn: Bool) {
-        userIsLoggedIn ? presentTabBar() : presentOnboarding()
+//        userIsLoggedIn ? presentTabBar() : presentOnboarding()
+        presentOnboarding()
     }
 
     private func presentOnboarding() {

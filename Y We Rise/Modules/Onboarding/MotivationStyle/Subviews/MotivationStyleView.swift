@@ -204,8 +204,7 @@ extension MotivationStyleView: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // TODO: add dynamic cells to text ask trent if we really need this
-        return CGSize(width: 98, height: 42)
+        return CGSize(width: 102, height: 42)
     }
 }
 

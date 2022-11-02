@@ -34,6 +34,7 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
         setupViewController()
         viewModel.getAlarms()
         tabBarController?.tabBar.isHidden = false
+
     }
 
     func bindViewModel() {

@@ -16,7 +16,8 @@ class OnboardingService {
 
     func registerPhoneNumber(phoneNumber: String, handler: @escaping (_ success: Bool, _ error: String) -> Void) {
         // fake phone auth line
-//        Auth.auth().settings!.isAppVerificationDisabledForTesting = true
+        Auth.auth().settings!.isAppVerificationDisabledForTesting = true
+
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationId, error in
             if let error = error {
                 handler(false, error.localizedDescription)

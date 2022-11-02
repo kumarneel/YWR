@@ -43,10 +43,10 @@ class AlarmView: BaseView {
         [YWRLogo, tableView].forEach({addSubview($0)})
 
         NSLayoutConstraint.activate([
-            YWRLogo.topAnchor.constraint(equalTo: topAnchor, constant: 82),
+            YWRLogo.topAnchor.constraint(equalTo: topAnchor, constant: 60),
             YWRLogo.centerXAnchor.constraint(equalTo: centerXAnchor),
-            YWRLogo.heightAnchor.constraint(equalToConstant: 22),
-            YWRLogo.widthAnchor.constraint(equalToConstant: 140),
+            YWRLogo.heightAnchor.constraint(equalToConstant: 21),
+            YWRLogo.widthAnchor.constraint(equalToConstant: 120),
 
             tableView.topAnchor.constraint(equalTo: YWRLogo.bottomAnchor, constant: 30),
             tableView.leftAnchor.constraint(equalTo: leftAnchor),

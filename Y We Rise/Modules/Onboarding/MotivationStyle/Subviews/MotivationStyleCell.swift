@@ -75,12 +75,14 @@ class MotivationStyleCell: UICollectionViewCell {
 
     @objc func handleCellTapped() {
         if cellSelected {
+            layer.borderWidth = 2
             backgroundColor = .clear
             layer.borderColor = #colorLiteral(red: 0.8784313725, green: 0.8784313725, blue: 0.8784313725, alpha: 1)
             titleLbl.textColor = #colorLiteral(red: 0.2274509804, green: 0.2666666667, blue: 0.4352941176, alpha: 1 )
             cellSelected = false
             delegate?.didTapCell(motivationStyle: motivationStyle, selected: cellSelected)
         } else {
+            layer.borderWidth = 0
             titleLbl.textColor = #colorLiteral(red: 0.9752898812, green: 0.9653753638, blue: 0.9498916268, alpha: 1)
             backgroundColor = UIColor(named: "YWROrange")
             cellSelected = true

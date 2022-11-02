@@ -22,15 +22,7 @@ extension SleepStyleVC: SleepStyleViewDelegate {
     }
 
     func didTapStyle(sleepStyle: SleepStyle, selected: Bool) {
-        if selected {
-            selectedSleepStyleArray.append(sleepStyle)
-        } else {
-            for i in 0...selectedSleepStyleArray.count-1 {
-                if selectedSleepStyleArray[i] == sleepStyle {
-                    selectedSleepStyleArray.remove(at: i)
-                    break // crash fix
-                }
-            }
-        }
+        controllerView.collectionView.reloadData()
+        selectedSleepStyleArray = [sleepStyle]
     }
 }

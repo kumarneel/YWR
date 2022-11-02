@@ -10,6 +10,8 @@ import StoreKit
 
 protocol SettingsViewDelegate: AnyObject {
     func didTapLogout()
+    func didTapDeleteAccount()
+    func didTapReachOut()
 }
 
 class SettingsView: BaseView {
@@ -194,15 +196,19 @@ class SettingsView: BaseView {
     }
 
     @objc func handleTermsAndConditionsBtnPressed() {
-        // TODO: Get url from trent
+        if let url = URL(string: "https://www.ywerise.com/terms-conditions") {
+            UIApplication.shared.open(url)
+        }
     }
 
     @objc func handlePrivacyPolicyBtnPressed() {
-        // TODO: Get url from trent
+        if let url = URL(string: "https://www.ywerise.com/privacy-policy") {
+            UIApplication.shared.open(url)
+        }
     }
 
     @objc func handleReachOutBtnPressed() {
-        // TODO: send email prompt
+        delegate?.didTapReachOut()
     }
 
     @objc func handleLogoutBtn() {
@@ -210,7 +216,7 @@ class SettingsView: BaseView {
     }
 
     @objc func handleDeleteAccountBtn() {
-        // TODO: send email prompt
+        delegate?.didTapDeleteAccount()
     }
 
 }

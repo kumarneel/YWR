@@ -34,7 +34,6 @@ class ProfileView: BaseView {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = .white
-        // TODO: need to fix the cornder radius to be correct
         v.layer.cornerRadius = (UIScreen.main.bounds.width / 4)
         return v
     }()

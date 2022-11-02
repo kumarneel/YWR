@@ -170,10 +170,11 @@ extension SleepStyleView: UICollectionViewDelegate, UICollectionViewDataSource, 
         } else if indexPath.item == 2 {
             cell.setupStyle(sleepStyle: .wakerUpper)
         }
-        cell.setupCellBorder()
-
+        
         if isSleepStyleAlreadySelected(style: cell.sleepStyle) {
-            cell.handleCellTapped()
+            cell.layer.borderColor = UIColor(named: "YWROrange")!.cgColor
+        } else {
+            cell.layer.borderColor = #colorLiteral(red: 0.8784313725, green: 0.8784313725, blue: 0.8784313725, alpha: 1)
         }
         return cell
     }
@@ -191,6 +192,7 @@ extension SleepStyleView: SleepStyleCellDelegate {
     func didTapCell(sleepStyle: SleepStyle, selected: Bool) {
         nextBtn.setImage(UIImage(named: "SendCodeBtnFilled"), for: .normal)
         nextBtn.isUserInteractionEnabled = true
+        sleepStyles = [sleepStyle.rawValue]
         delegate?.didTapStyle(sleepStyle: sleepStyle, selected: selected)
     }
 }
@@ -198,7 +200,7 @@ extension SleepStyleView: SleepStyleCellDelegate {
 extension SleepStyleView {
     func isSleepStyleAlreadySelected(style: SleepStyle) -> Bool {
         guard let sleepStyles = sleepStyles else { return false }
-
+        print(sleepStyles)
         for styleString in sleepStyles {
             var alreadySelectedStyle: SleepStyle = .nightOwl
             alreadySelectedStyle = alreadySelectedStyle.getCorrectStyle(name: styleString)

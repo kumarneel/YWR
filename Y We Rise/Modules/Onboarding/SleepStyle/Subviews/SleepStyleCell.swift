@@ -96,22 +96,8 @@ class SleepStyleCell: UICollectionViewCell {
     }
 
     @objc func handleCellTapped() {
-        if cellSelected {
-            layer.borderColor = #colorLiteral(red: 0.8784313725, green: 0.8784313725, blue: 0.8784313725, alpha: 1)
-            cellSelected = false
-            delegate?.didTapCell(sleepStyle: sleepStyle, selected: cellSelected)
-        } else {
-            layer.borderColor = UIColor(named: "YWROrange")!.cgColor
-            cellSelected = true
-            delegate?.didTapCell(sleepStyle: sleepStyle, selected: cellSelected)
-        }
-    }
-
-    func setupCellBorder() {
-        if cellSelected {
-            layer.borderColor = UIColor(named: "YWROrange")!.cgColor
-        } else {
-            layer.borderColor = #colorLiteral(red: 0.8784313725, green: 0.8784313725, blue: 0.8784313725, alpha: 1)
-        }
+        layer.borderColor = UIColor(named: "YWROrange")!.cgColor
+        cellSelected = true
+        delegate?.didTapCell(sleepStyle: sleepStyle, selected: true)
     }
 }

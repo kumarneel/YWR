@@ -31,6 +31,7 @@ class TabBarCoordinator {
 
         tabBarController.setViewControllers([settingsNavController, alarmController, profileNavController], animated: true)
         tabBarController.selectedIndex = 1
+        tabBarController.tabBar.isHidden = false
         navigationController.viewControllers = [tabBarController]
     }
 
