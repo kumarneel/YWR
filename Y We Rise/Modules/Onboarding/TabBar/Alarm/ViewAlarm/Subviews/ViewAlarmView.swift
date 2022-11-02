@@ -128,7 +128,7 @@ extension ViewAlarmView: UICollectionViewDelegate, UICollectionViewDataSource, U
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewMotivationPhotoCell.ResuableIdentifier, for: indexPath) as? ViewMotivationPhotoCell else { return UICollectionViewCell() }
         cell.setupView()
         cell.imageView.image = alarm.images[indexPath.row]
-        cell.contentMode = .scaleAspectFit
+        cell.contentMode = .scaleAspectFill
         return cell
     }
 

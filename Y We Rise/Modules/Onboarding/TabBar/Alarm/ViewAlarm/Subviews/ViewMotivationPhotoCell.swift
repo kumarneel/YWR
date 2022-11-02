@@ -13,6 +13,7 @@ class ViewMotivationPhotoCell: UICollectionViewCell {
     let imageView: UIImageView = {
         let imv = UIImageView()
         imv.translatesAutoresizingMaskIntoConstraints = false
+        imv.contentMode = .scaleAspectFill
         return imv
     }()
 

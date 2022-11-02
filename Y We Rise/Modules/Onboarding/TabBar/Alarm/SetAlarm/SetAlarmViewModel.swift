@@ -5,13 +5,14 @@
 //  Created by Neel Kumar on 10/25/22.
 //
 
-import Foundation
+import UIKit
 
 class SetAlarmViewModel {
     enum Event {
         case didTapBackBtn
         case didTapNext(alarmString: String, snoozeTime: Int)
     }
+
     var eventTriggered: ((Event) -> Void)?
 
     func didTapBackBtn() {

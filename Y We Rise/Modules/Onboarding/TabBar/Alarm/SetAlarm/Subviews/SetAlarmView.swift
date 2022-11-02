@@ -54,7 +54,7 @@ class SetAlarmView: BaseView {
     let snoozeSubtitleLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Set how long you want to wait until you are\nable to stop or snooze the alarm."
+        lbl.text = "This is how long it will take for the alarm\nto go off again after you click snooze!"
         lbl.numberOfLines = 2
         lbl.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         lbl.textColor = #colorLiteral(red: 0.8214116693, green: 0.8003239036, blue: 0.7640663385, alpha: 1)

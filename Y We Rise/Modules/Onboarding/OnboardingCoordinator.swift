@@ -18,8 +18,7 @@ class OnboardingCoordinator {
     }
 
     func start() {
-//        presentGetStarted()
-        presentSleepStyle()
+        presentGetStarted()
     }
 
     private func presentGetStarted() {

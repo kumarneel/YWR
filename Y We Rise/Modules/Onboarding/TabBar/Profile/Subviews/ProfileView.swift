@@ -312,9 +312,7 @@ extension ProfileView: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.setupView()
             var style: SleepStyle = .nightOwl
             style = style.getCorrectStyle(name: user.sleep_styles[indexPath.item])
-
             cell.setupStyle(sleepStyle: style)
-            cell.setupCellBorder()
             cell.isUserInteractionEnabled = false
             return cell
         } else {
