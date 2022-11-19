@@ -54,6 +54,7 @@ extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDele
             self.controllerView.profileImageView.layer.cornerRadius = 15
             self.controllerView.profileImageView.layer.masksToBounds = true
             self.controllerView.profileImageView.contentMode = .scaleAspectFill
+            ProfileService.instance.saveProfileImage(image: image)
         })
     }
 }
