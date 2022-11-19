@@ -45,6 +45,7 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleAddedNewAlarm), name: Notification.Name(Observers.addedNewAlarm), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleViewingAlarm), name: Notification.Name(Observers.tappedAlarm), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handeSnoozedAlarm), name: Notification.Name(Observers.snoozeAlarm), object: nil)
 
     }
 
@@ -56,6 +57,10 @@ class AlarmVC: BaseViewController<AlarmViewModel> {
                 tappedAlarm = true
             }
         }
+    }
+    
+    @objc func handeSnoozedAlarm() {
+        tappedAlarm = false
     }
 
     @objc func handleAddedNewAlarm() {

@@ -55,6 +55,7 @@ class ViewAlarmView: BaseView {
         btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
         btn.setTitleColor(#colorLiteral(red: 0.7803921569, green: 0.7568627451, blue: 0.7137254902, alpha: 1), for: .normal)
         btn.isUserInteractionEnabled = true
+        btn.isHidden = true
         return btn
     }()
 
@@ -133,7 +134,7 @@ extension ViewAlarmView: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width, height: collectionView.frame.height)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -147,6 +148,7 @@ extension ViewAlarmView: UICollectionViewDelegate, UICollectionViewDataSource, U
         if indexPath.row == alarm.images.count-1 {
             stopAlarmBtn.backgroundColor = UIColor(named: "YWROrange")
             stopAlarmBtn.isUserInteractionEnabled = true
+            snoozeBtn.isHidden = false
         }
     }
 }

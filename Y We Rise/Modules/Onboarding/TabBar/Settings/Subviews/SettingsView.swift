@@ -184,7 +184,7 @@ class SettingsView: BaseView {
             deleteAccountBtn.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         ])
 
-        scrollView.contentSize = CGSize(width: screenWidth, height: 700)
+        scrollView.contentSize = CGSize(width: screenWidth, height: 900)
 
     }
 

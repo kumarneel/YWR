@@ -12,6 +12,7 @@ protocol ProfileViewDelegate: AnyObject {
     func didTapEditMotivationStyle()
     func didUpdateBirthday(date: Date)
     func didUpdateName(name: String)
+    func didTapProfileImage()
 }
 
 class ProfileView: BaseView {
@@ -38,10 +39,13 @@ class ProfileView: BaseView {
         return v
     }()
 
-    let profileImageView: UIImageView = {
+    lazy var profileImageView: UIImageView = {
         let imv = UIImageView()
         imv.translatesAutoresizingMaskIntoConstraints = false
         imv.image = UIImage(named: "ProfileImageIcon")
+        imv.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileImageTapped))
+        imv.addGestureRecognizer(tap)
         return imv
     }()
 
@@ -285,6 +289,10 @@ class ProfileView: BaseView {
 
     @objc func handleEditSleepStyleIconTapped() {
         delegate?.didTapEditSleepStyle()
+    }
+    
+    @objc func handleProfileImageTapped() {
+        delegate?.didTapProfileImage()
     }
 }
 

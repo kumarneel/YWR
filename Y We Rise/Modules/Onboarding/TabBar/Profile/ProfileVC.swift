@@ -20,10 +20,16 @@ class ProfileVC: BaseViewController<ProfileViewModel> {
     private var cancellables: Set<AnyCancellable> = []
 
     var didLaunch = false
+    
+    var tappedAlarm = false
+    
+    let picker = UIImagePickerController()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+        picker.delegate = self
     
     }
 
@@ -47,7 +53,19 @@ class ProfileVC: BaseViewController<ProfileViewModel> {
         }.store(in: &cancellables)
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateUserInformation), name: Notification.Name(Observers.updateUserInfo), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleViewingAlarm), name: Notification.Name(Observers.tappedAlarm), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handeSnoozedAlarm), name: Notification.Name(Observers.snoozeAlarm), object: nil)
 
+    }
+    
+    @objc func handleViewingAlarm(notification: Notification) {
+        if let alarmString = notification.userInfo?["alarmString"] as? String {
+            guard let alarm = AlarmService.instance.getAlarm(alarmString: alarmString) else { return }
+            if alarm.isActive && !tappedAlarm {
+                viewModel.didTapViewAlarm(alarm: alarm)
+                tappedAlarm = true
+            }
+        }
     }
 
     @objc func handleUpdateUserInformation() {
@@ -55,7 +73,9 @@ class ProfileVC: BaseViewController<ProfileViewModel> {
         viewModel.getUser()
     }
 
-    
+    @objc func handeSnoozedAlarm() {
+        tappedAlarm = false
+    }
 
 }
 

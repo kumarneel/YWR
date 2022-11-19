@@ -38,7 +38,6 @@ class AddMotivationViewModel {
             guard let image = $0 else { return }
             motivationalImages.append(image)
         })
-
         AlarmService.instance.createNewAlarm(alarmString: alarmString, images: motivationalImages, snoozeTime: snoozeTime) { [weak self] success in
             self?.eventTriggered?(.didTapNext)
         }

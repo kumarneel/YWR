@@ -25,8 +25,6 @@ class ViewAlarmVC: BaseViewController<ViewAlarmViewModel> {
         setupViewController()
         
     }
-
-
 }
 
 extension ViewAlarmVC {

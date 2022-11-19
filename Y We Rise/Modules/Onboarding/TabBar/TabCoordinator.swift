@@ -42,6 +42,8 @@ class TabBarCoordinator {
             case .didTapLogout:
                 self.userLoggedOutTriggered?()
                 break
+            case .didTapViewAlarm(let alarm):
+                self.presentViewAlarm(alarm: alarm)
             }
         }
 
@@ -81,6 +83,8 @@ class TabBarCoordinator {
                 self.presentEditMovivation(motivationStyles: motivationStyles)
             case .didTapEditStyle(let sleepStyles):
                 self.presentEditSleepStyle(sleepStyles: sleepStyles)
+            case .didTapViewAlarm(let alarm):
+                self.presentViewAlarm(alarm: alarm)
             }
         }
         let profileVC = ProfileVC(viewModel: profileViewModel)

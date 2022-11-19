@@ -11,6 +11,7 @@ import Firebase
 class SettingsViewModel {
     enum Event {
         case didTapLogout
+        case didTapViewAlarm(alarm: Alarm)
     }
     var eventTriggered: ((Event) -> Void)?
 
@@ -22,4 +23,8 @@ class SettingsViewModel {
             print("there was an error trying to log out")
         }
     }
+    func didTapViewAlarm(alarm: Alarm) {
+        eventTriggered?(.didTapViewAlarm(alarm: alarm))
+    }
+    
 }
