@@ -12,6 +12,7 @@ protocol SettingsViewDelegate: AnyObject {
     func didTapLogout()
     func didTapDeleteAccount()
     func didTapReachOut()
+    func didTapClearCache()
 }
 
 class SettingsView: BaseView {
@@ -94,6 +95,23 @@ class SettingsView: BaseView {
         btn.addTarget(self, action: #selector(handleReachOutBtnPressed), for: .touchUpInside)
         return btn
     }()
+    
+    lazy var clearCacheBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Clear Cache", for: .normal)
+        btn.setTitleColor(UIColor(named: "YWRBlue"), for: .normal)
+        btn.setImage(UIImage(named: "YWRTandCIcon"), for: .normal)
+        btn.backgroundColor = #colorLiteral(red: 0.9752898812, green: 0.9653753638, blue: 0.9498916268, alpha: 1)
+        btn.layer.cornerRadius = 15
+        btn.contentHorizontalAlignment = .left
+        btn.imageEdgeInsets.left = 25
+        btn.titleEdgeInsets.left = 45
+        btn.isUserInteractionEnabled = true
+        btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 20)
+        btn.addTarget(self, action: #selector(handleClearCacheBtnPressed), for: .touchUpInside)
+        return btn
+    }()
 
     lazy var logoutBtn: UIButton = {
         let btn = UIButton()
@@ -138,6 +156,7 @@ class SettingsView: BaseView {
          termsAndConditionsBtn,
          privacyPolicyBtn,
          reachOutBtn,
+         clearCacheBtn,
          logoutBtn,
          deleteAccountBtn].forEach({scrollView.addSubview($0)})
 
@@ -173,8 +192,14 @@ class SettingsView: BaseView {
             reachOutBtn.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 40),
             reachOutBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
             reachOutBtn.heightAnchor.constraint(equalToConstant: 90),
+            
+            clearCacheBtn.topAnchor.constraint(equalTo: reachOutBtn.bottomAnchor, constant: 14),
+            clearCacheBtn.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            clearCacheBtn.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 40),
+            clearCacheBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
+            clearCacheBtn.heightAnchor.constraint(equalToConstant: 90),
 
-            logoutBtn.topAnchor.constraint(equalTo: reachOutBtn.bottomAnchor, constant: 14),
+            logoutBtn.topAnchor.constraint(equalTo: clearCacheBtn.bottomAnchor, constant: 14),
             logoutBtn.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             logoutBtn.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 40),
             logoutBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
@@ -209,6 +234,10 @@ class SettingsView: BaseView {
 
     @objc func handleReachOutBtnPressed() {
         delegate?.didTapReachOut()
+    }
+    
+    @objc func handleClearCacheBtnPressed() {
+        delegate?.didTapClearCache()
     }
 
     @objc func handleLogoutBtn() {

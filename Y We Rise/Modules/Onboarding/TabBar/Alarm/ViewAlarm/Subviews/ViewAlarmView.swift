@@ -26,12 +26,20 @@ class ViewAlarmView: BaseView {
             }
         }
     }
-
-    let YWRLogo: UIImageView = {
-        let imv = UIImageView()
-        imv.translatesAutoresizingMaskIntoConstraints = false
-        imv.image = UIImage(named: "YWRLogoIcon")
-        return imv
+    
+    let timerBackgroundView: UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9568627451, blue: 0.937254902, alpha: 1)
+        v.layer.cornerRadius = 8
+        return v
+    }()
+    
+    let timerLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = UIFont(name: "ProximaNova-Bold", size: 55)
+        return lbl
     }()
 
     lazy var stopAlarmBtn: UIButton = {
@@ -54,8 +62,8 @@ class ViewAlarmView: BaseView {
         btn.addTarget(self, action: #selector(handleSnoozeBtnPressed), for: .touchUpInside)
         btn.titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 24)
         btn.setTitleColor(#colorLiteral(red: 0.7803921569, green: 0.7568627451, blue: 0.7137254902, alpha: 1), for: .normal)
-        btn.isUserInteractionEnabled = true
-        btn.isHidden = true
+        btn.isUserInteractionEnabled = false
+        btn.isHidden = false
         return btn
     }()
 
@@ -73,18 +81,25 @@ class ViewAlarmView: BaseView {
         cv.isPagingEnabled = true
         return cv
     }()
+    
+    var timer = Timer()
+    var counter = 10
 
     override func setupView() {
         backgroundColor = UIColor(named: "YWRCream")
 
 
-        [YWRLogo, snoozeBtn, stopAlarmBtn, collectionView].forEach { addSubview($0) }
+        [timerBackgroundView, timerLabel, snoozeBtn, stopAlarmBtn, collectionView].forEach { addSubview($0) }
 
         NSLayoutConstraint.activate([
-            YWRLogo.topAnchor.constraint(equalTo: topAnchor, constant: 82),
-            YWRLogo.centerXAnchor.constraint(equalTo: centerXAnchor),
-            YWRLogo.heightAnchor.constraint(equalToConstant: 22),
-            YWRLogo.widthAnchor.constraint(equalToConstant: 140),
+            timerBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: 82),
+            timerBackgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            timerBackgroundView.heightAnchor.constraint(equalToConstant: 66),
+            timerBackgroundView.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
+            timerBackgroundView.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
+            
+            timerLabel.centerXAnchor.constraint(equalTo: timerBackgroundView.centerXAnchor),
+            timerLabel.centerYAnchor.constraint(equalTo: timerBackgroundView.centerYAnchor),
 
             snoozeBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -52),
             snoozeBtn.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -94,12 +109,36 @@ class ViewAlarmView: BaseView {
             stopAlarmBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
             stopAlarmBtn.heightAnchor.constraint(equalToConstant: 69),
 
-            collectionView.topAnchor.constraint(equalTo: YWRLogo.bottomAnchor, constant: 20),
+            collectionView.topAnchor.constraint(equalTo: timerBackgroundView.bottomAnchor, constant: 20),
             collectionView.bottomAnchor.constraint(equalTo: stopAlarmBtn.topAnchor, constant: -30),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor)
         ])
-
+        
+        startTimer()
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        counter -= 1
+        let s = String(format: "%02d", counter)
+        if counter > 0 {
+            let string = "00:00:" + s
+            let aT = NSMutableAttributedString(string: string, attributes: [NSMutableAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 55) as Any])
+            let firstRange = NSRange(location: 0, length: 6)
+            aT.addAttributes([NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)], range: firstRange)
+            let secondRange = NSRange(location: 6, length: 2)
+            aT.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "YWROrange")!], range: secondRange)
+            timerLabel.attributedText = aT
+        } else {
+            timer.invalidate()
+            timerLabel.text = "00:00:00"
+            timerLabel.textColor = UIColor(named: "YWROrange")
+            enableButtons()
+        }
     }
 
     @objc func handleStopBtnPressed() {
@@ -110,6 +149,13 @@ class ViewAlarmView: BaseView {
     @objc func handleSnoozeBtnPressed() {
         guard let alarm = alarm else { return }
         delegate?.didTapSnooze(alarm: alarm)
+    }
+    
+    func enableButtons() {
+        stopAlarmBtn.backgroundColor = UIColor(named: "YWROrange")
+        stopAlarmBtn.isUserInteractionEnabled = true
+        snoozeBtn.setTitleColor(UIColor(named: "YWROrange"), for: .normal)
+        snoozeBtn.isUserInteractionEnabled = true
     }
 }
 extension ViewAlarmView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -137,18 +183,4 @@ extension ViewAlarmView: UICollectionViewDelegate, UICollectionViewDataSource, U
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        var visibleRect = CGRect()
-        visibleRect.origin = collectionView.contentOffset
-        visibleRect.size = collectionView.bounds.size
-        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        guard let indexPath = collectionView.indexPathForItem(at: visiblePoint) else { return }
-
-        guard let alarm = alarm else { return }
-        if indexPath.row == alarm.images.count-1 {
-            stopAlarmBtn.backgroundColor = UIColor(named: "YWROrange")
-            stopAlarmBtn.isUserInteractionEnabled = true
-            snoozeBtn.isHidden = false
-        }
-    }
 }

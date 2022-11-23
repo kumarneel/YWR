@@ -61,15 +61,15 @@ class ProfileService {
             print("could not save image to cache")
         }
     }
-    func getProfileImage() -> UIImage {
+    func getProfileImage() -> UIImage? {
         let key = "profile_image"
-        guard let data = defaults.data(forKey: key) else { return UIImage() }
+        guard let data = defaults.data(forKey: key) else { return nil }
         do {
             let decoded = try PropertyListDecoder().decode(Data.self, from: data)
             let image = UIImage(data: decoded)
-            return image ?? UIImage()
+            return image ?? nil
         } catch {
-            return UIImage()
+            return nil
         }
     }
 }

@@ -145,8 +145,15 @@ class AlarmService {
             }
         }
         defaults.set(alarmKeys, forKey: Constants.alarmKeys)
+        /// Remove dangling images
+        defaults.set(nil, forKey: Constants.imageKey + alarmString + "\(0)")
+        defaults.set(nil, forKey: Constants.imageKey + alarmString + "\(1)")
+        defaults.set(nil, forKey: Constants.imageKey + alarmString + "\(2)")
+        defaults.set(nil, forKey: Constants.imageKey + alarmString + "\(3)")
+        removeAlarmNotification(alarmString: alarmString)
+        
         NotificationCenter.default.post(name: Notification.Name(Observers.removeAlarm), object: nil, userInfo: ["alarmString": alarmString])
-        // TODO: Remove dangling images
+        
     }
 
     func removeAlarmNotification(alarmString: String) {

@@ -27,4 +27,8 @@ class SettingsViewModel {
         eventTriggered?(.didTapViewAlarm(alarm: alarm))
     }
     
+    func clearCache() {
+        CachingService.instance.clearCache()
+    }
+    
 }

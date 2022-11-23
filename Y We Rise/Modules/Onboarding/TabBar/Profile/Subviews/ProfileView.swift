@@ -24,10 +24,17 @@ class ProfileView: BaseView {
             guard let user = user else { return }
             nameTextField.text = user.name
             birthdayTextField.text = user.birthday.getBirthdayFromTimestamp()
-            profileImageView.image = ProfileService.instance.getProfileImage()
+            
+            if let image = ProfileService.instance.getProfileImage() {
+                profileImageView.image = image
+            } else {
+                profileImageView.image = UIImage(named: "ProfileImageIcon")
+            }
+            
             profileImageView.layer.cornerRadius = 15
             profileImageView.layer.masksToBounds = true
             profileImageView.contentMode = .scaleAspectFill
+            
             sleepStyleCollectionView.reloadData()
             motivationStyleCollectionView.reloadData()
         }
