@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Enable Y We Rise to access your camera roll to upload your profile image.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

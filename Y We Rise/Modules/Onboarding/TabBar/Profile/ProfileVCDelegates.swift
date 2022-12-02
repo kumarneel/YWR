@@ -10,20 +10,25 @@ import UIKit
 extension ProfileVC: ProfileViewDelegate {
     
     func didTapProfileImage() {
-        let optionMenu = UIAlertController(title: "Profile Image", message: "", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Profile Image", preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { ACTION in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 self.picker.sourceType = .camera
                 self.present(self.picker, animated: true, completion: nil)
-            } else {
+            }else {
                 print("camera not available")
             }
+            
         }
-
+        let uploadPhotoAction = UIAlertAction(title: "Upload Photo", style: .default) { ACTION in
+            self.picker.sourceType = .photoLibrary
+            self.picker.modalPresentationStyle = .fullScreen
+            self.present(self.picker, animated: false, completion: nil)
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         optionMenu.addAction(takePhotoAction)
+        optionMenu.addAction(uploadPhotoAction)
         optionMenu.addAction(cancelAction)
-
         self.present(optionMenu, animated: true, completion: nil)
     }
 

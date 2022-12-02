@@ -12,7 +12,6 @@ import StoreKit
 
 extension SettingsVC: SettingsViewDelegate {
     func didTapDeleteAccount() {
-        print("hey: ", MFMailComposeViewController.canSendMail())
         if MFMailComposeViewController.canSendMail() {
             let mc: MFMailComposeViewController = MFMailComposeViewController()
             mc.mailComposeDelegate = self
@@ -21,7 +20,6 @@ extension SettingsVC: SettingsViewDelegate {
             mc.setToRecipients(["anthonypackwood@googlemail.com"])
             self.present(mc, animated: true, completion: nil)
         }
-
     }
 
     func didTapReachOut() {

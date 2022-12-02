@@ -24,6 +24,7 @@ class ViewAlarmView: BaseView {
                 stopAlarmBtn.backgroundColor = UIColor(named: "YWROrange")
                 stopAlarmBtn.isUserInteractionEnabled = true
             }
+            pageControl.numberOfPages = alarm.images.count
         }
     }
     
@@ -79,17 +80,28 @@ class ViewAlarmView: BaseView {
         cv.keyboardDismissMode = .none
         cv.backgroundColor = .clear
         cv.isPagingEnabled = true
+        cv.isUserInteractionEnabled = false
         return cv
+    }()
+    
+    let pageControl: UIPageControl = {
+        let pc = UIPageControl()
+        pc.translatesAutoresizingMaskIntoConstraints = false
+        pc.pageIndicatorTintColor = #colorLiteral(red: 0.5141947269, green: 0.5141947269, blue: 0.5141947269, alpha: 1)
+        pc.currentPageIndicatorTintColor = .white
+        pc.backgroundColor = .clear
+        return pc
     }()
     
     var timer = Timer()
     var counter = 10
+    var page = 0
 
     override func setupView() {
         backgroundColor = UIColor(named: "YWRCream")
 
 
-        [timerBackgroundView, timerLabel, snoozeBtn, stopAlarmBtn, collectionView].forEach { addSubview($0) }
+        [timerBackgroundView, timerLabel, snoozeBtn, stopAlarmBtn, collectionView, pageControl].forEach { addSubview($0) }
 
         NSLayoutConstraint.activate([
             timerBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: 82),
@@ -112,13 +124,18 @@ class ViewAlarmView: BaseView {
             collectionView.topAnchor.constraint(equalTo: timerBackgroundView.bottomAnchor, constant: 20),
             collectionView.bottomAnchor.constraint(equalTo: stopAlarmBtn.topAnchor, constant: -30),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: rightAnchor)
+            collectionView.rightAnchor.constraint(equalTo: rightAnchor),
+            
+            pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: -10),
+            
         ])
         
         startTimer()
     }
     
     func startTimer() {
+        counter = 10
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
@@ -134,10 +151,16 @@ class ViewAlarmView: BaseView {
             aT.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "YWROrange")!], range: secondRange)
             timerLabel.attributedText = aT
         } else {
-            timer.invalidate()
-            timerLabel.text = "00:00:00"
-            timerLabel.textColor = UIColor(named: "YWROrange")
-            enableButtons()
+            page += 1
+            /// invalidate timer on last photo
+            if page == alarm?.images.count {
+                invalidateTimer()
+            } else {
+                /// go to next photo
+                timer.invalidate()
+                startTimer()
+                scrollToNextCell()
+            }
         }
     }
 
@@ -156,6 +179,19 @@ class ViewAlarmView: BaseView {
         stopAlarmBtn.isUserInteractionEnabled = true
         snoozeBtn.setTitleColor(UIColor(named: "YWROrange"), for: .normal)
         snoozeBtn.isUserInteractionEnabled = true
+    }
+    
+    func invalidateTimer() {
+        timer.invalidate()
+        timerLabel.text = "00:00:00"
+        timerLabel.textColor = UIColor(named: "YWROrange")
+        enableButtons()
+    }
+    
+    func scrollToNextCell(){
+        let cellSize = CGSizeMake(collectionView.frame.width, collectionView.frame.height)
+        let contentOffset = collectionView.contentOffset
+        collectionView.scrollRectToVisible(CGRectMake(contentOffset.x + cellSize.width, contentOffset.y, cellSize.width, cellSize.height), animated: true);
     }
 }
 extension ViewAlarmView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -181,6 +217,10 @@ extension ViewAlarmView: UICollectionViewDelegate, UICollectionViewDataSource, U
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        pageControl.currentPage = indexPath.row
     }
 
 }
