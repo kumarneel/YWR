@@ -12,14 +12,13 @@ import StoreKit
 
 extension SettingsVC: SettingsViewDelegate {
     func didTapDeleteAccount() {
-        if MFMailComposeViewController.canSendMail() {
-            let mc: MFMailComposeViewController = MFMailComposeViewController()
-            mc.mailComposeDelegate = self
-            mc.setSubject("Delete Account")
-            mc.setMessageBody("Hi YWR, can you please delete my account?\n\nUID: \(Auth.auth().currentUser!.uid)", isHTML: false)
-            mc.setToRecipients(["anthonypackwood@googlemail.com"])
-            self.present(mc, animated: true, completion: nil)
-        }
+        let alert = UIAlertController(title: "Account Deletion", message: "Are you sure you want to delete your account. This cannot be undone.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "whoops", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.default, handler: { [weak self] _ in
+            self?.viewModel.clearCache()
+            self?.viewModel.deleteAccount()
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
     func didTapReachOut() {
