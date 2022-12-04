@@ -27,11 +27,17 @@ class SettingsViewModel {
     }
     
     func deleteAccount() {
-        db.collection("users").document(Auth.auth().currentUser!.uid).delete { error in
-            if error != nil { return }
-            print("deleted account")
-            self.eventTriggered?(.didTapLogout)
+        do{
+            try Auth.auth().signOut()
+            db.collection("users").document(Auth.auth().currentUser!.uid).delete { error in
+                if error != nil { return }
+                print("deleted account")
+                self.eventTriggered?(.didTapLogout)
+            }
+        } catch {
+            print("there was an error trying to log out")
         }
+        
     }
     
     func didTapViewAlarm(alarm: Alarm) {
